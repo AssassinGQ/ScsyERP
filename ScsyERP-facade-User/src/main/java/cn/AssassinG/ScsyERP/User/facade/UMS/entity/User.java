@@ -1,5 +1,6 @@
 package cn.AssassinG.ScsyERP.User.facade.UMS.entity;
 
+import cn.AssassinG.ScsyERP.User.facade.UMS.enums.UserType;
 import cn.AssassinG.ScsyERP.common.entity.BaseEntity;
 
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ public class User extends BaseEntity {
     private String Vcode;
     private Date VcodeTime;
     private Boolean IfRegistered;
-    private Integer UserType;
+    private UserType UserType;
     private Long UserInfo;
 
     public User() {
@@ -69,11 +70,11 @@ public class User extends BaseEntity {
         IfRegistered = ifRegistered;
     }
 
-    public Integer getUserType() {
+    public UserType getUserType() {
         return UserType;
     }
 
-    public void setUserType(Integer userType) {
+    public void setUserType(UserType userType) {
         UserType = userType;
     }
 

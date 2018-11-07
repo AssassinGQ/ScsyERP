@@ -1,10 +1,19 @@
 package cn.AssassinG.ScsyERP.User.core.UMS.biz.impl;
 
+import cn.AssassinG.ScsyERP.User.core.Corporation.dao.CorporationDao;
+import cn.AssassinG.ScsyERP.User.core.Government.dao.GovernmentDao;
 import cn.AssassinG.ScsyERP.User.core.UMS.biz.UserBiz;
 import cn.AssassinG.ScsyERP.User.core.UMS.dao.*;
+import cn.AssassinG.ScsyERP.User.facade.Corporation.entity.Corporation;
+import cn.AssassinG.ScsyERP.User.facade.Government.entity.Government;
+import cn.AssassinG.ScsyERP.User.facade.Government.enums.DeptType;
 import cn.AssassinG.ScsyERP.User.facade.UMS.entity.*;
+import cn.AssassinG.ScsyERP.User.facade.UMS.enums.UserType;
+import cn.AssassinG.ScsyERP.common.exceptions.DaoException;
+import cn.AssassinG.ScsyERP.common.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
@@ -20,6 +29,10 @@ public class UserBizImpl implements UserBiz {
     private RolePermissionDao rolePermissionDao;
     @Autowired
     private PermissionDao permissionDao;
+    @Autowired
+    private GovernmentDao governmentDao;
+    @Autowired
+    private CorporationDao corporationDao;
 
     public UserDao getUserDao() {
         return userDao;
@@ -53,8 +66,8 @@ public class UserBizImpl implements UserBiz {
         }
     }
 
-    public User findUserByUname(String username){
-        User user = userDao.findByUserName(username);
+    public User findUserByUname(String userName){
+        User user = userDao.findByUserName(userName);
         if(user == null || user.isDeleted())
             return null;
         else
@@ -74,11 +87,117 @@ public class UserBizImpl implements UserBiz {
             return null;
     }
 
-    public Set<Role> findUserRoles(Long userid) {
-        User user = userDao.getById(userid);
+    @Override
+    public String getVcode(String phone) {
+        if(phone == null){
+
+        }
+        User user_checkphone = this.findUserByPhone(phone);
+        return null;
+    }
+
+    @Override
+    public boolean register(User user) {
+        return false;
+    }
+
+    @Override
+    public boolean login(User user) {
+        return false;
+    }
+
+    @Transactional
+    public long getAccount(String token, User user, String name, DeptType dept) {
+        if(!token.equals("superadminabcd1234")) {
+            return -1;
+        }
+        if(user.getPhone() == null || StringUtils.isMobileNum(user.getPhone())){
+            return -1;
+        }
+        if(user.getUserType() == null ||
+                (user.getUserType().getValue() != UserType.Corporation.getValue() &&
+                        user.getUserType().getValue() != UserType.Government.getValue())){
+            return -1;
+        }
+        if(user.getUserType().getValue() == UserType.Government.getValue() &&
+            dept == null){
+            return -1;
+        }
+        User user_checkphone = this.findUserByPhone(user.getPhone());
+        if(user_checkphone != null){
+            return -1;
+        }
+        //创建基本信息
+        long infoId;
+        if(user.getUserType().getValue() == UserType.Corporation.getValue()){
+            Government government = new Government(dept);
+            government.setName(name);
+            infoId = governmentDao.insert(government);
+            if(government.getName() == null || government.getName().isEmpty()){
+                government.setName(Government.class.getSimpleName() + infoId);
+                if(governmentDao.update(government) != 1){
+                    throw new DaoException("");
+                }
+            }
+        }else{
+            Corporation corporation = new Corporation();
+            corporation.setName(name);
+            infoId = corporationDao.insert(corporation);
+            if(corporation.getName() == null || corporation.getName().isEmpty()){
+                corporation.setName(Corporation.class.getSimpleName() + infoId);
+                if(corporationDao.update(corporation) != 1){
+                    throw new DaoException("");
+                }
+            }
+        }
+        //创建登录信息
+        User user_insert = new User();
+        user_insert.setPhone(user.getPhone());
+        user_insert.setUserType(user.getUserType());
+        user_insert.setUserInfo(infoId);
+        if(user.getPassWord() == null || user.getPassWord().isEmpty()){
+            user_insert.setPassWord("123456");
+        }else{
+            user_insert.setPassWord(user.getPassWord());
+        }
+        long userId = userDao.insert(user_insert);
+        if(user.getUserName() == null || user.getUserName().isEmpty()){
+            user_insert.setUserName("username" + userId);
+            if(userDao.update(user_insert) != -1){
+                throw new DaoException("");
+            }
+        }else{
+            User user_checkun = this.findUserByUname(user.getUserName());
+            if(user_checkun != null){
+                user_insert.setUserName("username" + userId);
+                if(userDao.update(user_insert) != -1){
+                    throw new DaoException("");
+                }
+            }
+        }
+        return userId;
+    }
+
+    public boolean changePsw(Long userId, String psw){
+        if(userId == null) {
+            return false;
+        }
+        User user = userDao.getById(userId);
+        if(user == null || user.isDeleted()){
+            return false;
+        }
+        user.setPassWord(psw);
+        if(userDao.update(user) != 1){
+            throw new DaoException("");
+        }
+        return true;
+    }
+
+    public Set<Role> findUserRoles(Long userId) {
+        User user = userDao.getById(userId);
         if(user == null || user.isDeleted())
             return new HashSet<Role>();
-        return roleDao.findByUserId(userid);
+        return roleDao.findByUserId(userId);
     }
 
     public List<Role> findAllRoles() {
@@ -87,10 +206,10 @@ public class UserBizImpl implements UserBiz {
         return roleDao.listBy(params);
     }
 
-    public Role findRoleByRoleName(String rolename) {
+    public Role findRoleByRoleName(String roleName) {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("isDeleted", false);
-        params.put("RoleName", rolename);
+        params.put("RoleName", roleName);
         List<Role> roles = roleDao.listBy(params);
         if(roles.size() >= 1)
             return roles.get(0);
@@ -119,8 +238,8 @@ public class UserBizImpl implements UserBiz {
 //        return ret;
 //    }
 
-    public Set<Permission> findUserPermissions(Long userid) {
-        User user = userDao.getById(userid);
+    public Set<Permission> findUserPermissions(Long userId) {
+        User user = userDao.getById(userId);
         if(user == null || user.isDeleted())
             return new HashSet<Permission>();
         Set<Role> roles = roleDao.findByUserId(user.getId());
@@ -131,15 +250,15 @@ public class UserBizImpl implements UserBiz {
         return permissions;
     }
 
-    public Set<Permission> findRolePermissions(Long roleid) {
-        Role role = roleDao.getById(roleid);
+    public Set<Permission> findRolePermissions(Long roleId) {
+        Role role = roleDao.getById(roleId);
         if(role == null || role.isDeleted())
             return new HashSet<Permission>();
-        return permissionDao.findByRoleId(roleid);
+        return permissionDao.findByRoleId(roleId);
     }
 
-    public Set<Permission> findFatherRolePermissions(Long roleid) {
-        Role role = roleDao.getById(roleid);
+    public Set<Permission> findFatherRolePermissions(Long roleId) {
+        Role role = roleDao.getById(roleId);
         if(role == null || role.isDeleted())
             return new HashSet<Permission>();
         Set<Permission> permissions = new HashSet<Permission>();
@@ -191,11 +310,11 @@ public class UserBizImpl implements UserBiz {
         return permissionDao.listBy(params);
     }
 
-    public boolean addPermissionToRole(Long roleid, Long permissionid) {
-        Role role = roleDao.getById(roleid);
+    public boolean addPermissionToRole(Long roleId, Long permissionId) {
+        Role role = roleDao.getById(roleId);
         if(role == null || role.isDeleted())
             return false;
-        Permission permission = permissionDao.getById(permissionid);
+        Permission permission = permissionDao.getById(permissionId);
         if(permission == null || permission.isDeleted())
             return false;
         Map<String, Object> params = new HashMap<String, Object>();
@@ -219,11 +338,11 @@ public class UserBizImpl implements UserBiz {
         }
     }
 
-    public boolean removePermissionFromRole(Long roleid, Long permissionid) {
-        Role role = roleDao.getById(roleid);
+    public boolean removePermissionFromRole(Long roleId, Long permissionId) {
+        Role role = roleDao.getById(roleId);
         if(role == null || role.isDeleted())
             return false;
-        Permission permission = permissionDao.getById(permissionid);
+        Permission permission = permissionDao.getById(permissionId);
         if(permission == null || permission.isDeleted())
             return false;
         Map<String, Object> params = new HashMap<String, Object>();
@@ -238,11 +357,11 @@ public class UserBizImpl implements UserBiz {
         }
     }
 
-    public boolean addUserRole(Long userid, Long roleid) {
-        User user = userDao.getById(userid);
+    public boolean addUserRole(Long userId, Long roleId) {
+        User user = userDao.getById(userId);
         if(user == null || user.isDeleted())
             return false;
-        Role role = roleDao.getById(roleid);
+        Role role = roleDao.getById(roleId);
         if(role == null || role.isDeleted())
             return false;
         Map<String, Object> params = new HashMap<String, Object>();
@@ -265,11 +384,11 @@ public class UserBizImpl implements UserBiz {
         }
     }
 
-    public boolean removeUserRole(Long userid, Long roleid) {
-        User user = userDao.getById(userid);
+    public boolean removeUserRole(Long userId, Long roleId) {
+        User user = userDao.getById(userId);
         if(user == null || user.isDeleted())
             return false;
-        Role role = roleDao.getById(roleid);
+        Role role = roleDao.getById(roleId);
         if(role == null || role.isDeleted())
             return false;
         Map<String, Object> params = new HashMap<String, Object>();
