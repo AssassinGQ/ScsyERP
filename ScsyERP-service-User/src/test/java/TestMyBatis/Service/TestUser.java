@@ -1,12 +1,12 @@
 package TestMyBatis.Service;
 
-import cn.AssassinG.ScsyERP.User.core.UMS.dao.PermissionDao;
-import cn.AssassinG.ScsyERP.User.core.UMS.dao.RoleDao;
-import cn.AssassinG.ScsyERP.User.core.UMS.dao.UserDao;
-import cn.AssassinG.ScsyERP.User.facade.UMS.entity.Permission;
-import cn.AssassinG.ScsyERP.User.facade.UMS.entity.Role;
-import cn.AssassinG.ScsyERP.User.facade.UMS.entity.User;
-import cn.AssassinG.ScsyERP.User.facade.UMS.service.UserServiceFacade;
+import cn.AssassinG.ScsyERP.User.core.dao.PermissionDao;
+import cn.AssassinG.ScsyERP.User.core.dao.RoleDao;
+import cn.AssassinG.ScsyERP.User.core.dao.UserDao;
+import cn.AssassinG.ScsyERP.User.facade.entity.Permission;
+import cn.AssassinG.ScsyERP.User.facade.entity.Role;
+import cn.AssassinG.ScsyERP.User.facade.entity.User;
+import cn.AssassinG.ScsyERP.User.facade.service.UserServiceFacade;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;

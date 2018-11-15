@@ -2,43 +2,48 @@ package cn.AssassinG.ScsyERP.common.exceptions;
 
 public class DaoException extends RuntimeException {
     /**
-     * 数据库操作,insert返回0
+     * 数据库操作,insert 异常
      */
-    public static final DaoException DB_INSERT_RESULT_0 = new DaoException(90040001, "数据库操作,insert返回0");
+    public static final DaoException DB_INSERT_EXCEPTION = new DaoException(90040001, "数据库insert操作异常");
 
     /**
-     * 数据库操作,update返回0
+     * 数据库操作,update 异常
      */
-    public static final DaoException DB_UPDATE_RESULT_0 = new DaoException(90040002, "数据库操作,update返回0");
+    public static final DaoException DB_UPDATE_EXCEPTION = new DaoException(90040002, "数据库update操作异常");
 
     /**
-     * 数据库操作,selectOne返回null
+     * 数据库操作,delete 异常
      */
-    public static final DaoException DB_SELECTONE_IS_NULL = new DaoException(90040003, "数据库操作,selectOne返回null");
+    public static final DaoException DB_DELETE_EXCEPTION = new DaoException(90040003, "数据库update操作异常");
 
     /**
-     * 数据库操作,getBy返回多个结果
+     * 数据库操作,selectOne 异常
      */
-    public static final DaoException DB_GETBY_TOOMANY_RESULT = new DaoException(90040004, "数据库操作,getBy返回多个结果");
+    public static final DaoException DB_SELECTONE_EXCEPTION = new DaoException(90040004, "数据库selectOne操作异常");
 
     /**
-     * 数据库操作,list返回null
+     * 数据库操作,getBy 异常
      */
-    public static final DaoException DB_LIST_IS_NULL = new DaoException(90040005, "数据库操作,list返回null");
+    public static final DaoException DB_GETBY_EXCEPTION = new DaoException(90040005, "数据库getBy操作异常");
 
     /**
-     * 数据库操作,getBy返回多个结果
+     * 数据库操作,list 异常
      */
-    public static final DaoException DB_FINDBYUSERNAME_TOOMANY_RESULT = new DaoException(90040006, "数据库操作,getBy返回多个结果");
+    public static final DaoException DB_LIST_EXCEPTION = new DaoException(90040006, "数据库list操作异常");
+
+    /**
+     * 数据库操作,其他查询操作异常
+     */
+    public static final DaoException DB_QUERY_EXCEPTION = new DaoException(90040007, "数据库查询操作异常");
 
     /**
      * Token 验证不通过
      */
-    public static final DaoException TOKEN_IS_ILLICIT = new DaoException(90040007, "Token 验证非法");
+//    public static final DaoException TOKEN_IS_ILLICIT = new DaoException(90040007, "Token 验证非法");
     /**
      * 会话超时　获取session时，如果是空，throws 下面这个异常 拦截器会拦截爆会话超时页面
      */
-    public static final DaoException SESSION_IS_OUT_TIME = new DaoException(90040008, "会话超时");
+//    public static final DaoException SESSION_IS_OUT_TIME = new DaoException(90040008, "会话超时");
 
     /**
      * 异常信息

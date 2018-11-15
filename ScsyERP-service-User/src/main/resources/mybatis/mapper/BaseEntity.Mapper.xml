@@ -7,7 +7,7 @@
         <result column="create_time" property="CreateTime" />
         <result column="update_time" property="UpdateTime" />
         <result column="delete_time" property="DeleteTime" />
-        <result column="is_deleted" property="IsDeleted" />
+        <result column="is_deleted" property="IfDeleted" />
     </resultMap>
 
     <resultMap id="LoginableEntityMap" extends="BaseEntityMap" type="cn.AssassinG.ScsyERP.common.entity.LoginableEntity">

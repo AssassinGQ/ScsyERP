@@ -1,7 +1,7 @@
 package cn.AssassinG.ScsyERP.WebBoss.action;
 
-import cn.AssassinG.ScsyERP.User.facade.UMS.entity.User;
-import cn.AssassinG.ScsyERP.User.facade.UMS.service.UserServiceFacade;
+import cn.AssassinG.ScsyERP.User.facade.entity.User;
+import cn.AssassinG.ScsyERP.User.facade.service.UserServiceFacade;
 import cn.AssassinG.ScsyERP.common.utils.StringUtils;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.log4j.Logger;

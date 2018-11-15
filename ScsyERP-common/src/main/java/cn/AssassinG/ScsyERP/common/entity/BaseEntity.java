@@ -8,10 +8,10 @@ public abstract class BaseEntity implements Serializable {
     protected Date CreateTime;
     protected Date UpdateTime;
     protected Date DeleteTime;
-    protected boolean IsDeleted;
+    protected Boolean IfDeleted;
 
     public BaseEntity() {
-        IsDeleted = false;
+        IfDeleted = false;
     }
 
     public Long getId() {
@@ -46,11 +46,11 @@ public abstract class BaseEntity implements Serializable {
         this.DeleteTime = deleteTime;
     }
 
-    public boolean isDeleted() {
-        return IsDeleted;
+    public Boolean getIfDeleted() {
+        return IfDeleted;
     }
 
-    public void setDeleted(boolean deleted) {
-        IsDeleted = deleted;
+    public void setIfDeleted(Boolean ifDeleted) {
+        IfDeleted = ifDeleted;
     }
 }

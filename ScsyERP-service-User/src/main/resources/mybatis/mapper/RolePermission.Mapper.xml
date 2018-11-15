@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.AssassinG.ScsyERP.User.core.UMS.dao.impl.RolePermissionDaoImpl">
+<mapper namespace="cn.AssassinG.ScsyERP.User.core.dao.impl.RolePermissionDaoImpl">
 
     <!-- 用户信息表 -->
     <sql id="t_rolepermission"> t_role_permission </sql>
@@ -106,7 +106,7 @@
         <if test="updateTimeEnd != null"> and update_time &lt;= #{updateTimeEnd}</if>
         <if test="deleteTimeBegin != null"> and delete_time &gt;= #{deleteTimeBegin}</if>
         <if test="deleteTimeEnd != null"> and delete_time &lt;= #{deleteTimeEnd}</if>
-        <if test="IsDeleted != null"> and is_deleted = #{IsDeleted}</if>
+        <if test="IfDeleted != null"> and is_deleted = #{IfDeleted}</if>
         <if test="PermissionId != null"> and permission_id = #{PermissionId}</if>
         <if test="RoleId != null"> and role_id = #{RoleId}</if>
     </sql>
@@ -117,7 +117,7 @@
         <where>
             <include refid="condition_sql" />
         </where>
-        order by id asc
+        <![CDATA[ order by id asc]]>
     </select>
 
     <select id="listPage" parameterType="java.util.Map" resultMap="beanMap">
@@ -126,8 +126,7 @@
         <where>
             <include refid="condition_sql" />
         </where>
-        order by id asc
-        limit #{pageFirst} , #{pageSize}
+        <![CDATA[ order by id asc]]>
     </select>
 
     <select id="listPageCount" parameterType="java.util.Map" resultType="long">

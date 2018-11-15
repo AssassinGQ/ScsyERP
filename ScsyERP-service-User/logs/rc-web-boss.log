@@ -1,141 +1,502 @@
-[INFO ][20181031 16:15:37,961][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-[INFO ][20181031 16:15:37,991][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7791a895, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3a5ed7a6, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6325a3ee, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1d16f93d, org.springframework.test.context.transaction.TransactionalTestExecutionListener@67b92f0a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2b9627bc]
-[INFO ][20181031 16:15:38,122][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
-[INFO ][20181031 16:15:38,676][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
-[INFO ][20181031 16:15:38,718][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@11438d26: startup date [Wed Oct 31 16:15:38 CST 2018]; root of context hierarchy
-[INFO ][20181031 16:15:39,173][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-[WARN ][20181031 16:15:39,892][AbstractApplicationContext:557] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceFacadeImpl': Unsatisfied dependency expressed through field 'userBiz'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'UserBiz': Unsatisfied dependency expressed through field 'userDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'UserDao': Unsatisfied dependency expressed through method 'setSqlSession' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionTemplate' defined in class path resource [spring/spring-mybatis.xml]: Cannot resolve reference to bean 'sqlSessionFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring/spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis/mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mybatis/mapper/BaseEntity.Mapper.xml
-[ERROR][20181031 16:15:39,897][TestContextManager:246] Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6325a3ee] to prepare test instance [TestMyBatis.Dao.TestUser@53045c6c]
-java.lang.IllegalStateException: Failed to load ApplicationContext
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:107)
-	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
-	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:242)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
-	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
-	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
-	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
-	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceFacadeImpl': Unsatisfied dependency expressed through field 'userBiz'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'UserBiz': Unsatisfied dependency expressed through field 'userDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'UserDao': Unsatisfied dependency expressed through method 'setSqlSession' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionTemplate' defined in class path resource [spring/spring-mybatis.xml]: Cannot resolve reference to bean 'sqlSessionFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring/spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis/mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mybatis/mapper/BaseEntity.Mapper.xml
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:587)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:91)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:373)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1344)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:760)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
-	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
-	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
-	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:107)
-	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:243)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
-	... 24 more
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'UserBiz': Unsatisfied dependency expressed through field 'userDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'UserDao': Unsatisfied dependency expressed through method 'setSqlSession' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionTemplate' defined in class path resource [spring/spring-mybatis.xml]: Cannot resolve reference to bean 'sqlSessionFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring/spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis/mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mybatis/mapper/BaseEntity.Mapper.xml
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:587)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:91)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:373)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1344)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1065)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:584)
-	... 42 more
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'UserDao': Unsatisfied dependency expressed through method 'setSqlSession' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionTemplate' defined in class path resource [spring/spring-mybatis.xml]: Cannot resolve reference to bean 'sqlSessionFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring/spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis/mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mybatis/mapper/BaseEntity.Mapper.xml
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:668)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:91)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:373)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1344)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1065)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:584)
-	... 55 more
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionTemplate' defined in class path resource [spring/spring-mybatis.xml]: Cannot resolve reference to bean 'sqlSessionFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring/spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis/mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mybatis/mapper/BaseEntity.Mapper.xml
-	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:378)
-	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:110)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:622)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:148)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1270)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1065)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:660)
-	... 68 more
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring/spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis/mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mybatis/mapper/BaseEntity.Mapper.xml
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1710)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:583)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:367)
-	... 83 more
-Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis/mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mybatis/mapper/BaseEntity.Mapper.xml
-	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:499)
-	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:381)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1769)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1706)
-	... 90 more
-Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.io.IOException: Could not find resource mybatis/mapper/BaseEntity.Mapper.xml
-	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:121)
-	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:99)
-	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:493)
-	... 93 more
-Caused by: java.io.IOException: Could not find resource mybatis/mapper/BaseEntity.Mapper.xml
-	at org.apache.ibatis.io.Resources.getResourceAsStream(Resources.java:114)
-	at org.apache.ibatis.io.Resources.getResourceAsStream(Resources.java:100)
-	at org.apache.ibatis.builder.xml.XMLConfigBuilder.mapperElement(XMLConfigBuilder.java:371)
-	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:119)
-	... 95 more
-[INFO ][20181031 16:16:10,884][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-[INFO ][20181031 16:16:10,911][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7791a895, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3a5ed7a6, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6325a3ee, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1d16f93d, org.springframework.test.context.transaction.TransactionalTestExecutionListener@67b92f0a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2b9627bc]
-[INFO ][20181031 16:16:11,008][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
-[INFO ][20181031 16:16:11,335][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
-[INFO ][20181031 16:16:11,369][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@11438d26: startup date [Wed Oct 31 16:16:11 CST 2018]; root of context hierarchy
-[INFO ][20181031 16:16:11,578][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-[INFO ][20181031 16:16:13,100][TestUser:29] The user who's id = 1 : User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Sat Oct 27 07:21:11 CST 2018, DeleteTime=null, IsDeleted=false}
-[INFO ][20181031 16:16:13,103][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@11438d26: startup date [Wed Oct 31 16:16:11 CST 2018]; root of context hierarchy
-[WARN ][20181031 16:16:13,105][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 08:55:01,812][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 08:55:01,855][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6ddf90b0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@57536d79, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3b0143d3, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5a8e6209, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4b4523f8, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@731a74c]
+[INFO ][20181115 08:55:01,923][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 08:55:01,923][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7d907bac, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7791a895, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3a5ed7a6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6325a3ee, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1d16f93d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@67b92f0a]
+[INFO ][20181115 08:55:01,926][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 08:55:01,927][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@65e2dbf3, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4f970963, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@61f8bee4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7b49cea0, org.springframework.test.context.transaction.TransactionalTestExecutionListener@887af79, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7fac631b]
+[INFO ][20181115 08:55:01,932][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 08:55:01,933][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6e0e048a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5bc79255, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@47ef968d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@23e028a9, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3dd4520b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5ae63ade]
+[INFO ][20181115 08:55:01,937][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 08:55:01,937][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@43814d18, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c5a1b69, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3701eaf6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@627551fb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2b552920, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2758fe70]
+[INFO ][20181115 08:55:02,098][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 08:55:02,905][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 08:55:02,989][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@6f195bc3: startup date [Thu Nov 15 08:55:02 CST 2018]; root of context hierarchy
+[INFO ][20181115 08:55:03,256][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 08:55:04,481][TestRole:180] The user who's id = 1 has roles : 
+[INFO ][20181115 08:55:05,110][TestRole:183] Role{RoleName='superadmin', RoleDesc='超级管理员', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,111][TestRole:183] Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}
+[INFO ][20181115 08:55:05,111][TestRole:183] Role{RoleName='GNz20w', RoleDesc='承运方账号', SuperRoleName='superadmin'}
+[INFO ][20181115 08:55:05,120][TestRole:148] GetBy succeed
+[INFO ][20181115 08:55:05,157][TestRole:63] BatchInserted succeed
+[INFO ][20181115 08:55:05,202][TestRole:103] BatchUpdated succeed
+[INFO ][20181115 08:55:05,209][TestRole:31] GetById success
+[INFO ][20181115 08:55:05,245][TestRole:136] Item0:Role{RoleName='superadmin', RoleDesc='超级管理员', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,245][TestRole:136] Item1:Role{RoleName='qSw5PJ', RoleDesc='承运方账号', SuperRoleName='superadmin'}
+[INFO ][20181115 08:55:05,246][TestRole:136] Item2:Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}
+[INFO ][20181115 08:55:05,246][TestRole:136] Item3:Role{RoleName='GyInwf', RoleDesc='承运方管理员', SuperRoleName='corpration'}
+[INFO ][20181115 08:55:05,247][TestRole:136] Item4:Role{RoleName='corp_partner', RoleDesc='承运方合作方', SuperRoleName='corpration'}
+[INFO ][20181115 08:55:05,247][TestRole:136] Item5:Role{RoleName='corp_employee', RoleDesc='承运方员工', SuperRoleName='corpration'}
+[INFO ][20181115 08:55:05,247][TestRole:136] Item6:Role{RoleName='admin_warehouse', RoleDesc='仓库管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 08:55:05,248][TestRole:136] Item7:Role{RoleName='admin_project', RoleDesc='项目管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 08:55:05,248][TestRole:136] Item8:Role{RoleName='admin_finance', RoleDesc='财务管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 08:55:05,248][TestRole:136] Item9:Role{RoleName='partner_consignor', RoleDesc='客户', SuperRoleName='corp_partner'}
+[INFO ][20181115 08:55:05,248][TestRole:136] Item10:Role{RoleName='partner_manufacturer', RoleDesc='生产厂家', SuperRoleName='corp_partner'}
+[INFO ][20181115 08:55:05,249][TestRole:136] Item11:Role{RoleName='partner_receiver', RoleDesc='收货方', SuperRoleName='corp_partner'}
+[INFO ][20181115 08:55:05,249][TestRole:136] Item12:Role{RoleName='employee_driver', RoleDesc='驾驶员', SuperRoleName='corp_employee'}
+[INFO ][20181115 08:55:05,249][TestRole:136] Item13:Role{RoleName='employee_supervisor', RoleDesc='监装员', SuperRoleName='corp_employee'}
+[INFO ][20181115 08:55:05,250][TestRole:136] Item14:Role{RoleName='employee_leftworker', RoleDesc='起重工', SuperRoleName='corp_employee'}
+[INFO ][20181115 08:55:05,250][TestRole:136] Item15:Role{RoleName='employee_driveworker', RoleDesc='行车工', SuperRoleName='corp_employee'}
+[INFO ][20181115 08:55:05,250][TestRole:136] Item16:Role{RoleName='duyanting3', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,251][TestRole:136] Item17:Role{RoleName='duyanting4', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,251][TestRole:136] Item18:Role{RoleName='duyanting', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,251][TestRole:136] Item19:Role{RoleName='duyanting3', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,252][TestRole:136] Item20:Role{RoleName='duyanting4', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,252][TestRole:136] Item21:Role{RoleName='duyanting', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,253][TestRole:136] Item22:Role{RoleName='duyanting3', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,253][TestRole:136] Item23:Role{RoleName='duyanting4', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,253][TestRole:136] Item24:Role{RoleName='duyanting', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,253][TestRole:136] Item25:Role{RoleName='asddf3', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,254][TestRole:136] Item26:Role{RoleName='asddf4', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,254][TestRole:136] Item27:Role{RoleName='asddf', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,254][TestRole:136] Item28:Role{RoleName='asddf3', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,255][TestRole:136] Item29:Role{RoleName='asddf4', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,255][TestRole:136] Item30:Role{RoleName='asddf', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,255][TestRole:136] Item31:Role{RoleName='asddf3', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,256][TestRole:136] Item32:Role{RoleName='asddf4', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,256][TestRole:136] Item33:Role{RoleName='asddf', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,257][TestRole:136] Item34:Role{RoleName='asddf3', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,257][TestRole:136] Item35:Role{RoleName='asddf4', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,259][TestRole:189] The user who's username= superadmin has roles : 
+[INFO ][20181115 08:55:05,287][TestRole:192] Role{RoleName='superadmin', RoleDesc='超级管理员', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,288][TestRole:192] Role{RoleName='qSw5PJ', RoleDesc='承运方账号', SuperRoleName='superadmin'}
+[INFO ][20181115 08:55:05,288][TestRole:192] Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}
+[INFO ][20181115 08:55:05,310][TestRole:115] Delete succeed
+[INFO ][20181115 08:55:05,330][TestRole:128] Delete succeed
+[INFO ][20181115 08:55:05,346][TestRole:44] Inserted : Role{RoleName='asddf', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,352][TestRole:159] Item0:Role{RoleName='superadmin', RoleDesc='超级管理员', SuperRoleName='null'}
+[INFO ][20181115 08:55:05,353][TestRole:159] Item1:Role{RoleName='admin_warehouse', RoleDesc='仓库管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 08:55:05,353][TestRole:159] Item2:Role{RoleName='admin_project', RoleDesc='项目管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 08:55:05,353][TestRole:159] Item3:Role{RoleName='admin_finance', RoleDesc='财务管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 08:55:05,359][TestRole:71] Before Update: Role{RoleName='qSw5PJ', RoleDesc='承运方账号', SuperRoleName='superadmin'}
+[INFO ][20181115 08:55:05,369][TestRole:78] Updated succeed
+[INFO ][20181115 08:55:05,381][TestRole:168] PageBean{currentPage=2, numPerPage=2, totalCount=37, recordList=[Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}, Role{RoleName='GyInwf', RoleDesc='承运方管理员', SuperRoleName='corpration'}], pageCount=19, beginPageIndex=1, endPageIndex=10, countResultMap=null}
+[INFO ][20181115 08:55:05,382][TestRole:174] Item0:Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}
+[INFO ][20181115 08:55:05,382][TestRole:174] Item1:Role{RoleName='GyInwf', RoleDesc='承运方管理员', SuperRoleName='corpration'}
+[INFO ][20181115 08:55:05,392][TestUserRole:150] GetBy succeed
+[INFO ][20181115 08:55:05,402][TestUserRole:65] BatchInserted succeed
+[INFO ][20181115 08:55:05,427][TestUserRole:105] BatchUpdated succeed
+[INFO ][20181115 08:55:05,431][TestUserRole:33] GetById success
+[INFO ][20181115 08:55:05,444][TestUserRole:138] Item0:User_Role{UserId=1, RoleId=1}
+[INFO ][20181115 08:55:05,445][TestUserRole:138] Item1:User_Role{UserId=2, RoleId=298}
+[INFO ][20181115 08:55:05,445][TestUserRole:138] Item2:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,445][TestUserRole:138] Item3:User_Role{UserId=null, RoleId=297}
+[INFO ][20181115 08:55:05,445][TestUserRole:138] Item4:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,445][TestUserRole:138] Item5:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,446][TestUserRole:138] Item6:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 08:55:05,446][TestUserRole:138] Item7:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,446][TestUserRole:138] Item8:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,446][TestUserRole:138] Item9:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 08:55:05,446][TestUserRole:138] Item10:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,446][TestUserRole:138] Item11:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 08:55:05,447][TestUserRole:138] Item12:User_Role{UserId=null, RoleId=4}
+[INFO ][20181115 08:55:05,447][TestUserRole:138] Item13:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,447][TestUserRole:138] Item14:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 08:55:05,447][TestUserRole:138] Item15:User_Role{UserId=null, RoleId=4}
+[INFO ][20181115 08:55:05,447][TestUserRole:138] Item16:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,447][TestUserRole:138] Item17:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 08:55:05,447][TestUserRole:138] Item18:User_Role{UserId=null, RoleId=4}
+[INFO ][20181115 08:55:05,448][TestUserRole:138] Item19:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,448][TestUserRole:138] Item20:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 08:55:05,448][TestUserRole:138] Item21:User_Role{UserId=null, RoleId=4}
+[INFO ][20181115 08:55:05,459][TestUserRole:117] Delete succeed
+[INFO ][20181115 08:55:05,476][TestUserRole:130] Delete succeed
+[INFO ][20181115 08:55:05,486][TestUserRole:46] Inserted : User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,498][TestUserRole:161] Item0:User_Role{UserId=1, RoleId=1}
+[INFO ][20181115 08:55:05,499][TestUserRole:161] Item1:User_Role{UserId=2, RoleId=298}
+[INFO ][20181115 08:55:05,499][TestUserRole:161] Item2:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,499][TestUserRole:161] Item3:User_Role{UserId=null, RoleId=297}
+[INFO ][20181115 08:55:05,501][TestUserRole:161] Item4:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,502][TestUserRole:161] Item5:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,502][TestUserRole:161] Item6:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 08:55:05,502][TestUserRole:161] Item7:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,502][TestUserRole:161] Item8:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,503][TestUserRole:161] Item9:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 08:55:05,503][TestUserRole:161] Item10:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,503][TestUserRole:161] Item11:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 08:55:05,504][TestUserRole:161] Item12:User_Role{UserId=null, RoleId=4}
+[INFO ][20181115 08:55:05,504][TestUserRole:161] Item13:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,504][TestUserRole:161] Item14:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 08:55:05,504][TestUserRole:161] Item15:User_Role{UserId=null, RoleId=4}
+[INFO ][20181115 08:55:05,505][TestUserRole:161] Item16:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,505][TestUserRole:161] Item17:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 08:55:05,505][TestUserRole:161] Item18:User_Role{UserId=null, RoleId=4}
+[INFO ][20181115 08:55:05,506][TestUserRole:161] Item19:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,506][TestUserRole:161] Item20:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 08:55:05,506][TestUserRole:161] Item21:User_Role{UserId=null, RoleId=4}
+[INFO ][20181115 08:55:05,506][TestUserRole:161] Item22:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,513][TestUserRole:73] Before Update: User_Role{UserId=2, RoleId=298}
+[INFO ][20181115 08:55:05,526][TestUserRole:80] Updated succeed
+[INFO ][20181115 08:55:05,535][TestUserRole:170] PageBean{currentPage=2, numPerPage=2, totalCount=23, recordList=[User_Role{UserId=null, RoleId=1}, User_Role{UserId=null, RoleId=297}], pageCount=12, beginPageIndex=1, endPageIndex=10, countResultMap=null}
+[INFO ][20181115 08:55:05,535][TestUserRole:176] Item0:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 08:55:05,535][TestUserRole:176] Item1:User_Role{UserId=null, RoleId=297}
+[INFO ][20181115 08:55:05,540][TestPermission:181] The role who's id = 1 has permissions: 
+[INFO ][20181115 08:55:05,544][TestPermission:184] Permission{PermissionName='ROLE_URL_HOME', PermissionDesc='访问主页'}
+[INFO ][20181115 08:55:05,549][TestPermission:149] GetBy succeed
+[INFO ][20181115 08:55:05,559][TestPermission:64] BatchInserted succeed
+[INFO ][20181115 08:55:05,578][TestPermission:104] BatchUpdated succeed
+[INFO ][20181115 08:55:05,582][TestPermission:32] GetById success
+[INFO ][20181115 08:55:05,593][TestPermission:137] Item0:Permission{PermissionName='ROLE_URL_HOME', PermissionDesc='访问主页'}
+[INFO ][20181115 08:55:05,593][TestPermission:137] Item1:Permission{PermissionName='hKhrgd', PermissionDesc='访问权限配置页面'}
+[INFO ][20181115 08:55:05,593][TestPermission:137] Item2:Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}
+[INFO ][20181115 08:55:05,594][TestPermission:137] Item3:Permission{PermissionName='4aMLF7', PermissionDesc='修改所有权限配置'}
+[INFO ][20181115 08:55:05,594][TestPermission:137] Item4:Permission{PermissionName='asddf3', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,594][TestPermission:137] Item5:Permission{PermissionName='asddf4', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,594][TestPermission:137] Item6:Permission{PermissionName='asddf', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,594][TestPermission:137] Item7:Permission{PermissionName='asddf3', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,595][TestPermission:137] Item8:Permission{PermissionName='asddf4', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,595][TestPermission:137] Item9:Permission{PermissionName='asddf', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,595][TestPermission:137] Item10:Permission{PermissionName='asddf3', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,595][TestPermission:137] Item11:Permission{PermissionName='asddf4', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,595][TestPermission:137] Item12:Permission{PermissionName='asddf', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,595][TestPermission:137] Item13:Permission{PermissionName='asddf3', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,596][TestPermission:137] Item14:Permission{PermissionName='asddf4', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,596][TestPermission:137] Item15:Permission{PermissionName='asddf', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,596][TestPermission:137] Item16:Permission{PermissionName='asddf3', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,596][TestPermission:137] Item17:Permission{PermissionName='asddf4', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,596][TestPermission:137] Item18:Permission{PermissionName='asddf', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,596][TestPermission:137] Item19:Permission{PermissionName='asddf3', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,597][TestPermission:137] Item20:Permission{PermissionName='asddf4', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,597][TestPermission:137] Item21:Permission{PermissionName='asddf', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,597][TestPermission:137] Item22:Permission{PermissionName='asddf3', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,597][TestPermission:137] Item23:Permission{PermissionName='asddf4', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,597][TestPermission:137] Item24:Permission{PermissionName='asddf', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,597][TestPermission:137] Item25:Permission{PermissionName='asddf3', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,597][TestPermission:137] Item26:Permission{PermissionName='asddf4', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,598][TestPermission:137] Item27:Permission{PermissionName='asddf', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,598][TestPermission:137] Item28:Permission{PermissionName='asddf3', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,598][TestPermission:137] Item29:Permission{PermissionName='asddf4', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,599][TestPermission:190] The role who's rolename = superadmin has permissions: 
+[INFO ][20181115 08:55:05,603][TestPermission:193] Permission{PermissionName='ROLE_URL_HOME', PermissionDesc='访问主页'}
+[INFO ][20181115 08:55:05,613][TestPermission:116] Delete succeed
+[INFO ][20181115 08:55:05,624][TestPermission:129] Delete succeed
+[INFO ][20181115 08:55:05,639][TestPermission:45] Inserted : Permission{PermissionName='asddf', PermissionDesc='null'}
+[INFO ][20181115 08:55:05,660][TestPermission:72] Before Update: Permission{PermissionName='hKhrgd', PermissionDesc='访问权限配置页面'}
+[INFO ][20181115 08:55:05,669][TestPermission:79] Updated succeed
+[INFO ][20181115 08:55:05,681][TestPermission:169] PageBean{currentPage=2, numPerPage=2, totalCount=31, recordList=[Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}, Permission{PermissionName='4aMLF7', PermissionDesc='修改所有权限配置'}], pageCount=16, beginPageIndex=1, endPageIndex=10, countResultMap=null}
+[INFO ][20181115 08:55:05,682][TestPermission:175] Item0:Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}
+[INFO ][20181115 08:55:05,682][TestPermission:175] Item1:Permission{PermissionName='4aMLF7', PermissionDesc='修改所有权限配置'}
+[INFO ][20181115 08:55:05,691][TestUser:152] GetBy succeed
+[INFO ][20181115 08:55:05,706][TestUser:67] BatchInserted succeed
+[INFO ][20181115 08:55:05,735][TestUser:107] BatchUpdated succeed
+[INFO ][20181115 08:55:05,741][TestUser:34] GetById success
+[INFO ][20181115 08:55:05,752][TestUser:140] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Sat Oct 27 07:21:11 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,752][TestUser:140] Item1:User{UserName='Fgy4mQ', PassWord='123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Thu Nov 15 16:55:05 CST 2018, DeleteTime=Wed Nov 14 21:40:03 CST 2018, IfDeleted=true}
+[INFO ][20181115 08:55:05,752][TestUser:140] Item2:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,753][TestUser:140] Item3:User{UserName='daDMxg', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 16:55:05 CST 2018, DeleteTime=Wed Nov 14 21:40:03 CST 2018, IfDeleted=true}
+[INFO ][20181115 08:55:05,753][TestUser:140] Item4:User{UserName='asddf4', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=5, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Sat Oct 27 07:22:13 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,753][TestUser:140] Item5:User{UserName='duyanting', PassWord='123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=6, CreateTime=Sat Oct 27 07:39:40 CST 2018, UpdateTime=Sat Oct 27 07:39:40 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,753][TestUser:140] Item6:User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=7, CreateTime=Mon Oct 29 17:39:36 CST 2018, UpdateTime=Mon Oct 29 17:39:36 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,753][TestUser:140] Item7:User{UserName='asddf4', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=8, CreateTime=Mon Oct 29 17:39:36 CST 2018, UpdateTime=Mon Oct 29 17:39:36 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,754][TestUser:140] Item8:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=9, CreateTime=Mon Oct 29 17:39:36 CST 2018, UpdateTime=Mon Oct 29 17:39:36 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,754][TestUser:140] Item9:User{UserName='duyanting', PassWord='123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=10, CreateTime=Mon Oct 29 17:40:48 CST 2018, UpdateTime=Mon Oct 29 17:40:48 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,754][TestUser:140] Item10:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=11, CreateTime=Mon Nov 12 22:27:54 CST 2018, UpdateTime=Mon Nov 12 22:27:54 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,754][TestUser:140] Item11:User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=12, CreateTime=Mon Nov 12 22:28:02 CST 2018, UpdateTime=Mon Nov 12 22:28:02 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,755][TestUser:140] Item12:User{UserName='asddf4', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=13, CreateTime=Mon Nov 12 22:28:02 CST 2018, UpdateTime=Mon Nov 12 22:28:02 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,755][TestUser:140] Item13:User{UserName='duyanting', PassWord='123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=14, CreateTime=Mon Nov 12 23:51:11 CST 2018, UpdateTime=Mon Nov 12 23:51:11 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,755][TestUser:140] Item14:User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=15, CreateTime=Tue Nov 13 07:33:44 CST 2018, UpdateTime=Tue Nov 13 07:33:44 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,755][TestUser:140] Item15:User{UserName='asddf4', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=16, CreateTime=Tue Nov 13 07:33:44 CST 2018, UpdateTime=Tue Nov 13 07:33:44 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,755][TestUser:140] Item16:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=17, CreateTime=Tue Nov 13 07:33:44 CST 2018, UpdateTime=Tue Nov 13 07:33:44 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,756][TestUser:140] Item17:User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=18, CreateTime=Tue Nov 13 07:34:51 CST 2018, UpdateTime=Tue Nov 13 07:34:51 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,756][TestUser:140] Item18:User{UserName='asddf4', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=19, CreateTime=Tue Nov 13 07:34:51 CST 2018, UpdateTime=Tue Nov 13 07:34:51 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,756][TestUser:140] Item19:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=20, CreateTime=Tue Nov 13 07:34:52 CST 2018, UpdateTime=Tue Nov 13 07:34:52 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,756][TestUser:140] Item20:User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=21, CreateTime=Tue Nov 13 17:54:40 CST 2018, UpdateTime=Tue Nov 13 17:54:40 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,756][TestUser:140] Item21:User{UserName='asddf4', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=22, CreateTime=Tue Nov 13 17:54:40 CST 2018, UpdateTime=Tue Nov 13 17:54:40 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,756][TestUser:140] Item22:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=23, CreateTime=Tue Nov 13 17:54:40 CST 2018, UpdateTime=Tue Nov 13 17:54:40 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,757][TestUser:140] Item23:User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=24, CreateTime=Wed Nov 14 21:40:03 CST 2018, UpdateTime=Wed Nov 14 21:40:03 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,757][TestUser:140] Item24:User{UserName='asddf4', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=25, CreateTime=Wed Nov 14 21:40:03 CST 2018, UpdateTime=Wed Nov 14 21:40:03 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,880][TestUser:140] Item25:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=26, CreateTime=Wed Nov 14 21:40:03 CST 2018, UpdateTime=Wed Nov 14 21:40:03 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,880][TestUser:140] Item26:User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=27, CreateTime=Thu Nov 15 16:55:05 CST 2018, UpdateTime=Thu Nov 15 16:55:05 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,881][TestUser:140] Item27:User{UserName='asddf4', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=28, CreateTime=Thu Nov 15 16:55:05 CST 2018, UpdateTime=Thu Nov 15 16:55:05 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,886][TestUser:184] The user who's username = superadmin : User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Sat Oct 27 07:21:11 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,899][TestUser:119] Delete succeed
+[INFO ][20181115 08:55:05,915][TestUser:132] Delete succeed
+[INFO ][20181115 08:55:05,927][TestUser:48] Inserted : User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=29, CreateTime=Thu Nov 15 16:55:05 CST 2018, UpdateTime=Thu Nov 15 16:55:05 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,932][TestUser:163] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Sat Oct 27 07:21:11 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,938][TestUser:75] Before Update: User{UserName='Fgy4mQ', PassWord='123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Thu Nov 15 16:55:05 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}
+[INFO ][20181115 08:55:05,949][TestUser:82] Updated succeed
+[INFO ][20181115 08:55:05,957][TestUser:172] PageBean{currentPage=2, numPerPage=2, totalCount=29, recordList=[User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}, User{UserName='daDMxg', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 16:55:05 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}], pageCount=15, beginPageIndex=1, endPageIndex=10, countResultMap=null}
+[INFO ][20181115 08:55:05,957][TestUser:178] Item0:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 08:55:05,958][TestUser:178] Item1:User{UserName='daDMxg', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 16:55:05 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}
+[INFO ][20181115 08:55:05,968][TestRolePermission:150] GetBy succeed
+[INFO ][20181115 08:55:05,976][TestRolePermission:65] BatchInserted succeed
+[INFO ][20181115 08:55:06,024][TestRolePermission:105] BatchUpdated succeed
+[INFO ][20181115 08:55:06,028][TestRolePermission:33] GetById success
+[INFO ][20181115 08:55:06,038][TestRolePermission:138] Item0:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@65b3a85a
+[INFO ][20181115 08:55:06,039][TestRolePermission:138] Item1:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@34997338
+[INFO ][20181115 08:55:06,039][TestRolePermission:138] Item2:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@57eda880
+[INFO ][20181115 08:55:06,040][TestRolePermission:138] Item3:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@2b5825fa
+[INFO ][20181115 08:55:06,040][TestRolePermission:138] Item4:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@53d1b9b3
+[INFO ][20181115 08:55:06,040][TestRolePermission:138] Item5:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@2cae1042
+[INFO ][20181115 08:55:06,040][TestRolePermission:138] Item6:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@163d04ff
+[INFO ][20181115 08:55:06,040][TestRolePermission:138] Item7:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@7c209437
+[INFO ][20181115 08:55:06,041][TestRolePermission:138] Item8:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@2262b621
+[INFO ][20181115 08:55:06,041][TestRolePermission:138] Item9:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@7e928e2f
+[INFO ][20181115 08:55:06,041][TestRolePermission:138] Item10:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@f667fe
+[INFO ][20181115 08:55:06,041][TestRolePermission:138] Item11:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@788fcafb
+[INFO ][20181115 08:55:06,041][TestRolePermission:138] Item12:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4febb875
+[INFO ][20181115 08:55:06,041][TestRolePermission:138] Item13:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@25e2a451
+[INFO ][20181115 08:55:06,052][TestRolePermission:138] Item14:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@1698ee84
+[INFO ][20181115 08:55:06,052][TestRolePermission:138] Item15:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@10c626be
+[INFO ][20181115 08:55:06,052][TestRolePermission:138] Item16:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@2fc0cc3
+[INFO ][20181115 08:55:06,052][TestRolePermission:138] Item17:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@328cf0e1
+[INFO ][20181115 08:55:06,053][TestRolePermission:138] Item18:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@63b1d4fa
+[INFO ][20181115 08:55:06,053][TestRolePermission:138] Item19:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@42e3ede4
+[INFO ][20181115 08:55:06,053][TestRolePermission:138] Item20:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@201b6b6f
+[INFO ][20181115 08:55:06,053][TestRolePermission:138] Item21:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@75459c75
+[INFO ][20181115 08:55:06,053][TestRolePermission:138] Item22:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@183e8023
+[INFO ][20181115 08:55:06,054][TestRolePermission:138] Item23:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@45efc20d
+[INFO ][20181115 08:55:06,054][TestRolePermission:138] Item24:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@3e5499cc
+[INFO ][20181115 08:55:06,054][TestRolePermission:138] Item25:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@67ab1c47
+[INFO ][20181115 08:55:06,055][TestRolePermission:138] Item26:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@b78a709
+[INFO ][20181115 08:55:06,065][TestRolePermission:117] Delete succeed
+[INFO ][20181115 08:55:06,077][TestRolePermission:130] Delete succeed
+[INFO ][20181115 08:55:06,086][TestRolePermission:46] Inserted : cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@2bb7bd00
+[INFO ][20181115 08:55:06,094][TestRolePermission:161] Item0:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@14b030a0
+[INFO ][20181115 08:55:06,094][TestRolePermission:161] Item1:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@41e350f1
+[INFO ][20181115 08:55:06,094][TestRolePermission:161] Item2:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@422c3c7a
+[INFO ][20181115 08:55:06,095][TestRolePermission:161] Item3:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@18230356
+[INFO ][20181115 08:55:06,095][TestRolePermission:161] Item4:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@d8305c2
+[INFO ][20181115 08:55:06,095][TestRolePermission:161] Item5:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@56bca85b
+[INFO ][20181115 08:55:06,095][TestRolePermission:161] Item6:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@75d0911a
+[INFO ][20181115 08:55:06,095][TestRolePermission:161] Item7:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@75e91545
+[INFO ][20181115 08:55:06,095][TestRolePermission:161] Item8:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@60d1a32f
+[INFO ][20181115 08:55:06,095][TestRolePermission:161] Item9:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@531c311e
+[INFO ][20181115 08:55:06,095][TestRolePermission:161] Item10:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@22b53226
+[INFO ][20181115 08:55:06,096][TestRolePermission:161] Item11:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@1fcb4808
+[INFO ][20181115 08:55:06,096][TestRolePermission:161] Item12:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@726e5805
+[INFO ][20181115 08:55:06,096][TestRolePermission:161] Item13:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@40c80397
+[INFO ][20181115 08:55:06,096][TestRolePermission:161] Item14:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4b672daa
+[INFO ][20181115 08:55:06,096][TestRolePermission:161] Item15:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@ea9b7c6
+[INFO ][20181115 08:55:06,096][TestRolePermission:161] Item16:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@e077866
+[INFO ][20181115 08:55:06,096][TestRolePermission:161] Item17:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@ed3068a
+[INFO ][20181115 08:55:06,097][TestRolePermission:161] Item18:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@7c2b6087
+[INFO ][20181115 08:55:06,097][TestRolePermission:161] Item19:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@3fffff43
+[INFO ][20181115 08:55:06,097][TestRolePermission:161] Item20:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@a8e6492
+[INFO ][20181115 08:55:06,097][TestRolePermission:161] Item21:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@1c7fd41f
+[INFO ][20181115 08:55:06,111][TestRolePermission:161] Item22:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@3b77a04f
+[INFO ][20181115 08:55:06,111][TestRolePermission:161] Item23:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@7b324585
+[INFO ][20181115 08:55:06,111][TestRolePermission:161] Item24:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@2e11485
+[INFO ][20181115 08:55:06,111][TestRolePermission:161] Item25:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@60dce7ea
+[INFO ][20181115 08:55:06,111][TestRolePermission:161] Item26:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@662f5666
+[INFO ][20181115 08:55:06,112][TestRolePermission:161] Item27:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@fd8294b
+[INFO ][20181115 08:55:06,115][TestRolePermission:73] Before Update: cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@502f1f4c
+[INFO ][20181115 08:55:06,128][TestRolePermission:80] Updated succeed
+[INFO ][20181115 08:55:06,134][TestRolePermission:170] PageBean{currentPage=2, numPerPage=2, totalCount=28, recordList=[cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@41813449, cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4678a2eb], pageCount=14, beginPageIndex=1, endPageIndex=10, countResultMap=null}
+[INFO ][20181115 08:55:06,135][TestRolePermission:176] Item0:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@41813449
+[INFO ][20181115 08:55:06,135][TestRolePermission:176] Item1:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4678a2eb
+[INFO ][20181115 08:55:06,172][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@6f195bc3: startup date [Thu Nov 15 08:55:02 CST 2018]; root of context hierarchy
+[WARN ][20181115 08:55:06,177][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 09:04:46,920][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 09:04:46,953][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@335eadca, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@210366b4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@eec5a4a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2b2948e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ddf90b0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57536d79]
+[INFO ][20181115 09:04:47,114][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 09:04:47,446][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 09:04:47,493][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 09:04:47 CST 2018]; root of context hierarchy
+[INFO ][20181115 09:04:47,756][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 09:04:49,984][TestUser:129] GetBy succeed
+[INFO ][20181115 09:04:50,125][TestUser:67] BatchCreate succeed
+[INFO ][20181115 09:04:50,179][TestUser:107] BatchUpdated succeed
+[INFO ][20181115 09:04:50,187][TestUser:142] GetBy succeed
+[INFO ][20181115 09:04:50,201][TestUser:119] Delete succeed
+[INFO ][20181115 09:04:50,218][TestUser:48] Created : User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=32, CreateTime=Thu Nov 15 17:04:50 CST 2018, UpdateTime=Thu Nov 15 17:04:50 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 09:04:50,227][TestUser:153] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Sat Oct 27 07:21:11 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 09:04:50,233][TestUser:75] Before Update: User{UserName='FM0Nbv', PassWord='123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Thu Nov 15 17:04:50 CST 2018, DeleteTime=Thu Nov 15 17:04:50 CST 2018, IfDeleted=true}
+[INFO ][20181115 09:04:50,247][TestUser:82] Updated succeed
+[INFO ][20181115 09:04:50,261][TestUser:162] PageBean{currentPage=2, numPerPage=2, totalCount=32, recordList=[User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}, User{UserName='dP4EDP', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 17:04:50 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}], pageCount=16, beginPageIndex=1, endPageIndex=10, countResultMap=null}
+[INFO ][20181115 09:04:50,263][TestUser:168] Item0:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 09:04:50,264][TestUser:168] Item1:User{UserName='dP4EDP', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 17:04:50 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}
+[INFO ][20181115 09:04:50,293][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 09:04:47 CST 2018]; root of context hierarchy
+[WARN ][20181115 09:04:50,296][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 09:09:33,263][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 09:09:33,300][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2b9627bc, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@65e2dbf3, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4f970963, org.springframework.test.context.support.DirtiesContextTestExecutionListener@61f8bee4, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7b49cea0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@887af79]
+[INFO ][20181115 09:09:33,439][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 09:09:33,826][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 09:09:33,885][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@ea1a8d5: startup date [Thu Nov 15 09:09:33 CST 2018]; root of context hierarchy
+[INFO ][20181115 09:09:34,178][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 09:09:36,386][TestUser:178] FindUserByUname succeed
+[INFO ][20181115 09:09:36,389][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@ea1a8d5: startup date [Thu Nov 15 09:09:33 CST 2018]; root of context hierarchy
+[WARN ][20181115 09:09:36,392][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 09:12:20,021][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 09:12:20,048][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@335eadca, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@210366b4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@eec5a4a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2b2948e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ddf90b0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57536d79]
+[INFO ][20181115 09:12:20,191][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 09:12:20,527][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 09:12:20,578][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 09:12:20 CST 2018]; root of context hierarchy
+[INFO ][20181115 09:12:20,850][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 09:12:23,316][TestUser:130] GetBy succeed
+[INFO ][20181115 09:12:23,397][TestUser:68] BatchCreate succeed
+[INFO ][20181115 09:12:23,447][TestUser:108] BatchUpdated succeed
+[INFO ][20181115 09:12:23,458][TestUser:143] GetBy succeed
+[INFO ][20181115 09:12:23,492][TestUser:120] Delete succeed
+[INFO ][20181115 09:12:23,525][TestUser:179] FindUserByUname succeed
+[INFO ][20181115 09:12:23,562][TestUser:49] Created : User{UserName='asddf', PassWord='d123456', Phone='18868187538', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=35, CreateTime=Thu Nov 15 17:12:23 CST 2018, UpdateTime=Thu Nov 15 17:12:23 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 09:12:23,572][TestUser:154] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Sat Oct 27 07:21:11 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 09:12:23,585][TestUser:76] Before Update: User{UserName='RaJKec', PassWord='123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Thu Nov 15 17:12:23 CST 2018, DeleteTime=Thu Nov 15 17:12:23 CST 2018, IfDeleted=true}
+[INFO ][20181115 09:12:23,608][TestUser:83] Updated succeed
+[INFO ][20181115 09:12:23,630][TestUser:163] PageBean{currentPage=2, numPerPage=2, totalCount=35, recordList=[User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}, User{UserName='cmwuJv', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 17:12:23 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}], pageCount=18, beginPageIndex=1, endPageIndex=10, countResultMap=null}
+[INFO ][20181115 09:12:23,631][TestUser:169] Item0:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 09:12:23,631][TestUser:169] Item1:User{UserName='cmwuJv', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 17:12:23 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}
+[INFO ][20181115 09:12:23,672][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 09:12:20 CST 2018]; root of context hierarchy
+[WARN ][20181115 09:12:23,676][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 09:12:38,371][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 09:12:38,406][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@335eadca, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@210366b4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@eec5a4a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2b2948e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ddf90b0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57536d79]
+[INFO ][20181115 09:12:38,554][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 09:12:38,925][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 09:12:38,979][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 09:12:38 CST 2018]; root of context hierarchy
+[INFO ][20181115 09:12:39,251][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 09:12:41,334][TestUser:130] GetBy succeed
+[INFO ][20181115 09:12:41,487][TestUser:68] BatchCreate succeed
+[INFO ][20181115 09:12:41,566][TestUser:108] BatchUpdated succeed
+[INFO ][20181115 09:12:41,579][TestUser:143] GetBy succeed
+[INFO ][20181115 09:12:41,595][TestUser:120] Delete succeed
+[INFO ][20181115 09:12:41,618][TestUser:190] findUserByPhone succeed
+[INFO ][20181115 09:12:41,626][TestUser:179] FindUserByUname succeed
+[INFO ][20181115 09:12:41,727][TestUser:49] Created : User{UserName='asddf', PassWord='d123456', Phone='18868187538', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=38, CreateTime=Thu Nov 15 17:12:41 CST 2018, UpdateTime=Thu Nov 15 17:12:41 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 09:12:41,736][TestUser:154] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Sat Oct 27 07:21:11 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 09:12:41,748][TestUser:76] Before Update: User{UserName='NNZ7ZR', PassWord='123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Thu Nov 15 17:12:41 CST 2018, DeleteTime=Thu Nov 15 17:12:41 CST 2018, IfDeleted=true}
+[INFO ][20181115 09:12:41,772][TestUser:83] Updated succeed
+[INFO ][20181115 09:12:41,790][TestUser:163] PageBean{currentPage=2, numPerPage=2, totalCount=38, recordList=[User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}, User{UserName='f13DLH', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 17:12:41 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}], pageCount=19, beginPageIndex=1, endPageIndex=10, countResultMap=null}
+[INFO ][20181115 09:12:41,791][TestUser:169] Item0:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 09:12:41,792][TestUser:169] Item1:User{UserName='f13DLH', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 17:12:41 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}
+[INFO ][20181115 09:12:41,828][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 09:12:38 CST 2018]; root of context hierarchy
+[WARN ][20181115 09:12:41,834][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 09:15:32,789][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 09:15:32,821][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2b9627bc, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@65e2dbf3, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4f970963, org.springframework.test.context.support.DirtiesContextTestExecutionListener@61f8bee4, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7b49cea0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@887af79]
+[INFO ][20181115 09:15:32,945][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 09:15:33,333][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 09:15:33,420][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@ea1a8d5: startup date [Thu Nov 15 09:15:33 CST 2018]; root of context hierarchy
+[INFO ][20181115 09:15:33,793][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 09:15:36,100][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@ea1a8d5: startup date [Thu Nov 15 09:15:33 CST 2018]; root of context hierarchy
+[WARN ][20181115 09:15:36,106][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 10:05:53,816][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 10:05:53,849][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@335eadca, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@210366b4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@eec5a4a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2b2948e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ddf90b0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57536d79]
+[INFO ][20181115 10:05:53,981][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 10:05:54,392][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 10:05:54,461][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:05:54 CST 2018]; root of context hierarchy
+[INFO ][20181115 10:05:54,775][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 10:05:57,357][TestUser:85] GetBy succeed
+[INFO ][20181115 10:05:57,413][TestUser:98] GetBy succeed
+[INFO ][20181115 10:05:57,436][TestUser:75] Delete succeed
+[INFO ][20181115 10:05:57,464][TestUser:145] findUserByPhone succeed
+[INFO ][20181115 10:05:57,476][TestUser:134] FindUserByUname succeed
+[INFO ][20181115 10:05:57,507][TestUser:109] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Sat Oct 27 07:21:11 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 10:05:57,518][TestUser:56] Before Update: User{UserName='tkP17u', PassWord='123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Thu Nov 15 18:05:57 CST 2018, DeleteTime=Thu Nov 15 18:05:57 CST 2018, IfDeleted=true}
+[INFO ][20181115 10:05:57,539][TestUser:118] PageBean{currentPage=2, numPerPage=2, totalCount=37, recordList=[User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}, User{UserName='f13DLH', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 17:12:41 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}], pageCount=19, beginPageIndex=1, endPageIndex=10, countResultMap=null}
+[INFO ][20181115 10:05:57,540][TestUser:124] Item0:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 10:05:57,541][TestUser:124] Item1:User{UserName='f13DLH', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 17:12:41 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}
+[INFO ][20181115 10:05:57,545][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:05:54 CST 2018]; root of context hierarchy
+[WARN ][20181115 10:05:57,548][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 10:06:26,126][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 10:06:26,165][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@335eadca, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@210366b4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@eec5a4a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2b2948e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ddf90b0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57536d79]
+[INFO ][20181115 10:06:26,319][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 10:06:26,672][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 10:06:26,726][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:06:26 CST 2018]; root of context hierarchy
+[INFO ][20181115 10:06:27,038][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 10:06:29,746][TestUser:85] GetBy succeed
+[INFO ][20181115 10:06:29,851][TestUser:98] GetBy succeed
+[INFO ][20181115 10:06:29,905][TestUser:75] Delete succeed
+[INFO ][20181115 10:06:29,961][TestUser:145] findUserByPhone succeed
+[INFO ][20181115 10:06:29,983][TestUser:134] FindUserByUname succeed
+[INFO ][20181115 10:06:30,021][TestUser:109] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Sat Oct 27 07:21:11 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 10:06:30,037][TestUser:56] Before Update: User{UserName='tkP17u', PassWord='123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Thu Nov 15 18:06:29 CST 2018, DeleteTime=Thu Nov 15 18:06:29 CST 2018, IfDeleted=true}
+[INFO ][20181115 10:06:30,066][TestUser:118] PageBean{currentPage=2, numPerPage=2, totalCount=37, recordList=[User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}, User{UserName='f13DLH', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 17:12:41 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}], pageCount=19, beginPageIndex=1, endPageIndex=10, countResultMap=null}
+[INFO ][20181115 10:06:30,067][TestUser:124] Item0:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 10:06:30,067][TestUser:124] Item1:User{UserName='f13DLH', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 17:12:41 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}
+[INFO ][20181115 10:06:30,071][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:06:26 CST 2018]; root of context hierarchy
+[WARN ][20181115 10:06:30,075][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 10:08:19,690][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 10:08:19,723][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@335eadca, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@210366b4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@eec5a4a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2b2948e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ddf90b0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57536d79]
+[INFO ][20181115 10:08:19,878][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 10:08:20,262][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 10:08:20,331][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:08:20 CST 2018]; root of context hierarchy
+[INFO ][20181115 10:08:20,652][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 10:08:23,106][TestUser:85] GetBy succeed
+[INFO ][20181115 10:08:23,226][TestUser:98] GetBy succeed
+[INFO ][20181115 10:08:23,250][TestUser:75] Delete succeed
+[INFO ][20181115 10:08:23,298][TestUser:145] findUserByPhone succeed
+[INFO ][20181115 10:08:23,310][TestUser:134] FindUserByUname succeed
+[INFO ][20181115 10:08:23,367][TestUser:109] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Sat Oct 27 07:21:11 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 10:08:23,380][TestUser:56] Before Update: User{UserName='tkP17u', PassWord='123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Sat Oct 27 07:21:11 CST 2018, UpdateTime=Thu Nov 15 18:08:23 CST 2018, DeleteTime=Thu Nov 15 18:08:23 CST 2018, IfDeleted=true}
+[INFO ][20181115 10:08:23,403][TestUser:118] PageBean{currentPage=2, numPerPage=2, totalCount=37, recordList=[User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}, User{UserName='f13DLH', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 17:12:41 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}], pageCount=19, beginPageIndex=1, endPageIndex=10, countResultMap=null}
+[INFO ][20181115 10:08:23,404][TestUser:124] Item0:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Sat Oct 27 07:21:40 CST 2018, UpdateTime=Sat Oct 27 07:21:40 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 10:08:23,404][TestUser:124] Item1:User{UserName='f13DLH', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Sat Oct 27 07:22:13 CST 2018, UpdateTime=Thu Nov 15 17:12:41 CST 2018, DeleteTime=Thu Nov 15 16:55:05 CST 2018, IfDeleted=true}
+[INFO ][20181115 10:08:23,410][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:08:20 CST 2018]; root of context hierarchy
+[WARN ][20181115 10:08:23,414][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 10:09:35,229][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 10:09:35,258][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@335eadca, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@210366b4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@eec5a4a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2b2948e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ddf90b0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57536d79]
+[INFO ][20181115 10:09:35,396][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 10:09:35,873][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 10:09:35,941][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:09:35 CST 2018]; root of context hierarchy
+[INFO ][20181115 10:09:36,359][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 10:09:39,020][TestUser:85] GetBy succeed
+[INFO ][20181115 10:09:39,132][TestUser:98] GetBy succeed
+[INFO ][20181115 10:09:39,244][TestUser:75] Delete succeed
+[INFO ][20181115 10:09:39,287][TestUser:134] FindUserByUname succeed
+[INFO ][20181115 10:09:39,324][TestUser:48] Created : User{UserName='asddf', PassWord='d123456', Phone='18868187538', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Thu Nov 15 18:09:39 CST 2018, UpdateTime=Thu Nov 15 18:09:39 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 10:09:39,331][TestUser:109] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Thu Nov 15 18:08:55 CST 2018, UpdateTime=Thu Nov 15 18:08:55 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 10:09:39,337][TestUser:56] Before Update: User{UserName='hgq', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Thu Nov 15 18:08:55 CST 2018, UpdateTime=Thu Nov 15 18:09:39 CST 2018, DeleteTime=Thu Nov 15 18:09:39 CST 2018, IfDeleted=true}
+[INFO ][20181115 10:09:39,358][TestUser:118] PageBean{currentPage=2, numPerPage=2, totalCount=3, recordList=[User{UserName='asddf', PassWord='d123456', Phone='18868187538', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Thu Nov 15 18:09:39 CST 2018, UpdateTime=Thu Nov 15 18:09:39 CST 2018, DeleteTime=null, IfDeleted=false}], pageCount=2, beginPageIndex=1, endPageIndex=2, countResultMap=null}
+[INFO ][20181115 10:09:39,383][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:09:35 CST 2018]; root of context hierarchy
+[WARN ][20181115 10:09:39,388][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 10:09:50,438][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 10:09:50,467][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@335eadca, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@210366b4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@eec5a4a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2b2948e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ddf90b0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57536d79]
+[INFO ][20181115 10:09:50,596][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 10:09:50,952][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 10:09:51,015][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:09:51 CST 2018]; root of context hierarchy
+[INFO ][20181115 10:09:51,306][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 10:09:54,189][TestUser:85] GetBy succeed
+[INFO ][20181115 10:09:54,262][TestUser:98] GetBy succeed
+[INFO ][20181115 10:09:54,355][TestUser:75] Delete succeed
+[INFO ][20181115 10:09:54,378][TestUser:145] findUserByPhone succeed
+[INFO ][20181115 10:09:54,388][TestUser:134] FindUserByUname succeed
+[INFO ][20181115 10:09:54,443][TestUser:109] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Thu Nov 15 18:08:55 CST 2018, UpdateTime=Thu Nov 15 18:08:55 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 10:09:54,456][TestUser:56] Before Update: User{UserName='hgq', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Thu Nov 15 18:08:55 CST 2018, UpdateTime=Thu Nov 15 18:09:54 CST 2018, DeleteTime=Thu Nov 15 18:09:54 CST 2018, IfDeleted=true}
+[INFO ][20181115 10:09:54,489][TestUser:118] PageBean{currentPage=2, numPerPage=2, totalCount=3, recordList=[User{UserName='asddf', PassWord='d123456', Phone='18868187538', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Thu Nov 15 18:09:39 CST 2018, UpdateTime=Thu Nov 15 18:09:39 CST 2018, DeleteTime=null, IfDeleted=false}], pageCount=2, beginPageIndex=1, endPageIndex=2, countResultMap=null}
+[INFO ][20181115 10:09:54,503][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:09:51 CST 2018]; root of context hierarchy
+[WARN ][20181115 10:09:54,512][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 10:11:26,042][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 10:11:26,077][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@335eadca, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@210366b4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@eec5a4a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2b2948e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ddf90b0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57536d79]
+[INFO ][20181115 10:11:26,235][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 10:11:26,607][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 10:11:26,665][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:11:26 CST 2018]; root of context hierarchy
+[INFO ][20181115 10:11:26,933][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 10:11:29,436][TestUser:85] GetBy succeed
+[INFO ][20181115 10:11:29,509][TestUser:98] GetBy succeed
+[INFO ][20181115 10:11:29,595][TestUser:75] Delete succeed
+[INFO ][20181115 10:11:29,618][TestUser:145] findUserByPhone succeed
+[INFO ][20181115 10:11:29,631][TestUser:134] FindUserByUname succeed
+[INFO ][20181115 10:11:29,685][TestUser:109] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='18888888888', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Thu Nov 15 18:11:17 CST 2018, UpdateTime=Thu Nov 15 18:11:17 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 10:11:29,697][TestUser:56] Before Update: User{UserName='hgq', PassWord='{noop}123456', Phone='18868187538', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Thu Nov 15 18:11:17 CST 2018, UpdateTime=Thu Nov 15 18:11:29 CST 2018, DeleteTime=Thu Nov 15 18:11:29 CST 2018, IfDeleted=true}
+[INFO ][20181115 10:11:29,729][TestUser:118] PageBean{currentPage=2, numPerPage=2, totalCount=2, recordList=[], pageCount=1, beginPageIndex=1, endPageIndex=1, countResultMap=null}
+[INFO ][20181115 10:11:29,733][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:11:26 CST 2018]; root of context hierarchy
+[WARN ][20181115 10:11:29,736][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 10:12:09,071][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 10:12:09,100][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@335eadca, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@210366b4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@eec5a4a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2b2948e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ddf90b0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57536d79]
+[INFO ][20181115 10:12:09,254][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 10:12:09,655][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 10:12:09,778][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:12:09 CST 2018]; root of context hierarchy
+[INFO ][20181115 10:12:10,163][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 10:12:13,096][TestUser:85] GetBy succeed
+[INFO ][20181115 10:12:13,164][TestUser:98] GetBy succeed
+[INFO ][20181115 10:12:13,187][TestUser:75] Delete succeed
+[INFO ][20181115 10:12:13,212][TestUser:145] findUserByPhone succeed
+[INFO ][20181115 10:12:13,220][TestUser:134] FindUserByUname succeed
+[INFO ][20181115 10:12:13,281][TestUser:109] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='18888888888', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Thu Nov 15 18:11:17 CST 2018, UpdateTime=Thu Nov 15 18:11:17 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 10:12:13,292][TestUser:56] Before Update: User{UserName='hgq', PassWord='{noop}123456', Phone='18868187538', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Thu Nov 15 18:11:17 CST 2018, UpdateTime=Thu Nov 15 18:12:13 CST 2018, DeleteTime=Thu Nov 15 18:12:13 CST 2018, IfDeleted=true}
+[INFO ][20181115 10:12:13,323][TestUser:118] PageBean{currentPage=2, numPerPage=2, totalCount=2, recordList=[], pageCount=1, beginPageIndex=1, endPageIndex=1, countResultMap=null}
+[INFO ][20181115 10:12:13,327][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:12:09 CST 2018]; root of context hierarchy
+[WARN ][20181115 10:12:13,332][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 10:13:07,671][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 10:13:07,703][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@335eadca, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@210366b4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@eec5a4a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2b2948e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6ddf90b0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57536d79]
+[INFO ][20181115 10:13:07,872][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 10:13:08,267][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 10:13:08,329][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:13:08 CST 2018]; root of context hierarchy
+[INFO ][20181115 10:13:08,724][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 10:13:11,853][TestUser:85] GetBy succeed
+[INFO ][20181115 10:13:11,965][TestUser:98] GetBy succeed
+[INFO ][20181115 10:13:12,051][TestUser:75] Delete succeed
+[INFO ][20181115 10:13:12,081][TestUser:142] findUserByPhone succeed
+[INFO ][20181115 10:13:12,094][TestUser:131] FindUserByUname succeed
+[INFO ][20181115 10:13:12,139][TestUser:109] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='18888888888', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Thu Nov 15 18:11:17 CST 2018, UpdateTime=Thu Nov 15 18:11:17 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 10:13:12,152][TestUser:56] Before Update: User{UserName='hgq', PassWord='{noop}123456', Phone='18868187538', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Thu Nov 15 18:11:17 CST 2018, UpdateTime=Thu Nov 15 18:13:11 CST 2018, DeleteTime=Thu Nov 15 18:13:11 CST 2018, IfDeleted=true}
+[INFO ][20181115 10:13:12,183][TestUser:118] PageBean{currentPage=2, numPerPage=2, totalCount=2, recordList=[], pageCount=1, beginPageIndex=1, endPageIndex=1, countResultMap=null}
+[INFO ][20181115 10:13:12,187][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:13:08 CST 2018]; root of context hierarchy
+[WARN ][20181115 10:13:12,194][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession

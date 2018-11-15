@@ -1,7 +1,7 @@
 package TestMyBatis.Dao;
 
-import cn.AssassinG.ScsyERP.User.core.UMS.dao.RolePermissionDao;
-import cn.AssassinG.ScsyERP.User.facade.UMS.entity.Role_Permission;
+import cn.AssassinG.ScsyERP.User.core.dao.RolePermissionDao;
+import cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission;
 import cn.AssassinG.ScsyERP.common.page.PageBean;
 import cn.AssassinG.ScsyERP.common.page.PageParam;
 import org.apache.log4j.Logger;
@@ -25,114 +25,154 @@ public class TestRolePermission {
 
     @Test
     public void testGetById() {
-        Long role_permission_id = 1L;
-        logger.info("The role_permission who's id = "+role_permission_id+" : "+rolePermissionDao.getById(role_permission_id));
+        Long role_premission_id = 1L;
+        Role_Permission role_premission = rolePermissionDao.getById(role_premission_id);
+        if(role_premission == null || role_premission.getId() == null || role_premission.getId().longValue() != role_premission_id.longValue()){
+            throw  new RuntimeException("getById failed");
+        }else {
+            logger.info("GetById success");
+        }
     }
 
     @Test
     public void testInsert() {
-        Role_Permission role_permission = new Role_Permission();
-        role_permission.setPermissionId(1L);
-        rolePermissionDao.insert(role_permission);
-        Long id = role_permission.getId();
+        Role_Permission role_premission = new Role_Permission();
+        role_premission.setPermissionId(1L);
+        rolePermissionDao.insert(role_premission);
+        Long id = role_premission.getId();
         if(id == null){
-            logger.info("Inserted nothing");
-        }else
+            throw new RuntimeException("insert nothing");
+        }else {
             logger.info("Inserted : " + rolePermissionDao.getById(id));
+        }
     }
 
     @Test
     public void testBatchInsert() {
-        Role_Permission role_permission = new Role_Permission();
-        role_permission.setPermissionId(1L);
-        Role_Permission role_permission2 = new Role_Permission();
-        role_permission2.setPermissionId(2L);
-        List<Role_Permission> role_permissions = new ArrayList<Role_Permission>();
-        role_permissions.add(role_permission);
-        role_permissions.add(role_permission2);
-        rolePermissionDao.insert(role_permissions);
-        if(role_permissions.get(0).getId() != null)
-            logger.info("Inserted : " + rolePermissionDao.getById(role_permissions.get(0).getId()));
-        if(role_permissions.get(1).getId() != null)
-            logger.info("Inserted : " + rolePermissionDao.getById(role_permissions.get(1).getId()));
+        Role_Permission role_premission = new Role_Permission();
+        role_premission.setPermissionId(2L);
+        Role_Permission role_premission2 = new Role_Permission();
+        role_premission2.setPermissionId(4L);
+        List<Role_Permission> role_premissions = new ArrayList<Role_Permission>();
+        role_premissions.add(role_premission);
+        role_premissions.add(role_premission2);
+        int result = rolePermissionDao.insert(role_premissions);
+        if(result != role_premissions.size()){
+            throw new RuntimeException("BatchInsert failed " + (role_premissions.size()-result) + "s, succeed " + result + "s");
+        }else if(role_premission.getId() == null || role_premission2.getId() == null){
+            throw new RuntimeException("BatchInsert failed");
+        }else{
+            logger.info("BatchInserted succeed");
+        }
     }
 
     @Test
     public void testUpdate() {
-        Role_Permission role_permission = rolePermissionDao.getById(2);
-        logger.info("Before Update: "+role_permission);
-        role_permission.setPermissionId(1L);
-        rolePermissionDao.update(role_permission);
-        logger.info("After Updated: " + rolePermissionDao.getById(2));
+        Role_Permission role_premission = rolePermissionDao.getById(2);
+        long newid = 299L;
+        logger.info("Before Update: "+role_premission);
+        role_premission.setPermissionId(newid);
+        rolePermissionDao.update(role_premission);
+        Role_Permission role_premission_check = rolePermissionDao.getById(2);
+        if(role_premission_check.getPermissionId().longValue() != newid){
+            throw new RuntimeException("Update failed");
+        }else{
+            logger.info("Updated succeed");
+        }
     }
 
     @Test
     public void testBatchUpdate() {
-        Role_Permission role_permission2 = rolePermissionDao.getById(2);
-        Role_Permission role_permission4 = rolePermissionDao.getById(4);
-        logger.info("Role_Permission2 Before Update: "+role_permission2);
-        logger.info("Role_Permission4 Before Update: "+role_permission4);
-        role_permission2.setPermissionId(1L);
-        role_permission4.setPermissionId(1L);
-        List<Role_Permission> role_permissions = new ArrayList<Role_Permission>();
-        role_permissions.add(role_permission2);
-        role_permissions.add(role_permission4);
-        rolePermissionDao.update(role_permissions);
-        logger.info("Role_Permission2 After Updated: " + rolePermissionDao.getById(2));
-        logger.info("Role_Permission4 After Updated: " + rolePermissionDao.getById(4));
+        Role_Permission role_premission2 = rolePermissionDao.getById(2);
+        Role_Permission role_premission4 = rolePermissionDao.getById(4);
+        long new_id_1 = 298L;
+        long new_id_2 = 297L;
+        role_premission2.setPermissionId(new_id_1);
+        role_premission4.setPermissionId(new_id_2);
+        List<Role_Permission> role_premissions = new ArrayList<Role_Permission>();
+        role_premissions.add(role_premission2);
+        role_premissions.add(role_premission4);
+        rolePermissionDao.update(role_premissions);
+        Role_Permission role_premission2_check = rolePermissionDao.getById(2);
+        Role_Permission role_premission4_check = rolePermissionDao.getById(4);
+        if(role_premission2_check.getPermissionId().longValue() != new_id_1){
+            throw new RuntimeException("Role_Permission2 update failed");
+        }
+        if(role_premission4_check.getPermissionId().longValue() != new_id_2){
+            throw new RuntimeException("Role_Permission4 update failed");
+        }
+        if(role_premission2_check.getPermissionId().longValue() == new_id_1 && role_premission4_check.getPermissionId().longValue() == new_id_2){
+            logger.info("BatchUpdated succeed");
+        }
     }
 
     @Test
     public void testDeleteById() {
         Long delete_id = 2L;
-        logger.info("Before Delete " + rolePermissionDao.getById(delete_id));
         rolePermissionDao.delete(delete_id);
-        logger.info("After Deleted " + rolePermissionDao.getById(delete_id));
+        Role_Permission role_premission_check = rolePermissionDao.getById(delete_id);
+        if(!role_premission_check.getIfDeleted()){
+            throw new RuntimeException("Delete failed");
+        }else {
+            logger.info("Delete succeed");
+        }
     }
 
     @Test
     public void testDelete() {
         Long delete_id = 4L;
-        Role_Permission role_permission = rolePermissionDao.getById(delete_id);
-        logger.info("Before Delete " + rolePermissionDao.getById(delete_id));
-        rolePermissionDao.delete(role_permission);
-        logger.info("After Deleted " + rolePermissionDao.getById(delete_id));
+        Role_Permission role_premission = rolePermissionDao.getById(delete_id);
+        rolePermissionDao.delete(role_premission);
+        Role_Permission role_premission_check = rolePermissionDao.getById(delete_id);
+        if(!role_premission_check.getIfDeleted()){
+            throw new RuntimeException("Delete failed");
+        }else {
+            logger.info("Delete succeed");
+        }
     }
 
     @Test
     public void testListAll() {
-        List<Role_Permission> role_permissions = rolePermissionDao.listAll();
-        for (int i = 0; i < role_permissions.size(); i++)
-            logger.info("Item" + i + ":" + role_permissions.get(i));
+        List<Role_Permission> role_premissions = rolePermissionDao.listAll();
+        for (int i = 0; i < role_premissions.size(); i++)
+            logger.info("Item" + i + ":" + role_premissions.get(i));
     }
 
     @Test
     public void testGetBy() {
         Map<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("isDeleted", true);
+        paramMap.put("ifDeleted", true);
         paramMap.put("Id", 1L);
-        logger.info(rolePermissionDao.getBy(paramMap));
+        Role_Permission role_premission = rolePermissionDao.getBy(paramMap);
+        if(role_premission.getId().longValue() != 1L){
+            throw new RuntimeException("GetBy failed");
+        }else{
+            logger.info("GetBy succeed");
+        }
     }
 
     @Test
     public void testListBy() {
         Map<String, Object> paramMap = new HashMap<String, Object>();
 //        paramMap.put("IsDeleted", false);
-        paramMap.put("rIole_permissionname", "admi");
-        List<Role_Permission> role_permissions = rolePermissionDao.listBy(paramMap);
-        for (int i = 0; i < role_permissions.size(); i++)
-            logger.info("Item" + i + ":" + role_permissions.get(i));
+        paramMap.put("Role_PermissionName", "admi");
+        List<Role_Permission> role_premissions = rolePermissionDao.listBy(paramMap);
+        for (int i = 0; i < role_premissions.size(); i++)
+            logger.info("Item" + i + ":" + role_premissions.get(i));
     }
 
     @Test
     public void testListPage() {
         Map<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("isDeleted", false);
+        paramMap.put("ifDeleted", false);
         PageParam pageParam = new PageParam(2, 2);
         PageBean<Role_Permission> pageBean = rolePermissionDao.listPage(pageParam, paramMap);
         logger.info(pageBean);
-        List<Role_Permission> role_permissions = pageBean.getRecordList();
-        for (int i = 0; i < role_permissions.size(); i++)
-            logger.info("Item" + i + ":" + role_permissions.get(i));
+        List<Role_Permission> role_premissions = pageBean.getRecordList();
+        if(role_premissions.size() != 2){
+            throw new RuntimeException("ListPage failed");
+        }
+        for (int i = 0; i < role_premissions.size(); i++)
+            logger.info("Item" + i + ":" + role_premissions.get(i));
     }
 }

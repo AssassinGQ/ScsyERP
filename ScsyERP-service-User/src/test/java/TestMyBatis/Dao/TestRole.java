@@ -1,9 +1,10 @@
 package TestMyBatis.Dao;
 
-import cn.AssassinG.ScsyERP.User.core.UMS.dao.RoleDao;
-import cn.AssassinG.ScsyERP.User.facade.UMS.entity.Role;
+import cn.AssassinG.ScsyERP.User.core.dao.RoleDao;
+import cn.AssassinG.ScsyERP.User.facade.entity.Role;
 import cn.AssassinG.ScsyERP.common.page.PageBean;
 import cn.AssassinG.ScsyERP.common.page.PageParam;
+import cn.AssassinG.ScsyERP.common.utils.StringUtils;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,77 +24,109 @@ public class TestRole {
     @Test
     public void testGetById() {
         Long role_id = 1L;
-        logger.info("The role who's id = "+role_id+" : "+roleDao.getById(role_id));
+        Role role = roleDao.getById(role_id);
+        if(role == null || role.getId() == null || role.getId().longValue() != role_id.longValue()){
+            throw  new RuntimeException("getById failed");
+        }else {
+            logger.info("GetById success");
+        }
     }
 
     @Test
     public void testInsert() {
         Role role = new Role();
-        role.setRoleName("duyanting");
+        role.setRoleName("asddf");
         roleDao.insert(role);
         Long id = role.getId();
         if(id == null){
-            logger.info("Inserted nothing");
-        }else
+            throw new RuntimeException("insert nothing");
+        }else {
             logger.info("Inserted : " + roleDao.getById(id));
+        }
     }
 
     @Test
     public void testBatchInsert() {
         Role role = new Role();
-        role.setRoleName("duyanting3");
+        role.setRoleName("asddf3");
         Role role2 = new Role();
-        role2.setRoleName("duyanting4");
+        role2.setRoleName("asddf4");
         List<Role> roles = new ArrayList<Role>();
         roles.add(role);
         roles.add(role2);
-        roleDao.insert(roles);
-        if(roles.get(0).getId() != null)
-            logger.info("Inserted : " + roleDao.getById(roles.get(0).getId()));
-        if(roles.get(1).getId() != null)
-            logger.info("Inserted : " + roleDao.getById(roles.get(1).getId()));
+        int result = roleDao.insert(roles);
+        if(result != roles.size()){
+            throw new RuntimeException("BatchInsert failed " + (roles.size()-result) + "s, succeed " + result + "s");
+        }else if(role.getId() == null || role2.getId() == null){
+            throw new RuntimeException("BatchInsert failed");
+        }else{
+            logger.info("BatchInserted succeed");
+        }
     }
 
     @Test
     public void testUpdate() {
         Role role = roleDao.getById(2);
+        String new_name = StringUtils.getRandomStr(6);
         logger.info("Before Update: "+role);
-        role.setRoleName("updatedname3");
+        role.setRoleName(new_name);
         roleDao.update(role);
-        logger.info("After Updated: " + roleDao.getById(2));
+        Role role_check = roleDao.getById(2);
+        if(!role_check.getRoleName().equals(new_name)){
+            throw new RuntimeException("Update failed");
+        }else{
+            logger.info("Updated succeed");
+        }
     }
 
     @Test
     public void testBatchUpdate() {
         Role role2 = roleDao.getById(2);
         Role role4 = roleDao.getById(4);
-        logger.info("Role2 Before Update: "+role2);
-        logger.info("Role4 Before Update: "+role4);
-        role2.setRoleName("updatedname4");
-        role4.setRoleName("updatedname5");
+        String new_name_1 = StringUtils.getRandomStr(6);
+        String new_name_2 = StringUtils.getRandomStr(6);
+        role2.setRoleName(new_name_1);
+        role4.setRoleName(new_name_2);
         List<Role> roles = new ArrayList<Role>();
         roles.add(role2);
         roles.add(role4);
         roleDao.update(roles);
-        logger.info("Role2 After Updated: " + roleDao.getById(2));
-        logger.info("Role4 After Updated: " + roleDao.getById(4));
+        Role role2_check = roleDao.getById(2);
+        Role role4_check = roleDao.getById(4);
+        if(!role2_check.getRoleName().equals(new_name_1)){
+            throw new RuntimeException("Role2 update failed");
+        }
+        if(!role4_check.getRoleName().equals(new_name_2)){
+            throw new RuntimeException("Role4 update failed");
+        }
+        if(role2_check.getRoleName().equals(new_name_1) && role4_check.getRoleName().equals(new_name_2)){
+            logger.info("BatchUpdated succeed");
+        }
     }
 
     @Test
     public void testDeleteById() {
         Long delete_id = 2L;
-        logger.info("Before Delete " + roleDao.getById(delete_id));
         roleDao.delete(delete_id);
-        logger.info("After Deleted " + roleDao.getById(delete_id));
+        Role role_check = roleDao.getById(delete_id);
+        if(!role_check.getIfDeleted()){
+            throw new RuntimeException("Delete failed");
+        }else {
+            logger.info("Delete succeed");
+        }
     }
 
     @Test
     public void testDelete() {
         Long delete_id = 4L;
         Role role = roleDao.getById(delete_id);
-        logger.info("Before Delete " + roleDao.getById(delete_id));
         roleDao.delete(role);
-        logger.info("After Deleted " + roleDao.getById(delete_id));
+        Role role_check = roleDao.getById(delete_id);
+        if(!role_check.getIfDeleted()){
+            throw new RuntimeException("Delete failed");
+        }else {
+            logger.info("Delete succeed");
+        }
     }
 
     @Test
@@ -108,7 +141,12 @@ public class TestRole {
         Map<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("isDeleted", true);
         paramMap.put("Id", 1L);
-        logger.info(roleDao.getBy(paramMap));
+        Role role = roleDao.getBy(paramMap);
+        if(role.getId().longValue() != 1L){
+            throw new RuntimeException("GetBy failed");
+        }else{
+            logger.info("GetBy succeed");
+        }
     }
 
     @Test
@@ -129,6 +167,9 @@ public class TestRole {
         PageBean<Role> pageBean = roleDao.listPage(pageParam, paramMap);
         logger.info(pageBean);
         List<Role> roles = pageBean.getRecordList();
+        if(roles.size() != 2){
+            throw new RuntimeException("ListPage failed");
+        }
         for (int i = 0; i < roles.size(); i++)
             logger.info("Item" + i + ":" + roles.get(i));
     }

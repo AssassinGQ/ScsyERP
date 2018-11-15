@@ -15,6 +15,8 @@ public class StringUtils {
     }
 
     public static boolean isMobileNum(String number){
+        if(number == null)
+            return false;
         Pattern p = Pattern.compile("^((13[0-9])|(14[57])|(15[^4,\\D])|(17[5678])|(18[0-9]))\\d{8}$");
         Matcher m = p.matcher(number);
         return m.matches();

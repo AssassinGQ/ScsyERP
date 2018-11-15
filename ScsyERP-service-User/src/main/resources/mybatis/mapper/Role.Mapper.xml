@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.AssassinG.ScsyERP.User.core.UMS.dao.impl.RoleDaoImpl">
+<mapper namespace="cn.AssassinG.ScsyERP.User.core.dao.impl.RoleDaoImpl">
 
     <!-- 用户信息表 -->
     <sql id="t_role"> t_role </sql>
@@ -129,7 +129,7 @@
         <if test="updateTimeEnd != null"> and update_time &lt;= #{updateTimeEnd}</if>
         <if test="deleteTimeBegin != null"> and delete_time &gt;= #{deleteTimeBegin}</if>
         <if test="deleteTimeEnd != null"> and delete_time &lt;= #{deleteTimeEnd}</if>
-        <if test="IsDeleted != null"> and is_deleted = #{IsDeleted}</if>
+        <if test="IfDeleted != null"> and is_deleted = #{IfDeleted}</if>
         <!-- Like query -->
         <if test="RoleName != null and RoleName != ''"> and role_name like CONCAT(CONCAT('%', #{RoleName}), '%')</if>
         <if test="RoleDesc != null and RoleDesc != ''"> and role_desc like CONCAT(CONCAT('%', #{RoleDesc}), '%')</if>
@@ -142,7 +142,7 @@
         <where>
             <include refid="condition_sql" />
         </where>
-        order by id asc
+        <![CDATA[ order by id asc]]>
     </select>
 
     <select id="listPage" parameterType="java.util.Map" resultMap="beanMap">
@@ -151,8 +151,7 @@
         <where>
             <include refid="condition_sql" />
         </where>
-        order by id asc
-        limit #{pageFirst} , #{pageSize}
+        <![CDATA[ order by id asc]]>
     </select>
 
     <select id="listPageCount" parameterType="java.util.Map" resultType="long">

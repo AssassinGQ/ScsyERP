@@ -1,13 +1,15 @@
 package cn.AssassinG.ScsyERP.common.page;
 
+import cn.AssassinG.ScsyERP.common.entity.BaseEntity;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-public class PageBean<T> implements Serializable{
-	private static final long serialVersionUID = 8470697978259453214L;
-	
-	// 指定的或是页面参数
+public class PageBean<T extends BaseEntity> implements Serializable {
+
+    private static final long serialVersionUID = 4047595971481103285L;
+    // 指定的或是页面参数
 	private int currentPage; // 当前页
 	private int numPerPage; // 每页显示多少条
 
@@ -19,17 +21,15 @@ public class PageBean<T> implements Serializable{
 	private int pageCount; // 总页数
 	private int beginPageIndex; // 页码列表的开始索引（包含）
 	private int endPageIndex; // 页码列表的结束索引（包含）
-	
-	private Map<String, Object> countResultMap; // 当前分页条件下的统计结果。对每个分页每列做统计（比如统计和）
-//	select sum(price) as total_price from (
-//		select TOP 20 * from table //里面是你自己分页的查询语句
-//	)
+
+	private Map<String, Object> countResultMap; // 当前分页条件下的统计结果
+
 
 	public PageBean(){}
-	
+
 	/**
 	 * 只接受前4个必要的属性，会自动的计算出其他3个属生的值
-	 * 
+	 *
 	 * @param currentPage
 	 * @param numPerPage
 	 * @param totalCount
@@ -67,10 +67,10 @@ public class PageBean<T> implements Serializable{
 			}
 		}
 	}
-	
+
 	/**
 	 * 只接受前5个必要的属性，会自动的计算出其他3个属生的值
-	 * 
+	 *
 	 * @param currentPage
 	 * @param numPerPage
 	 * @param totalCount
@@ -174,15 +174,17 @@ public class PageBean<T> implements Serializable{
 		this.countResultMap = countResultMap;
 	}
 
-	@Override
-	public String toString() {
-		return "PageBean{" +
-				"currentPage=" + currentPage +
-				", numPerPage=" + numPerPage +
-				", totalCount=" + totalCount +
-				", pageCount=" + pageCount +
-				", beginPageIndex=" + beginPageIndex +
-				", endPageIndex=" + endPageIndex +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "PageBean{" +
+                "currentPage=" + currentPage +
+                ", numPerPage=" + numPerPage +
+                ", totalCount=" + totalCount +
+                ", recordList=" + recordList +
+                ", pageCount=" + pageCount +
+                ", beginPageIndex=" + beginPageIndex +
+                ", endPageIndex=" + endPageIndex +
+                ", countResultMap=" + countResultMap +
+                '}';
+    }
 }
