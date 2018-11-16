@@ -44,6 +44,14 @@
 		<typeAlias alias="Role" type="cn.AssassinG.ScsyERP.User.facade.entity.Role" />
 		<typeAlias alias="RolePermission" type="cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission" />
 		<typeAlias alias="Permission" type="cn.AssassinG.ScsyERP.User.facade.entity.Permission" />
+		<typeAlias alias="Corporation" type="cn.AssassinG.ScsyERP.User.facade.entity.Corporation" />
+		<typeAlias alias="Government" type="cn.AssassinG.ScsyERP.User.facade.entity.Government" />
+		<typeAlias alias="Admin" type="cn.AssassinG.ScsyERP.User.facade.entity.Admin" />
+		<typeAlias alias="Driver" type="cn.AssassinG.ScsyERP.User.facade.entity.Driver" />
+		<typeAlias alias="Escort" type="cn.AssassinG.ScsyERP.User.facade.entity.Escort" />
+		<typeAlias alias="Customer" type="cn.AssassinG.ScsyERP.User.facade.entity.Customer" />
+		<typeAlias alias="Manufacturer" type="cn.AssassinG.ScsyERP.User.facade.entity.Manufacturer" />
+		<typeAlias alias="Consignee" type="cn.AssassinG.ScsyERP.User.facade.entity.Consignee" />
 	</typeAliases>
 
 	<mappers>

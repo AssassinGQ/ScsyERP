@@ -3,7 +3,7 @@ package cn.AssassinG.ScsyERP.User.core.biz.impl;
 import cn.AssassinG.ScsyERP.User.core.biz.UserBiz;
 import cn.AssassinG.ScsyERP.User.core.dao.*;
 import cn.AssassinG.ScsyERP.User.facade.entity.*;
-import cn.AssassinG.ScsyERP.User.facade.enums.DeptType;
+import cn.AssassinG.ScsyERP.User.facade.enums.GovernmentDeptType;
 import cn.AssassinG.ScsyERP.User.facade.enums.UserType;
 import cn.AssassinG.ScsyERP.User.facade.exceptions.UserBizException;
 import cn.AssassinG.ScsyERP.common.core.biz.BaseBizImpl;
@@ -197,7 +197,7 @@ public class UserBizImpl extends BaseBizImpl<User> implements UserBiz {
     }
 
     @Transactional
-    public long createGovernment(String token, User user, String name, DeptType dept) {
+    public long createGovernment(String token, User user, String name, GovernmentDeptType dept) {
         if(!token.equals("superadminabcd1234")) {
             throw new UserBizException(UserBizException.USERBIZ_NOPERMISSION, "权限码不正确:%s", token);
         }

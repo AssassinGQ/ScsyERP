@@ -1,21 +1,33 @@
 package cn.AssassinG.ScsyERP.User.facade.entity;
 
-import cn.AssassinG.ScsyERP.User.facade.enums.DeptType;
+import cn.AssassinG.ScsyERP.User.facade.enums.GovernmentDeptType;
 import cn.AssassinG.ScsyERP.common.entity.LoginableEntity;
 
 public class Government extends LoginableEntity {
-    private DeptType Dept;
+    private GovernmentDeptType Dept;
 
-    public Government(DeptType dept) {
+    public Government(GovernmentDeptType dept) {
         super();
         Dept = dept;
     }
 
-    public DeptType getDept() {
+    public GovernmentDeptType getDept() {
         return Dept;
     }
 
-    public void setDept(DeptType dept) {
+    public void setDept(GovernmentDeptType dept) {
         Dept = dept;
+    }
+
+    @Override
+    public String toString() {
+        return "Government{" +
+                "Dept=" + Dept +
+                ", Id=" + Id +
+                ", CreateTime=" + CreateTime +
+                ", UpdateTime=" + UpdateTime +
+                ", DeleteTime=" + DeleteTime +
+                ", IfDeleted=" + IfDeleted +
+                '}';
     }
 }

@@ -92,7 +92,7 @@ public class TestUser {
         paramMap.put("ifDeleted", true);
         paramMap.put("Id", 1L);
         User user = userBiz.getBy(paramMap);
-        if(user.getId().longValue() != 1L){
+        if(user.getId() != 1L){
             throw new RuntimeException("GetBy failed");
         }else{
             logger.info("GetBy succeed");

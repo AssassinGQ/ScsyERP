@@ -8,11 +8,7 @@ create table t_user_role (
   is_deleted   BOOLEAN NOT NULL DEFAULT false COMMENT '数据是否已经删除',
   user_id     BIGINT(20) COMMENT '用户id',
   role_id     BIGINT(20) COMMENT '角色id',
-  PRIMARY KEY (id),
-  KEY `user_id` (`user_id`),
-  KEY `role_id` (`role_id`),
-  CONSTRAINT `user_role_ibfk_1` FOREIGN KEY ('user_id') REFERENCES `t_user`('id'),
-  CONSTRAINT `user_role_ibfk_2` FOREIGN KEY ('role_id') REFERENCES `t_role`('id')
+  PRIMARY KEY (id)
 );
 
 alter table t_user_role comment '用户角色关联表';

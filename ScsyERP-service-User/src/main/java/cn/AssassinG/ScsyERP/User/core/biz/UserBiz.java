@@ -1,6 +1,6 @@
 package cn.AssassinG.ScsyERP.User.core.biz;
 
-import cn.AssassinG.ScsyERP.User.facade.enums.DeptType;
+import cn.AssassinG.ScsyERP.User.facade.enums.GovernmentDeptType;
 import cn.AssassinG.ScsyERP.User.facade.entity.Permission;
 import cn.AssassinG.ScsyERP.User.facade.entity.Role;
 import cn.AssassinG.ScsyERP.User.facade.entity.User;
@@ -69,7 +69,7 @@ public interface UserBiz extends BaseBiz<User> {
      * @return
      * 抛出运行异常：权限码不正确、参数不合法、DAO异常
      */
-    long createGovernment(String token, User user, String name, DeptType dept);
+    long createGovernment(String token, User user, String name, GovernmentDeptType dept);
 
     //auth
     /**

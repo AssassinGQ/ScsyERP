@@ -500,3 +500,425 @@
 [INFO ][20181115 10:13:12,183][TestUser:118] PageBean{currentPage=2, numPerPage=2, totalCount=2, recordList=[], pageCount=1, beginPageIndex=1, endPageIndex=1, countResultMap=null}
 [INFO ][20181115 10:13:12,187][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@1f57539: startup date [Thu Nov 15 10:13:08 CST 2018]; root of context hierarchy
 [WARN ][20181115 10:13:12,194][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 15:42:05,142][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:42:05,168][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@eec5a4a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2b2948e2, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6ddf90b0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@57536d79, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3b0143d3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5a8e6209]
+[INFO ][20181115 15:42:05,172][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:42:05,172][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@369f73a2, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1f28c152, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7d907bac, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7791a895, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3a5ed7a6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6325a3ee]
+[INFO ][20181115 15:42:05,175][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:42:05,175][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@67b92f0a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2b9627bc, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@65e2dbf3, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4f970963, org.springframework.test.context.transaction.TransactionalTestExecutionListener@61f8bee4, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7b49cea0]
+[INFO ][20181115 15:42:05,179][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:42:05,193][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7fac631b, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5b87ed94, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6e0e048a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5bc79255, org.springframework.test.context.transaction.TransactionalTestExecutionListener@47ef968d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@23e028a9]
+[INFO ][20181115 15:42:05,196][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:42:05,196][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5ae63ade, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@610694f1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@43814d18, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5c5a1b69, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3701eaf6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@627551fb]
+[INFO ][20181115 15:42:05,297][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 15:42:05,572][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 15:42:05,618][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@307f6b8c: startup date [Thu Nov 15 15:42:05 CST 2018]; root of context hierarchy
+[INFO ][20181115 15:42:05,771][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 15:42:06,441][TestPermission:181] The role who's id = 1 has permissions: 
+[INFO ][20181115 15:42:06,853][TestPermission:184] Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}
+[INFO ][20181115 15:42:06,854][TestPermission:184] Permission{PermissionName='ROLE_URL_HOME', PermissionDesc='访问主页'}
+[INFO ][20181115 15:42:06,886][TestPermission:149] GetBy succeed
+[INFO ][20181115 15:42:07,057][TestPermission:64] BatchInserted succeed
+[INFO ][20181115 15:42:07,081][TestPermission:104] BatchUpdated succeed
+[INFO ][20181115 15:42:07,085][TestPermission:32] GetById success
+[INFO ][20181115 15:42:07,092][TestPermission:137] Item0:Permission{PermissionName='ROLE_URL_HOME', PermissionDesc='访问主页'}
+[INFO ][20181115 15:42:07,093][TestPermission:137] Item1:Permission{PermissionName='m9hGiS', PermissionDesc='访问权限配置页面'}
+[INFO ][20181115 15:42:07,093][TestPermission:137] Item2:Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}
+[INFO ][20181115 15:42:07,093][TestPermission:137] Item3:Permission{PermissionName='pW99BY', PermissionDesc='修改所有权限配置'}
+[INFO ][20181115 15:42:07,093][TestPermission:137] Item4:Permission{PermissionName='asddf3', PermissionDesc='null'}
+[INFO ][20181115 15:42:07,093][TestPermission:137] Item5:Permission{PermissionName='asddf4', PermissionDesc='null'}
+[INFO ][20181115 15:42:07,094][TestPermission:190] The role who's rolename = superadmin has permissions: 
+[INFO ][20181115 15:42:07,109][TestPermission:193] Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}
+[INFO ][20181115 15:42:07,109][TestPermission:193] Permission{PermissionName='ROLE_URL_HOME', PermissionDesc='访问主页'}
+[INFO ][20181115 15:42:07,120][TestPermission:116] Delete succeed
+[INFO ][20181115 15:42:07,135][TestPermission:129] Delete succeed
+[INFO ][20181115 15:42:07,145][TestPermission:45] Inserted : Permission{PermissionName='asddf', PermissionDesc='null'}
+[INFO ][20181115 15:42:07,153][TestPermission:72] Before Update: Permission{PermissionName='m9hGiS', PermissionDesc='访问权限配置页面'}
+[INFO ][20181115 15:42:07,164][TestPermission:79] Updated succeed
+[INFO ][20181115 15:42:07,173][TestPermission:169] PageBean{currentPage=2, numPerPage=2, totalCount=7, recordList=[Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}, Permission{PermissionName='pW99BY', PermissionDesc='修改所有权限配置'}], pageCount=4, beginPageIndex=1, endPageIndex=4, countResultMap=null}
+[INFO ][20181115 15:42:07,174][TestPermission:175] Item0:Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}
+[INFO ][20181115 15:42:07,175][TestPermission:175] Item1:Permission{PermissionName='pW99BY', PermissionDesc='修改所有权限配置'}
+[INFO ][20181115 15:42:07,180][TestRole:180] The user who's id = 1 has roles : 
+[INFO ][20181115 15:42:07,210][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+[INFO ][20181115 15:42:07,243][SQLErrorCodesFactory:128] SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+[INFO ][20181115 15:42:07,255][TestRole:148] GetBy succeed
+[INFO ][20181115 15:42:07,263][TestRole:63] BatchInserted succeed
+[INFO ][20181115 15:42:07,278][TestRole:103] BatchUpdated succeed
+[INFO ][20181115 15:42:07,283][TestRole:31] GetById success
+[INFO ][20181115 15:42:07,296][TestRole:136] Item0:Role{RoleName='superadmin', RoleDesc='超级管理员', SuperRoleName='null'}
+[INFO ][20181115 15:42:07,297][TestRole:136] Item1:Role{RoleName='KmxIvN', RoleDesc='承运方账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:42:07,298][TestRole:136] Item2:Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:42:07,299][TestRole:136] Item3:Role{RoleName='XnN92u', RoleDesc='承运方管理员', SuperRoleName='corpration'}
+[INFO ][20181115 15:42:07,299][TestRole:136] Item4:Role{RoleName='corp_partner', RoleDesc='承运方合作方', SuperRoleName='corpration'}
+[INFO ][20181115 15:42:07,299][TestRole:136] Item5:Role{RoleName='corp_employee', RoleDesc='承运方员工', SuperRoleName='corpration'}
+[INFO ][20181115 15:42:07,299][TestRole:136] Item6:Role{RoleName='admin_warehouse', RoleDesc='仓库管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:42:07,300][TestRole:136] Item7:Role{RoleName='admin_project', RoleDesc='项目管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:42:07,300][TestRole:136] Item8:Role{RoleName='admin_finance', RoleDesc='财务管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:42:07,300][TestRole:136] Item9:Role{RoleName='partner_consignor', RoleDesc='客户', SuperRoleName='corp_partner'}
+[INFO ][20181115 15:42:07,300][TestRole:136] Item10:Role{RoleName='partner_manufacturer', RoleDesc='生产厂家', SuperRoleName='corp_partner'}
+[INFO ][20181115 15:42:07,300][TestRole:136] Item11:Role{RoleName='partner_receiver', RoleDesc='收货方', SuperRoleName='corp_partner'}
+[INFO ][20181115 15:42:07,301][TestRole:136] Item12:Role{RoleName='employee_driver', RoleDesc='驾驶员', SuperRoleName='corp_employee'}
+[INFO ][20181115 15:42:07,301][TestRole:136] Item13:Role{RoleName='employee_supervisor', RoleDesc='监装员', SuperRoleName='corp_employee'}
+[INFO ][20181115 15:42:07,301][TestRole:136] Item14:Role{RoleName='employee_craneman', RoleDesc='起重工', SuperRoleName='corp_employee'}
+[INFO ][20181115 15:42:07,301][TestRole:136] Item15:Role{RoleName='employee_cranedriver', RoleDesc='行车工', SuperRoleName='corp_employee'}
+[INFO ][20181115 15:42:07,301][TestRole:136] Item16:Role{RoleName='asddf3', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 15:42:07,301][TestRole:136] Item17:Role{RoleName='asddf4', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 15:42:07,303][TestRole:189] The user who's username= superadmin has roles : 
+[INFO ][20181115 15:42:07,330][TestRole:115] Delete succeed
+[INFO ][20181115 15:42:07,342][TestRole:128] Delete succeed
+[INFO ][20181115 15:42:07,353][TestRole:44] Inserted : Role{RoleName='asddf', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 15:42:07,360][TestRole:159] Item0:Role{RoleName='superadmin', RoleDesc='超级管理员', SuperRoleName='null'}
+[INFO ][20181115 15:42:07,361][TestRole:159] Item1:Role{RoleName='admin_warehouse', RoleDesc='仓库管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:42:07,361][TestRole:159] Item2:Role{RoleName='admin_project', RoleDesc='项目管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:42:07,361][TestRole:159] Item3:Role{RoleName='admin_finance', RoleDesc='财务管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:42:07,366][TestRole:71] Before Update: Role{RoleName='KmxIvN', RoleDesc='承运方账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:42:07,375][TestRole:78] Updated succeed
+[INFO ][20181115 15:42:07,382][TestRole:168] PageBean{currentPage=2, numPerPage=2, totalCount=19, recordList=[Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}, Role{RoleName='XnN92u', RoleDesc='承运方管理员', SuperRoleName='corpration'}], pageCount=10, beginPageIndex=1, endPageIndex=10, countResultMap=null}
+[INFO ][20181115 15:42:07,383][TestRole:174] Item0:Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:42:07,383][TestRole:174] Item1:Role{RoleName='XnN92u', RoleDesc='承运方管理员', SuperRoleName='corpration'}
+[INFO ][20181115 15:42:07,389][TestRolePermission:150] GetBy succeed
+[INFO ][20181115 15:42:07,396][TestRolePermission:65] BatchInserted succeed
+[INFO ][20181115 15:42:07,420][TestRolePermission:105] BatchUpdated succeed
+[INFO ][20181115 15:42:07,423][TestRolePermission:33] GetById success
+[INFO ][20181115 15:42:07,429][TestRolePermission:138] Item0:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4b20ca2b
+[INFO ][20181115 15:42:07,429][TestRolePermission:138] Item1:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@1cbf6e72
+[INFO ][20181115 15:42:07,429][TestRolePermission:138] Item2:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@6aecbb8d
+[INFO ][20181115 15:42:07,429][TestRolePermission:138] Item3:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@1af146
+[INFO ][20181115 15:42:07,430][TestRolePermission:138] Item4:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4da602fc
+[INFO ][20181115 15:42:07,430][TestRolePermission:138] Item5:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@2a8d39c4
+[INFO ][20181115 15:42:07,437][TestRolePermission:117] Delete succeed
+[INFO ][20181115 15:42:07,448][TestRolePermission:130] Delete succeed
+[INFO ][20181115 15:42:07,459][TestRolePermission:46] Inserted : cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@57fd91c9
+[INFO ][20181115 15:42:07,465][TestRolePermission:161] Item0:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@5c8eee0f
+[INFO ][20181115 15:42:07,465][TestRolePermission:161] Item1:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@565b064f
+[INFO ][20181115 15:42:07,466][TestRolePermission:161] Item2:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@26425897
+[INFO ][20181115 15:42:07,466][TestRolePermission:161] Item3:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@73163d48
+[INFO ][20181115 15:42:07,466][TestRolePermission:161] Item4:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@58c34bb3
+[INFO ][20181115 15:42:07,466][TestRolePermission:161] Item5:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@56a4479a
+[INFO ][20181115 15:42:07,466][TestRolePermission:161] Item6:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@62163b39
+[INFO ][20181115 15:42:07,470][TestRolePermission:73] Before Update: cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4504d271
+[INFO ][20181115 15:42:07,478][TestRolePermission:80] Updated succeed
+[INFO ][20181115 15:42:07,487][TestRolePermission:170] PageBean{currentPage=2, numPerPage=2, totalCount=7, recordList=[cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@788fcafb, cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4febb875], pageCount=4, beginPageIndex=1, endPageIndex=4, countResultMap=null}
+[INFO ][20181115 15:42:07,488][TestRolePermission:176] Item0:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@788fcafb
+[INFO ][20181115 15:42:07,488][TestRolePermission:176] Item1:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4febb875
+[INFO ][20181115 15:42:07,498][TestUser:152] GetBy succeed
+[INFO ][20181115 15:42:07,517][TestUser:34] GetById success
+[INFO ][20181115 15:42:07,521][TestUser:140] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=Fri Oct 26 23:36:41 CST 2018, IfRegistered=false, UserType=null, UserInfo=null, Id=1, CreateTime=Fri Oct 26 23:36:41 CST 2018, UpdateTime=Fri Oct 26 23:36:41 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:42:07,522][TestUser:140] Item1:User{UserName='hgq', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=Fri Oct 26 23:36:41 CST 2018, IfRegistered=false, UserType=null, UserInfo=null, Id=2, CreateTime=Fri Oct 26 23:36:41 CST 2018, UpdateTime=Fri Oct 26 23:36:41 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:42:07,527][TestUser:184] The user who's username = superadmin : User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=Fri Oct 26 23:36:41 CST 2018, IfRegistered=false, UserType=null, UserInfo=null, Id=1, CreateTime=Fri Oct 26 23:36:41 CST 2018, UpdateTime=Fri Oct 26 23:36:41 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:42:07,538][TestUser:119] Delete succeed
+[INFO ][20181115 15:42:07,553][TestUser:163] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=Fri Oct 26 23:36:41 CST 2018, IfRegistered=false, UserType=null, UserInfo=null, Id=1, CreateTime=Fri Oct 26 23:36:41 CST 2018, UpdateTime=Fri Oct 26 23:36:41 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:42:07,558][TestUser:75] Before Update: User{UserName='hgq', PassWord='{noop}123456', Phone='null', Vcode='null', VcodeTime=Fri Oct 26 23:36:41 CST 2018, IfRegistered=false, UserType=null, UserInfo=null, Id=2, CreateTime=Fri Oct 26 23:36:41 CST 2018, UpdateTime=Thu Nov 15 23:42:07 CST 2018, DeleteTime=Thu Nov 15 23:42:07 CST 2018, IfDeleted=true}
+[INFO ][20181115 15:42:07,581][TestUser:172] PageBean{currentPage=2, numPerPage=2, totalCount=2, recordList=[], pageCount=1, beginPageIndex=1, endPageIndex=1, countResultMap=null}
+[INFO ][20181115 15:42:07,662][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@307f6b8c: startup date [Thu Nov 15 15:42:05 CST 2018]; root of context hierarchy
+[WARN ][20181115 15:42:07,664][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 15:43:05,520][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:43:05,543][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@eec5a4a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2b2948e2, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6ddf90b0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@57536d79, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3b0143d3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5a8e6209]
+[INFO ][20181115 15:43:05,547][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:43:05,547][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@369f73a2, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1f28c152, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7d907bac, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7791a895, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3a5ed7a6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6325a3ee]
+[INFO ][20181115 15:43:05,549][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:43:05,550][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@67b92f0a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2b9627bc, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@65e2dbf3, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4f970963, org.springframework.test.context.transaction.TransactionalTestExecutionListener@61f8bee4, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7b49cea0]
+[INFO ][20181115 15:43:05,553][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:43:05,557][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7fac631b, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5b87ed94, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6e0e048a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5bc79255, org.springframework.test.context.transaction.TransactionalTestExecutionListener@47ef968d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@23e028a9]
+[INFO ][20181115 15:43:05,560][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:43:05,560][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5ae63ade, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@610694f1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@43814d18, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5c5a1b69, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3701eaf6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@627551fb]
+[INFO ][20181115 15:43:05,651][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 15:43:05,973][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 15:43:06,040][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@307f6b8c: startup date [Thu Nov 15 15:43:06 CST 2018]; root of context hierarchy
+[INFO ][20181115 15:43:06,249][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 15:43:07,020][TestPermission:181] The role who's id = 1 has permissions: 
+[INFO ][20181115 15:43:07,366][TestPermission:184] Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}
+[INFO ][20181115 15:43:07,367][TestPermission:184] Permission{PermissionName='ROLE_URL_HOME', PermissionDesc='访问主页'}
+[INFO ][20181115 15:43:07,398][TestPermission:149] GetBy succeed
+[INFO ][20181115 15:43:07,415][TestPermission:64] BatchInserted succeed
+[INFO ][20181115 15:43:07,436][TestPermission:104] BatchUpdated succeed
+[INFO ][20181115 15:43:07,440][TestPermission:32] GetById success
+[INFO ][20181115 15:43:07,447][TestPermission:137] Item0:Permission{PermissionName='ROLE_URL_HOME', PermissionDesc='访问主页'}
+[INFO ][20181115 15:43:07,448][TestPermission:137] Item1:Permission{PermissionName='1mKWRB', PermissionDesc='访问权限配置页面'}
+[INFO ][20181115 15:43:07,448][TestPermission:137] Item2:Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}
+[INFO ][20181115 15:43:07,448][TestPermission:137] Item3:Permission{PermissionName='zZhy0f', PermissionDesc='修改所有权限配置'}
+[INFO ][20181115 15:43:07,448][TestPermission:137] Item4:Permission{PermissionName='asddf3', PermissionDesc='null'}
+[INFO ][20181115 15:43:07,448][TestPermission:137] Item5:Permission{PermissionName='asddf4', PermissionDesc='null'}
+[INFO ][20181115 15:43:07,449][TestPermission:190] The role who's rolename = superadmin has permissions: 
+[INFO ][20181115 15:43:07,456][TestPermission:193] Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}
+[INFO ][20181115 15:43:07,456][TestPermission:193] Permission{PermissionName='ROLE_URL_HOME', PermissionDesc='访问主页'}
+[INFO ][20181115 15:43:07,465][TestPermission:116] Delete succeed
+[INFO ][20181115 15:43:07,486][TestPermission:129] Delete succeed
+[INFO ][20181115 15:43:07,498][TestPermission:45] Inserted : Permission{PermissionName='asddf', PermissionDesc='null'}
+[INFO ][20181115 15:43:07,506][TestPermission:72] Before Update: Permission{PermissionName='1mKWRB', PermissionDesc='访问权限配置页面'}
+[INFO ][20181115 15:43:07,517][TestPermission:79] Updated succeed
+[INFO ][20181115 15:43:07,526][TestPermission:169] PageBean{currentPage=2, numPerPage=2, totalCount=7, recordList=[Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}, Permission{PermissionName='zZhy0f', PermissionDesc='修改所有权限配置'}], pageCount=4, beginPageIndex=1, endPageIndex=4, countResultMap=null}
+[INFO ][20181115 15:43:07,527][TestPermission:175] Item0:Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}
+[INFO ][20181115 15:43:07,527][TestPermission:175] Item1:Permission{PermissionName='zZhy0f', PermissionDesc='修改所有权限配置'}
+[INFO ][20181115 15:43:07,532][TestRole:180] The user who's id = 1 has roles : 
+[INFO ][20181115 15:43:07,557][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+[INFO ][20181115 15:43:07,586][SQLErrorCodesFactory:128] SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+[INFO ][20181115 15:43:07,601][TestRole:148] GetBy succeed
+[INFO ][20181115 15:43:07,608][TestRole:63] BatchInserted succeed
+[INFO ][20181115 15:43:07,625][TestRole:103] BatchUpdated succeed
+[INFO ][20181115 15:43:07,629][TestRole:31] GetById success
+[INFO ][20181115 15:43:07,640][TestRole:136] Item0:Role{RoleName='superadmin', RoleDesc='超级管理员', SuperRoleName='null'}
+[INFO ][20181115 15:43:07,641][TestRole:136] Item1:Role{RoleName='wZS6ut', RoleDesc='承运方账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:43:07,642][TestRole:136] Item2:Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:43:07,643][TestRole:136] Item3:Role{RoleName='W6EvCV', RoleDesc='承运方管理员', SuperRoleName='corpration'}
+[INFO ][20181115 15:43:07,643][TestRole:136] Item4:Role{RoleName='corp_partner', RoleDesc='承运方合作方', SuperRoleName='corpration'}
+[INFO ][20181115 15:43:07,644][TestRole:136] Item5:Role{RoleName='corp_employee', RoleDesc='承运方员工', SuperRoleName='corpration'}
+[INFO ][20181115 15:43:07,644][TestRole:136] Item6:Role{RoleName='admin_warehouse', RoleDesc='仓库管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:43:07,644][TestRole:136] Item7:Role{RoleName='admin_project', RoleDesc='项目管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:43:07,645][TestRole:136] Item8:Role{RoleName='admin_finance', RoleDesc='财务管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:43:07,645][TestRole:136] Item9:Role{RoleName='partner_consignor', RoleDesc='客户', SuperRoleName='corp_partner'}
+[INFO ][20181115 15:43:07,645][TestRole:136] Item10:Role{RoleName='partner_manufacturer', RoleDesc='生产厂家', SuperRoleName='corp_partner'}
+[INFO ][20181115 15:43:07,646][TestRole:136] Item11:Role{RoleName='partner_receiver', RoleDesc='收货方', SuperRoleName='corp_partner'}
+[INFO ][20181115 15:43:07,646][TestRole:136] Item12:Role{RoleName='employee_driver', RoleDesc='驾驶员', SuperRoleName='corp_employee'}
+[INFO ][20181115 15:43:07,646][TestRole:136] Item13:Role{RoleName='employee_supervisor', RoleDesc='监装员', SuperRoleName='corp_employee'}
+[INFO ][20181115 15:43:07,646][TestRole:136] Item14:Role{RoleName='employee_leftworker', RoleDesc='起重工', SuperRoleName='corp_employee'}
+[INFO ][20181115 15:43:07,646][TestRole:136] Item15:Role{RoleName='employee_driveworker', RoleDesc='行车工', SuperRoleName='corp_employee'}
+[INFO ][20181115 15:43:07,647][TestRole:136] Item16:Role{RoleName='asddf3', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 15:43:07,647][TestRole:136] Item17:Role{RoleName='asddf4', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 15:43:07,648][TestRole:189] The user who's username= superadmin has roles : 
+[INFO ][20181115 15:43:07,667][TestRole:115] Delete succeed
+[INFO ][20181115 15:43:07,679][TestRole:128] Delete succeed
+[INFO ][20181115 15:43:07,688][TestRole:44] Inserted : Role{RoleName='asddf', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 15:43:07,693][TestRole:159] Item0:Role{RoleName='superadmin', RoleDesc='超级管理员', SuperRoleName='null'}
+[INFO ][20181115 15:43:07,693][TestRole:159] Item1:Role{RoleName='admin_warehouse', RoleDesc='仓库管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:43:07,694][TestRole:159] Item2:Role{RoleName='admin_project', RoleDesc='项目管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:43:07,694][TestRole:159] Item3:Role{RoleName='admin_finance', RoleDesc='财务管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:43:07,698][TestRole:71] Before Update: Role{RoleName='wZS6ut', RoleDesc='承运方账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:43:07,706][TestRole:78] Updated succeed
+[INFO ][20181115 15:43:07,711][TestRole:168] PageBean{currentPage=2, numPerPage=2, totalCount=19, recordList=[Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}, Role{RoleName='W6EvCV', RoleDesc='承运方管理员', SuperRoleName='corpration'}], pageCount=10, beginPageIndex=1, endPageIndex=10, countResultMap=null}
+[INFO ][20181115 15:43:07,712][TestRole:174] Item0:Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:43:07,712][TestRole:174] Item1:Role{RoleName='W6EvCV', RoleDesc='承运方管理员', SuperRoleName='corpration'}
+[INFO ][20181115 15:43:07,717][TestRolePermission:150] GetBy succeed
+[INFO ][20181115 15:43:07,723][TestRolePermission:65] BatchInserted succeed
+[INFO ][20181115 15:43:07,747][TestRolePermission:105] BatchUpdated succeed
+[INFO ][20181115 15:43:07,749][TestRolePermission:33] GetById success
+[INFO ][20181115 15:43:07,754][TestRolePermission:138] Item0:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4b20ca2b
+[INFO ][20181115 15:43:07,755][TestRolePermission:138] Item1:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@1cbf6e72
+[INFO ][20181115 15:43:07,755][TestRolePermission:138] Item2:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@6aecbb8d
+[INFO ][20181115 15:43:07,755][TestRolePermission:138] Item3:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@1af146
+[INFO ][20181115 15:43:07,755][TestRolePermission:138] Item4:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4da602fc
+[INFO ][20181115 15:43:07,755][TestRolePermission:138] Item5:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@2a8d39c4
+[INFO ][20181115 15:43:07,762][TestRolePermission:117] Delete succeed
+[INFO ][20181115 15:43:07,769][TestRolePermission:130] Delete succeed
+[INFO ][20181115 15:43:07,776][TestRolePermission:46] Inserted : cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@57fd91c9
+[INFO ][20181115 15:43:07,781][TestRolePermission:161] Item0:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@5c8eee0f
+[INFO ][20181115 15:43:07,781][TestRolePermission:161] Item1:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@565b064f
+[INFO ][20181115 15:43:07,781][TestRolePermission:161] Item2:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@26425897
+[INFO ][20181115 15:43:07,781][TestRolePermission:161] Item3:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@73163d48
+[INFO ][20181115 15:43:07,781][TestRolePermission:161] Item4:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@58c34bb3
+[INFO ][20181115 15:43:07,781][TestRolePermission:161] Item5:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@56a4479a
+[INFO ][20181115 15:43:07,781][TestRolePermission:161] Item6:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@62163b39
+[INFO ][20181115 15:43:07,784][TestRolePermission:73] Before Update: cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4504d271
+[INFO ][20181115 15:43:07,793][TestRolePermission:80] Updated succeed
+[INFO ][20181115 15:43:07,800][TestRolePermission:170] PageBean{currentPage=2, numPerPage=2, totalCount=7, recordList=[cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@788fcafb, cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4febb875], pageCount=4, beginPageIndex=1, endPageIndex=4, countResultMap=null}
+[INFO ][20181115 15:43:07,801][TestRolePermission:176] Item0:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@788fcafb
+[INFO ][20181115 15:43:07,801][TestRolePermission:176] Item1:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4febb875
+[INFO ][20181115 15:43:07,808][TestUser:152] GetBy succeed
+[INFO ][20181115 15:43:07,816][TestUser:67] BatchInserted succeed
+[INFO ][20181115 15:43:07,834][TestUser:107] BatchUpdated succeed
+[INFO ][20181115 15:43:07,837][TestUser:34] GetById success
+[INFO ][20181115 15:43:07,841][TestUser:140] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='18888888888', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Thu Nov 15 23:42:56 CST 2018, UpdateTime=Thu Nov 15 23:42:56 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:43:07,842][TestUser:140] Item1:User{UserName='OfkLna', PassWord='{noop}123456', Phone='18868187538', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Thu Nov 15 23:42:56 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:43:07,842][TestUser:140] Item2:User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:43:07,842][TestUser:140] Item3:User{UserName='9X2EOo', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:43:07,847][TestUser:184] The user who's username = superadmin : User{UserName='superadmin', PassWord='{noop}123456', Phone='18888888888', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Thu Nov 15 23:42:56 CST 2018, UpdateTime=Thu Nov 15 23:42:56 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:43:07,855][TestUser:119] Delete succeed
+[INFO ][20181115 15:43:07,863][TestUser:132] Delete succeed
+[INFO ][20181115 15:43:07,871][TestUser:48] Inserted : User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=5, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:43:07,874][TestUser:163] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='18888888888', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Thu Nov 15 23:42:56 CST 2018, UpdateTime=Thu Nov 15 23:42:56 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:43:07,877][TestUser:75] Before Update: User{UserName='OfkLna', PassWord='{noop}123456', Phone='18868187538', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Thu Nov 15 23:42:56 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=Thu Nov 15 23:43:07 CST 2018, IfDeleted=true}
+[INFO ][20181115 15:43:07,882][TestUser:82] Updated succeed
+[INFO ][20181115 15:43:07,887][TestUser:172] PageBean{currentPage=2, numPerPage=2, totalCount=5, recordList=[User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=null, IfDeleted=false}, User{UserName='9X2EOo', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=Thu Nov 15 23:43:07 CST 2018, IfDeleted=true}], pageCount=3, beginPageIndex=1, endPageIndex=3, countResultMap=null}
+[INFO ][20181115 15:43:07,888][TestUser:178] Item0:User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:43:07,888][TestUser:178] Item1:User{UserName='9X2EOo', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=Thu Nov 15 23:43:07 CST 2018, IfDeleted=true}
+[INFO ][20181115 15:43:07,957][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@307f6b8c: startup date [Thu Nov 15 15:43:06 CST 2018]; root of context hierarchy
+[WARN ][20181115 15:43:07,959][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 15:45:32,550][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:45:32,577][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@eec5a4a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2b2948e2, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6ddf90b0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@57536d79, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3b0143d3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5a8e6209]
+[INFO ][20181115 15:45:32,581][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:45:32,581][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@369f73a2, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1f28c152, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7d907bac, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7791a895, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3a5ed7a6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6325a3ee]
+[INFO ][20181115 15:45:32,583][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:45:32,584][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@67b92f0a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2b9627bc, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@65e2dbf3, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4f970963, org.springframework.test.context.transaction.TransactionalTestExecutionListener@61f8bee4, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7b49cea0]
+[INFO ][20181115 15:45:32,586][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:45:32,591][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7fac631b, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5b87ed94, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6e0e048a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5bc79255, org.springframework.test.context.transaction.TransactionalTestExecutionListener@47ef968d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@23e028a9]
+[INFO ][20181115 15:45:32,595][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:45:32,596][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5ae63ade, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@610694f1, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@43814d18, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5c5a1b69, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3701eaf6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@627551fb]
+[INFO ][20181115 15:45:32,716][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 15:45:33,113][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 15:45:33,175][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@307f6b8c: startup date [Thu Nov 15 15:45:33 CST 2018]; root of context hierarchy
+[INFO ][20181115 15:45:33,439][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 15:45:34,205][TestPermission:181] The role who's id = 1 has permissions: 
+[INFO ][20181115 15:45:34,549][TestPermission:184] Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}
+[INFO ][20181115 15:45:34,550][TestPermission:184] Permission{PermissionName='ROLE_URL_HOME', PermissionDesc='访问主页'}
+[INFO ][20181115 15:45:34,578][TestPermission:149] GetBy succeed
+[INFO ][20181115 15:45:34,592][TestPermission:64] BatchInserted succeed
+[INFO ][20181115 15:45:34,613][TestPermission:104] BatchUpdated succeed
+[INFO ][20181115 15:45:34,616][TestPermission:32] GetById success
+[INFO ][20181115 15:45:34,626][TestPermission:137] Item0:Permission{PermissionName='ROLE_URL_HOME', PermissionDesc='访问主页'}
+[INFO ][20181115 15:45:34,626][TestPermission:137] Item1:Permission{PermissionName='cEgKGu', PermissionDesc='访问权限配置页面'}
+[INFO ][20181115 15:45:34,627][TestPermission:137] Item2:Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}
+[INFO ][20181115 15:45:34,627][TestPermission:137] Item3:Permission{PermissionName='qiYm4u', PermissionDesc='修改所有权限配置'}
+[INFO ][20181115 15:45:34,627][TestPermission:137] Item4:Permission{PermissionName='asddf3', PermissionDesc='null'}
+[INFO ][20181115 15:45:34,627][TestPermission:137] Item5:Permission{PermissionName='asddf4', PermissionDesc='null'}
+[INFO ][20181115 15:45:34,627][TestPermission:137] Item6:Permission{PermissionName='asddf', PermissionDesc='null'}
+[INFO ][20181115 15:45:34,627][TestPermission:137] Item7:Permission{PermissionName='asddf3', PermissionDesc='null'}
+[INFO ][20181115 15:45:34,627][TestPermission:137] Item8:Permission{PermissionName='asddf4', PermissionDesc='null'}
+[INFO ][20181115 15:45:34,628][TestPermission:190] The role who's rolename = superadmin has permissions: 
+[INFO ][20181115 15:45:34,635][TestPermission:193] Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}
+[INFO ][20181115 15:45:34,636][TestPermission:193] Permission{PermissionName='ROLE_URL_HOME', PermissionDesc='访问主页'}
+[INFO ][20181115 15:45:34,644][TestPermission:116] Delete succeed
+[INFO ][20181115 15:45:34,657][TestPermission:129] Delete succeed
+[INFO ][20181115 15:45:34,666][TestPermission:45] Inserted : Permission{PermissionName='asddf', PermissionDesc='null'}
+[INFO ][20181115 15:45:34,673][TestPermission:72] Before Update: Permission{PermissionName='cEgKGu', PermissionDesc='访问权限配置页面'}
+[INFO ][20181115 15:45:34,681][TestPermission:79] Updated succeed
+[INFO ][20181115 15:45:34,687][TestPermission:169] PageBean{currentPage=2, numPerPage=2, totalCount=10, recordList=[Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}, Permission{PermissionName='qiYm4u', PermissionDesc='修改所有权限配置'}], pageCount=5, beginPageIndex=1, endPageIndex=5, countResultMap=null}
+[INFO ][20181115 15:45:34,687][TestPermission:175] Item0:Permission{PermissionName='RES_SER_AUTHREAD', PermissionDesc='读取所有权限配置'}
+[INFO ][20181115 15:45:34,687][TestPermission:175] Item1:Permission{PermissionName='qiYm4u', PermissionDesc='修改所有权限配置'}
+[INFO ][20181115 15:45:34,691][TestRole:180] The user who's id = 1 has roles : 
+[INFO ][20181115 15:45:34,705][TestRole:183] Role{RoleName='5EBDOn', RoleDesc='承运方账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:45:34,706][TestRole:183] Role{RoleName='superadmin', RoleDesc='超级管理员', SuperRoleName='null'}
+[INFO ][20181115 15:45:34,706][TestRole:183] Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:45:34,709][TestRole:148] GetBy succeed
+[INFO ][20181115 15:45:34,716][TestRole:63] BatchInserted succeed
+[INFO ][20181115 15:45:34,734][TestRole:103] BatchUpdated succeed
+[INFO ][20181115 15:45:34,737][TestRole:31] GetById success
+[INFO ][20181115 15:45:34,747][TestRole:136] Item0:Role{RoleName='superadmin', RoleDesc='超级管理员', SuperRoleName='null'}
+[INFO ][20181115 15:45:34,747][TestRole:136] Item1:Role{RoleName='LJvZ12', RoleDesc='承运方账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:45:34,748][TestRole:136] Item2:Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:45:34,748][TestRole:136] Item3:Role{RoleName='QWneiR', RoleDesc='承运方管理员', SuperRoleName='corpration'}
+[INFO ][20181115 15:45:34,748][TestRole:136] Item4:Role{RoleName='corp_partner', RoleDesc='承运方合作方', SuperRoleName='corpration'}
+[INFO ][20181115 15:45:34,748][TestRole:136] Item5:Role{RoleName='corp_employee', RoleDesc='承运方员工', SuperRoleName='corpration'}
+[INFO ][20181115 15:45:34,748][TestRole:136] Item6:Role{RoleName='admin_warehouse', RoleDesc='仓库管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:45:34,748][TestRole:136] Item7:Role{RoleName='admin_project', RoleDesc='项目管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:45:34,748][TestRole:136] Item8:Role{RoleName='admin_finance', RoleDesc='财务管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:45:34,748][TestRole:136] Item9:Role{RoleName='partner_consignor', RoleDesc='客户', SuperRoleName='corp_partner'}
+[INFO ][20181115 15:45:34,748][TestRole:136] Item10:Role{RoleName='partner_manufacturer', RoleDesc='生产厂家', SuperRoleName='corp_partner'}
+[INFO ][20181115 15:45:34,749][TestRole:136] Item11:Role{RoleName='partner_receiver', RoleDesc='收货方', SuperRoleName='corp_partner'}
+[INFO ][20181115 15:45:34,749][TestRole:136] Item12:Role{RoleName='employee_driver', RoleDesc='驾驶员', SuperRoleName='corp_employee'}
+[INFO ][20181115 15:45:34,749][TestRole:136] Item13:Role{RoleName='employee_supervisor', RoleDesc='监装员', SuperRoleName='corp_employee'}
+[INFO ][20181115 15:45:34,749][TestRole:136] Item14:Role{RoleName='employee_leftworker', RoleDesc='起重工', SuperRoleName='corp_employee'}
+[INFO ][20181115 15:45:34,749][TestRole:136] Item15:Role{RoleName='employee_driveworker', RoleDesc='行车工', SuperRoleName='corp_employee'}
+[INFO ][20181115 15:45:34,749][TestRole:136] Item16:Role{RoleName='asddf3', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 15:45:34,749][TestRole:136] Item17:Role{RoleName='asddf4', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 15:45:34,750][TestRole:136] Item18:Role{RoleName='asddf', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 15:45:34,750][TestRole:136] Item19:Role{RoleName='asddf3', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 15:45:34,750][TestRole:136] Item20:Role{RoleName='asddf4', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 15:45:34,751][TestRole:189] The user who's username= superadmin has roles : 
+[INFO ][20181115 15:45:34,763][TestRole:192] Role{RoleName='LJvZ12', RoleDesc='承运方账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:45:34,763][TestRole:192] Role{RoleName='superadmin', RoleDesc='超级管理员', SuperRoleName='null'}
+[INFO ][20181115 15:45:34,764][TestRole:192] Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:45:34,771][TestRole:115] Delete succeed
+[INFO ][20181115 15:45:34,780][TestRole:128] Delete succeed
+[INFO ][20181115 15:45:34,786][TestRole:44] Inserted : Role{RoleName='asddf', RoleDesc='null', SuperRoleName='null'}
+[INFO ][20181115 15:45:34,790][TestRole:159] Item0:Role{RoleName='superadmin', RoleDesc='超级管理员', SuperRoleName='null'}
+[INFO ][20181115 15:45:34,790][TestRole:159] Item1:Role{RoleName='admin_warehouse', RoleDesc='仓库管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:45:34,790][TestRole:159] Item2:Role{RoleName='admin_project', RoleDesc='项目管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:45:34,790][TestRole:159] Item3:Role{RoleName='admin_finance', RoleDesc='财务管理员', SuperRoleName='corp_admin'}
+[INFO ][20181115 15:45:34,794][TestRole:71] Before Update: Role{RoleName='LJvZ12', RoleDesc='承运方账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:45:34,807][TestRole:78] Updated succeed
+[INFO ][20181115 15:45:34,813][TestRole:168] PageBean{currentPage=2, numPerPage=2, totalCount=22, recordList=[Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}, Role{RoleName='QWneiR', RoleDesc='承运方管理员', SuperRoleName='corpration'}], pageCount=11, beginPageIndex=1, endPageIndex=10, countResultMap=null}
+[INFO ][20181115 15:45:34,813][TestRole:174] Item0:Role{RoleName='government', RoleDesc='政府账号', SuperRoleName='superadmin'}
+[INFO ][20181115 15:45:34,813][TestRole:174] Item1:Role{RoleName='QWneiR', RoleDesc='承运方管理员', SuperRoleName='corpration'}
+[INFO ][20181115 15:45:34,819][TestRolePermission:150] GetBy succeed
+[INFO ][20181115 15:45:34,828][TestRolePermission:65] BatchInserted succeed
+[INFO ][20181115 15:45:34,846][TestRolePermission:105] BatchUpdated succeed
+[INFO ][20181115 15:45:34,848][TestRolePermission:33] GetById success
+[INFO ][20181115 15:45:34,852][TestRolePermission:138] Item0:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4bc28c33
+[INFO ][20181115 15:45:34,852][TestRolePermission:138] Item1:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4409e975
+[INFO ][20181115 15:45:34,852][TestRolePermission:138] Item2:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@5c153b9e
+[INFO ][20181115 15:45:34,852][TestRolePermission:138] Item3:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@2a7686a7
+[INFO ][20181115 15:45:34,853][TestRolePermission:138] Item4:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@758a34ce
+[INFO ][20181115 15:45:34,853][TestRolePermission:138] Item5:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@7ec3394b
+[INFO ][20181115 15:45:34,862][TestRolePermission:117] Delete succeed
+[INFO ][20181115 15:45:34,873][TestRolePermission:130] Delete succeed
+[INFO ][20181115 15:45:34,887][TestRolePermission:46] Inserted : cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@6b44435b
+[INFO ][20181115 15:45:34,891][TestRolePermission:161] Item0:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@7c541c15
+[INFO ][20181115 15:45:34,891][TestRolePermission:161] Item1:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@3542162a
+[INFO ][20181115 15:45:34,891][TestRolePermission:161] Item2:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@698122b2
+[INFO ][20181115 15:45:34,891][TestRolePermission:161] Item3:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@4212a0c8
+[INFO ][20181115 15:45:34,892][TestRolePermission:161] Item4:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@1e7aa82b
+[INFO ][20181115 15:45:34,892][TestRolePermission:161] Item5:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@3b2c0e88
+[INFO ][20181115 15:45:34,892][TestRolePermission:161] Item6:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@5bd82fed
+[INFO ][20181115 15:45:34,895][TestRolePermission:73] Before Update: cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@655f7ea
+[INFO ][20181115 15:45:34,902][TestRolePermission:80] Updated succeed
+[INFO ][20181115 15:45:34,906][TestRolePermission:170] PageBean{currentPage=2, numPerPage=2, totalCount=7, recordList=[cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@3a3e4aff, cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@5d2a4eed], pageCount=4, beginPageIndex=1, endPageIndex=4, countResultMap=null}
+[INFO ][20181115 15:45:34,906][TestRolePermission:176] Item0:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@3a3e4aff
+[INFO ][20181115 15:45:34,906][TestRolePermission:176] Item1:cn.AssassinG.ScsyERP.User.facade.entity.Role_Permission@5d2a4eed
+[INFO ][20181115 15:45:34,914][TestUser:152] GetBy succeed
+[INFO ][20181115 15:45:34,922][TestUser:67] BatchInserted succeed
+[INFO ][20181115 15:45:34,939][TestUser:107] BatchUpdated succeed
+[INFO ][20181115 15:45:34,943][TestUser:34] GetById success
+[INFO ][20181115 15:45:34,948][TestUser:140] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='18888888888', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Thu Nov 15 23:42:56 CST 2018, UpdateTime=Thu Nov 15 23:42:56 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:45:34,948][TestUser:140] Item1:User{UserName='iiAgzt', PassWord='{noop}123456', Phone='18868187538', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Thu Nov 15 23:42:56 CST 2018, UpdateTime=Thu Nov 15 23:45:34 CST 2018, DeleteTime=Thu Nov 15 23:43:07 CST 2018, IfDeleted=true}
+[INFO ][20181115 15:45:34,949][TestUser:140] Item2:User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:45:34,949][TestUser:140] Item3:User{UserName='hZMFtz', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:45:34 CST 2018, DeleteTime=Thu Nov 15 23:43:07 CST 2018, IfDeleted=true}
+[INFO ][20181115 15:45:34,949][TestUser:140] Item4:User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=5, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:45:34,949][TestUser:140] Item5:User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=6, CreateTime=Thu Nov 15 23:45:34 CST 2018, UpdateTime=Thu Nov 15 23:45:34 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:45:34,949][TestUser:140] Item6:User{UserName='asddf4', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=7, CreateTime=Thu Nov 15 23:45:34 CST 2018, UpdateTime=Thu Nov 15 23:45:34 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:45:34,953][TestUser:184] The user who's username = superadmin : User{UserName='superadmin', PassWord='{noop}123456', Phone='18888888888', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Thu Nov 15 23:42:56 CST 2018, UpdateTime=Thu Nov 15 23:42:56 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:45:34,961][TestUser:119] Delete succeed
+[INFO ][20181115 15:45:34,971][TestUser:132] Delete succeed
+[INFO ][20181115 15:45:34,979][TestUser:48] Inserted : User{UserName='asddf', PassWord='d123456', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=8, CreateTime=Thu Nov 15 23:45:34 CST 2018, UpdateTime=Thu Nov 15 23:45:34 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:45:34,983][TestUser:163] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='18888888888', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Thu Nov 15 23:42:56 CST 2018, UpdateTime=Thu Nov 15 23:42:56 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:45:34,985][TestUser:75] Before Update: User{UserName='iiAgzt', PassWord='{noop}123456', Phone='18868187538', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Thu Nov 15 23:42:56 CST 2018, UpdateTime=Thu Nov 15 23:45:34 CST 2018, DeleteTime=Thu Nov 15 23:45:34 CST 2018, IfDeleted=true}
+[INFO ][20181115 15:45:34,992][TestUser:82] Updated succeed
+[INFO ][20181115 15:45:34,998][TestUser:172] PageBean{currentPage=2, numPerPage=2, totalCount=8, recordList=[User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=null, IfDeleted=false}, User{UserName='hZMFtz', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:45:34 CST 2018, DeleteTime=Thu Nov 15 23:45:34 CST 2018, IfDeleted=true}], pageCount=4, beginPageIndex=1, endPageIndex=4, countResultMap=null}
+[INFO ][20181115 15:45:34,998][TestUser:178] Item0:User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:45:34,998][TestUser:178] Item1:User{UserName='hZMFtz', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:45:34 CST 2018, DeleteTime=Thu Nov 15 23:45:34 CST 2018, IfDeleted=true}
+[INFO ][20181115 15:45:35,004][TestUserRole:150] GetBy succeed
+[INFO ][20181115 15:45:35,014][TestUserRole:65] BatchInserted succeed
+[INFO ][20181115 15:45:35,029][TestUserRole:105] BatchUpdated succeed
+[INFO ][20181115 15:45:35,031][TestUserRole:33] GetById success
+[INFO ][20181115 15:45:35,034][TestUserRole:138] Item0:User_Role{UserId=1, RoleId=1}
+[INFO ][20181115 15:45:35,034][TestUserRole:138] Item1:User_Role{UserId=2, RoleId=298}
+[INFO ][20181115 15:45:35,034][TestUserRole:138] Item2:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 15:45:35,034][TestUserRole:138] Item3:User_Role{UserId=null, RoleId=297}
+[INFO ][20181115 15:45:35,042][TestUserRole:117] Delete succeed
+[INFO ][20181115 15:45:35,052][TestUserRole:130] Delete succeed
+[INFO ][20181115 15:45:35,062][TestUserRole:46] Inserted : User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 15:45:35,069][TestUserRole:161] Item0:User_Role{UserId=1, RoleId=1}
+[INFO ][20181115 15:45:35,069][TestUserRole:161] Item1:User_Role{UserId=2, RoleId=298}
+[INFO ][20181115 15:45:35,070][TestUserRole:161] Item2:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 15:45:35,070][TestUserRole:161] Item3:User_Role{UserId=null, RoleId=297}
+[INFO ][20181115 15:45:35,070][TestUserRole:161] Item4:User_Role{UserId=null, RoleId=1}
+[INFO ][20181115 15:45:35,074][TestUserRole:73] Before Update: User_Role{UserId=2, RoleId=298}
+[INFO ][20181115 15:45:35,084][TestUserRole:80] Updated succeed
+[INFO ][20181115 15:45:35,094][TestUserRole:170] PageBean{currentPage=2, numPerPage=2, totalCount=5, recordList=[User_Role{UserId=null, RoleId=2}, User_Role{UserId=null, RoleId=297}], pageCount=3, beginPageIndex=1, endPageIndex=3, countResultMap=null}
+[INFO ][20181115 15:45:35,095][TestUserRole:176] Item0:User_Role{UserId=null, RoleId=2}
+[INFO ][20181115 15:45:35,095][TestUserRole:176] Item1:User_Role{UserId=null, RoleId=297}
+[INFO ][20181115 15:45:35,097][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@307f6b8c: startup date [Thu Nov 15 15:45:33 CST 2018]; root of context hierarchy
+[WARN ][20181115 15:45:35,100][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 15:48:28,530][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:48:28,554][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@185d8b6, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@67784306, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@335eadca, org.springframework.test.context.support.DirtiesContextTestExecutionListener@210366b4, org.springframework.test.context.transaction.TransactionalTestExecutionListener@eec5a4a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2b2948e2]
+[INFO ][20181115 15:48:28,635][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 15:48:28,967][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 15:48:29,056][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@536aaa8d: startup date [Thu Nov 15 15:48:29 CST 2018]; root of context hierarchy
+[INFO ][20181115 15:48:29,269][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 15:48:30,441][TestUser:85] GetBy succeed
+[INFO ][20181115 15:48:30,470][TestUser:98] GetBy succeed
+[INFO ][20181115 15:48:30,484][TestUser:75] Delete succeed
+[INFO ][20181115 15:48:30,497][TestUser:142] findUserByPhone succeed
+[INFO ][20181115 15:48:30,502][TestUser:131] FindUserByUname succeed
+[INFO ][20181115 15:48:30,526][TestUser:109] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='18888888888', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Thu Nov 15 23:42:56 CST 2018, UpdateTime=Thu Nov 15 23:42:56 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:48:30,533][TestUser:56] Before Update: User{UserName='nj66X1', PassWord='{noop}123456', Phone='18868187538', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Thu Nov 15 23:42:56 CST 2018, UpdateTime=Thu Nov 15 23:48:30 CST 2018, DeleteTime=Thu Nov 15 23:48:30 CST 2018, IfDeleted=true}
+[INFO ][20181115 15:48:30,550][TestUser:118] PageBean{currentPage=2, numPerPage=2, totalCount=8, recordList=[User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=null, IfDeleted=false}, User{UserName='hZMFtz', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:45:34 CST 2018, DeleteTime=Thu Nov 15 23:45:34 CST 2018, IfDeleted=true}], pageCount=4, beginPageIndex=1, endPageIndex=4, countResultMap=null}
+[INFO ][20181115 15:48:30,551][TestUser:121] Item0:User{UserName='asddf3', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=3, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:43:07 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:48:30,552][TestUser:121] Item1:User{UserName='hZMFtz', PassWord='null', Phone='null', Vcode='null', VcodeTime=null, IfRegistered=false, UserType=null, UserInfo=null, Id=4, CreateTime=Thu Nov 15 23:43:07 CST 2018, UpdateTime=Thu Nov 15 23:45:34 CST 2018, DeleteTime=Thu Nov 15 23:45:34 CST 2018, IfDeleted=true}
+[INFO ][20181115 15:48:30,554][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@536aaa8d: startup date [Thu Nov 15 15:48:29 CST 2018]; root of context hierarchy
+[WARN ][20181115 15:48:30,556][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession
+[INFO ][20181115 15:50:07,758][AbstractTestContextBootstrapper:248] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+[INFO ][20181115 15:50:07,782][AbstractTestContextBootstrapper:177] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@185d8b6, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@67784306, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@335eadca, org.springframework.test.context.support.DirtiesContextTestExecutionListener@210366b4, org.springframework.test.context.transaction.TransactionalTestExecutionListener@eec5a4a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2b2948e2]
+[INFO ][20181115 15:50:07,894][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20181115 15:50:08,328][XmlBeanDefinitionReader:316] Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+[INFO ][20181115 15:50:08,386][AbstractApplicationContext:589] Refreshing org.springframework.context.support.GenericApplicationContext@536aaa8d: startup date [Thu Nov 15 15:50:08 CST 2018]; root of context hierarchy
+[INFO ][20181115 15:50:08,628][AutowiredAnnotationBeanPostProcessor:154] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ][20181115 15:50:09,772][TestUser:85] GetBy succeed
+[INFO ][20181115 15:50:09,801][TestUser:98] GetBy succeed
+[INFO ][20181115 15:50:09,814][TestUser:75] Delete succeed
+[INFO ][20181115 15:50:09,827][TestUser:142] findUserByPhone succeed
+[INFO ][20181115 15:50:09,833][TestUser:131] FindUserByUname succeed
+[INFO ][20181115 15:50:09,855][TestUser:109] Item0:User{UserName='superadmin', PassWord='{noop}123456', Phone='18888888888', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=1, CreateTime=Thu Nov 15 23:49:53 CST 2018, UpdateTime=Thu Nov 15 23:49:53 CST 2018, DeleteTime=null, IfDeleted=false}
+[INFO ][20181115 15:50:09,859][TestUser:56] Before Update: User{UserName='hgq', PassWord='{noop}123456', Phone='18868187538', Vcode='null', VcodeTime=null, IfRegistered=true, UserType=null, UserInfo=null, Id=2, CreateTime=Thu Nov 15 23:49:53 CST 2018, UpdateTime=Thu Nov 15 23:50:09 CST 2018, DeleteTime=Thu Nov 15 23:50:09 CST 2018, IfDeleted=true}
+[INFO ][20181115 15:50:09,874][TestUser:118] PageBean{currentPage=2, numPerPage=2, totalCount=2, recordList=[], pageCount=1, beginPageIndex=1, endPageIndex=1, countResultMap=null}
+[INFO ][20181115 15:50:09,876][AbstractApplicationContext:989] Closing org.springframework.context.support.GenericApplicationContext@536aaa8d: startup date [Thu Nov 15 15:50:08 CST 2018]; root of context hierarchy
+[WARN ][20181115 15:50:09,878][DisposableBeanAdapter:347] Invocation of destroy method 'close' failed on bean with name 'sessionTemplate': java.lang.UnsupportedOperationException: Manual close is not allowed over a Spring managed SqlSession

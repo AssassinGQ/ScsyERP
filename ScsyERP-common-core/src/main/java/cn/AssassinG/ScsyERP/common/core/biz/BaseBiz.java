@@ -18,7 +18,7 @@ public interface BaseBiz<T extends BaseEntity> {
     Object getBy(Map<String, Object> paramMap, String sqlId);
     List<T> listBy(Map<String, Object> paramMap);
     List<Object> listBy(Map<String, Object> paramMap, String sqlId);
-    PageBean listPage(PageParam pageParam, Map<String, Object> paramMap);
+    PageBean<T> listPage(PageParam pageParam, Map<String, Object> paramMap);
     PageBean listPage(PageParam pageParam, Map<String, Object> paramMap, String sqlId);
 //    String getSeqNextValue(String seqName);
 }

@@ -2,14 +2,14 @@ package cn.AssassinG.ScsyERP.User.facade.entity;
 
 import cn.AssassinG.ScsyERP.common.entity.LoginableEntity;
 
-public class Corporation extends LoginableEntity {
-    public Corporation() {
+public class Escort extends LoginableEntity {
+    public Escort() {
         super();
     }
 
     @Override
     public String toString() {
-        return "Corporation{" +
+        return "Escort{" +
                 "Id=" + Id +
                 ", CreateTime=" + CreateTime +
                 ", UpdateTime=" + UpdateTime +
