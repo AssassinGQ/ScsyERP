@@ -3,8 +3,6 @@ package cn.AssassinG.ScsyERP.User.core.biz.impl;
 import cn.AssassinG.ScsyERP.User.core.biz.UserBiz;
 import cn.AssassinG.ScsyERP.User.core.dao.*;
 import cn.AssassinG.ScsyERP.User.facade.entity.*;
-import cn.AssassinG.ScsyERP.User.facade.enums.GovernmentDeptType;
-import cn.AssassinG.ScsyERP.User.facade.enums.UserType;
 import cn.AssassinG.ScsyERP.User.facade.exceptions.UserBizException;
 import cn.AssassinG.ScsyERP.common.core.biz.BaseBizImpl;
 import cn.AssassinG.ScsyERP.common.core.dao.BaseDao;
@@ -18,6 +16,7 @@ import java.util.*;
 
 @Component("UserBiz")
 public class UserBizImpl extends BaseBizImpl<User> implements UserBiz {
+    //todo dao-->biz
     @Autowired
     private UserDao userDao;
     @Autowired
@@ -28,10 +27,6 @@ public class UserBizImpl extends BaseBizImpl<User> implements UserBiz {
     private RolePermissionDao rolePermissionDao;
     @Autowired
     private PermissionDao permissionDao;
-    @Autowired
-    private GovernmentDao governmentDao;
-    @Autowired
-    private CorporationDao corporationDao;
 
     public UserDao getUserDao() {
         return userDao;
@@ -46,31 +41,37 @@ public class UserBizImpl extends BaseBizImpl<User> implements UserBiz {
         return this.userDao;
     }
 
-    @Override
-    public long create(User user) {
+    @Transactional
+    public Long create(User user) {
         ValidUtils.ValidationWithExp(user);
         User user_checkuname = userDao.findByUserName(user.getUserName());
-        if(user_checkuname != null){
+        if(user_checkuname != null && !user_checkuname.getIfDeleted()){
             throw new UserBizException(UserBizException.USERBIZ_CANNOTOPERATE, "用户名被占用:%s", user.getUserName());
         }
         User user_checkphone = this.findUserByPhone(user.getPhone());
-        if(user_checkphone != null){
+        if(user_checkphone != null && !user_checkphone.getIfDeleted()){
             throw new UserBizException(UserBizException.USERBIZ_CANNOTOPERATE, "手机号被占用:%s", user.getPhone());
         }
         return userDao.insert(user);
     }
 
+    @Transactional
     public void update(User user) {
         ValidUtils.ValidationWithExp(user);
         User user_checkuname = userDao.findByUserName(user.getUserName());
-        if(user_checkuname != null){
+        if(user_checkuname != null && !user_checkuname.getIfDeleted() && user_checkuname.getId().longValue() != user.getId().longValue()){
             throw new UserBizException(UserBizException.USERBIZ_CANNOTOPERATE, "用户名被占用:%s", user.getUserName());
         }
         User user_checkphone = this.findUserByPhone(user.getPhone());
-        if(user_checkphone != null){
+        if(user_checkphone != null && !user_checkphone.getIfDeleted() && user_checkphone.getId().longValue() != user.getId().longValue()){
             throw new UserBizException(UserBizException.USERBIZ_CANNOTOPERATE, "手机号被占用:%s", user.getPhone());
         }
         userDao.update(user);
+    }
+
+    @Override
+    public void updateByMap(Long entityId, Map<String, Object> paramMap) {
+        throw new UserBizException(UserBizException.USERBIZ_CANNOTOPERATE, "UserBiz的updateByMap方法被屏蔽");
     }
 
     public User findUserByUname(String userName){
@@ -116,20 +117,22 @@ public class UserBizImpl extends BaseBizImpl<User> implements UserBiz {
         return user.getVcode();
     }
 
-    public boolean login(User user) {
-        if(user == null || user.getUserName() == null || user.getUserName().isEmpty() ||
-        user.getPassWord() == null || user.getPassWord().isEmpty()){
-            throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "用户名和密码不能为空:%s", user == null ? "null" : user.toString());
+    public boolean login(String userName, String password) {
+        if(userName == null || userName.isEmpty()){
+            throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "用户名不能为空");
         }
-        User user_find = this.findUserByUname(user.getUserName());
-        if(user_find == null || user_find.getIfDeleted() || !user_find.getIfRegistered()){
-            throw new UserBizException(UserBizException.USERBIZ_NOSUIT_RESULT, "没有对应用户名的已经注册的记录:%s", user.toString());
+        if(password == null || password.isEmpty()){
+            throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "密码不能为空");
         }
-        return user_find.getPassWord().equals(user.getPassWord());
+        User user_find = this.findUserByUname(userName);
+        if(user_find == null || user_find.getIfDeleted()){
+            throw new UserBizException(UserBizException.USERBIZ_NOSUIT_RESULT, "没有对应用户名的已经注册的记录:%s", userName);
+        }
+        return user_find.getPassWord().equals(password);
     }
 
     @Transactional
-    public boolean ChangePSW(String phone, String vcode, String password) {
+    public void ChangePSW(String phone, String vcode, String password) {
         if(!StringUtils.isMobileNum(phone)) {
             throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "请输入合法的手机号码:%s", phone);
         }
@@ -137,114 +140,74 @@ public class UserBizImpl extends BaseBizImpl<User> implements UserBiz {
             throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "验证码和新密码不能为空，验证码:%s,新密码:%s", vcode, password);
         }
         User user = this.findUserByPhone(phone);
-        if(user == null || user.getIfDeleted() || !user.getIfRegistered()){
+        if(user == null || user.getIfDeleted()){
             throw new UserBizException(UserBizException.USERBIZ_NOSUIT_RESULT, "没有符合条件的用户记录，手机号:%s", phone);
         }
         if(!user.getVcode().equals(vcode) || System.currentTimeMillis() - user.getVcodeTime().getTime() > 1000*60*60*4){//验证码有效期四个小时
-            return false;
+            throw new UserBizException(UserBizException.USERBIZ_CANNOTOPERATE, "验证码过期，手机号:%s", phone);
         }
         user.setPassWord(password);
         userDao.update(user);
-        return true;
     }
 
+    @Override
     @Transactional
-    public long createCorporation(String token, User user, String name) {
-        if(!token.equals("superadminabcd1234")) {
-            throw new UserBizException(UserBizException.USERBIZ_NOPERMISSION, "权限码不正确:%s", token);
+    public void ChangeUserName(Long userId, String newUserName) {
+        if(userId == null){
+            throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "用户主键不能为空");
         }
-        if(!StringUtils.isMobileNum(user.getPhone())){
-            throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "请输入合法的手机号码:%s", user.getPhone());
+        User user = userDao.getById(userId);
+        if(user == null || user.getIfDeleted()){
+            throw new UserBizException(UserBizException.USERBIZ_NOSUIT_RESULT, "没有符合条件的用户记录，主键:%d", userId);
         }
-        if(user.getUserType() == null ||
-                (user.getUserType().getValue().intValue() != UserType.Corporation.getValue().intValue())) {
-            throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "只能申请承运方账号");
-        }
-        User user_checkphone = this.findUserByPhone(user.getPhone());
-        if(user_checkphone != null){
-            throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "手机号码已经被占用:%s", user.getPhone());
-        }
-        //创建基本信息
-        Corporation corporation = new Corporation();
-        corporation.setName(name);
-        long infoId = corporationDao.insert(corporation);
-        if(corporation.getName() == null || corporation.getName().isEmpty()){
-            corporation.setName(Corporation.class.getSimpleName() + infoId);
-            corporationDao.update(corporation);
-        }
-        //创建登录信息
-        User user_insert = new User();
-        user_insert.setPhone(user.getPhone());
-        user_insert.setUserType(user.getUserType());
-        user_insert.setUserInfo(infoId);
-        if(user.getPassWord() == null || user.getPassWord().isEmpty()){
-            user_insert.setPassWord("123456");
-        }else{
-            user_insert.setPassWord(user.getPassWord());
-        }
-        long userId = userDao.insert(user_insert);
-        if(user.getUserName() == null || user.getUserName().isEmpty()){
-            user_insert.setUserName("username" + userId);
-            userDao.update(user_insert);
-        }else{
-            User user_checkun = this.findUserByUname(user.getUserName());
-            if(user_checkun != null){
-                user_insert.setUserName("username" + userId);
-                userDao.update(user_insert);
-            }
-        }
-        return userId;
+        ChangeUserName(user, newUserName);
     }
 
+    @Override
     @Transactional
-    public long createGovernment(String token, User user, String name, GovernmentDeptType dept) {
-        if(!token.equals("superadminabcd1234")) {
-            throw new UserBizException(UserBizException.USERBIZ_NOPERMISSION, "权限码不正确:%s", token);
+    public void ChangeUserName(User user, String newUserName) {
+        if(user == null || !ValidUtils.Validation(user)){
+            throw new UserBizException(UserBizException.USERBIZ_NOSUIT_RESULT, "用户不合法");
         }
-        if(!StringUtils.isMobileNum(user.getPhone())){
-            throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "请输入合法的手机号码:%s", user.getPhone());
+        if(newUserName == null || newUserName.isEmpty()){
+            throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "新用户名不能为空:%s", newUserName);
         }
-        if(user.getUserType() == null ||
-                (user.getUserType().getValue().intValue() != UserType.Government.getValue().intValue())) {
-            throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "只能申请政府账号");
+        User user_checkuname = userDao.findByUserName(newUserName);
+        if(user_checkuname != null && !user_checkuname.getIfDeleted() && user_checkuname.getId().longValue() != user.getId().longValue()){
+            throw new UserBizException(UserBizException.USERBIZ_CANNOTOPERATE, "用户名被占用:%s", newUserName);
         }
-        if(dept == null){
-            throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "请指定政府部门");
+        user.setUserName(newUserName);
+        userDao.update(user);
+    }
+
+    @Override
+    @Transactional
+    public void ChangePhone(Long userId, String newPhone) {
+        if(userId == null){
+            throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "用户主键不能为空");
         }
-        User user_checkphone = this.findUserByPhone(user.getPhone());
-        if(user_checkphone != null){
-            throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "手机号码已经被占用:%s", user.getPhone());
+        User user = userDao.getById(userId);
+        if(user == null || user.getIfDeleted()) {
+            throw new UserBizException(UserBizException.USERBIZ_NOSUIT_RESULT, "没有符合条件的用户记录，手机号:%d", userId);
         }
-        //创建基本信息
-        Government government = new Government(dept);
-        government.setName(name);
-        long infoId = governmentDao.insert(government);
-        if(government.getName() == null || government.getName().isEmpty()){
-            government.setName(Government.class.getSimpleName() + infoId);
-            governmentDao.update(government);
+        ChangePhone(user, newPhone);
+    }
+
+    @Override
+    @Transactional
+    public void ChangePhone(User user, String newPhone) {
+        if(user == null || !ValidUtils.Validation(user)){
+            throw new UserBizException(UserBizException.USERBIZ_NOSUIT_RESULT, "没有符合条件的用户记录，手机号");
         }
-        //创建登录信息
-        User user_insert = new User();
-        user_insert.setPhone(user.getPhone());
-        user_insert.setUserType(user.getUserType());
-        user_insert.setUserInfo(infoId);
-        if(user.getPassWord() == null || user.getPassWord().isEmpty()){
-            user_insert.setPassWord("123456");
-        }else{
-            user_insert.setPassWord(user.getPassWord());
+        if(newPhone == null || newPhone.isEmpty()){
+            throw new UserBizException(UserBizException.USERBIZ_PARAMS_ILLEGAL, "新手机号不能为空:%s", newPhone);
         }
-        long userId = userDao.insert(user_insert);
-        if(user.getUserName() == null || user.getUserName().isEmpty()){
-            user_insert.setUserName("username" + userId);
-            userDao.update(user_insert);
-        }else{
-            User user_checkun = this.findUserByUname(user.getUserName());
-            if(user_checkun != null){
-                user_insert.setUserName("username" + userId);
-                userDao.update(user_insert);
-            }
+        User user_checkphone = this.findUserByPhone(newPhone);
+        if(user_checkphone != null && !user_checkphone.getIfDeleted() && user_checkphone.getId().longValue() != user.getId().longValue()){
+            throw new UserBizException(UserBizException.USERBIZ_CANNOTOPERATE, "手机号被占用:%s", newPhone);
         }
-        return userId;
+        user.setPhone(newPhone);
+        userDao.update(user);
     }
 
     public Set<Role> findUserRoles(Long userId) {
