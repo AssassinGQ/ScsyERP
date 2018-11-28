@@ -1,9 +1,12 @@
 package cn.AssassinG.ScsyERP.User.facade.entity;
 
+import cn.AssassinG.ScsyERP.common.annitations.Valid;
 import cn.AssassinG.ScsyERP.common.entity.BaseEntity;
 
 public class User_Role extends BaseEntity {
+    @Valid(varType = Valid.VarType.Number, minLength = 20, maxLength = 20)
     private Long UserId;
+    @Valid(varType = Valid.VarType.Number, minLength = 20, maxLength = 20)
     private Long RoleId;
 
     public User_Role() {

@@ -5,20 +5,19 @@
 	<!-- 用户信息表 -->
 	<sql id="t_corporation"> t_corporation </sql>
 
-	<resultMap id="beanMap" type="Corporation" extends="cn.AssassinG.ScsyERP.common.entity.BaseEntity.BaseEntityMap">
-		<result column="name" property="Name" />
+	<resultMap id="beanMap" type="Corporation" extends="cn.AssassinG.ScsyERP.common.entity.BaseEntity.LoginableEntityMap">
 	</resultMap>
 
 	<insert id="insert" parameterType="Corporation" keyProperty="id" useGeneratedKeys="true">
-		insert into <include refid="t_corporation"/> (create_time, update_time, delete_time, is_deleted, name)
-		values (now(), now(), NULL , FALSE , #{Name})
+		insert into <include refid="t_corporation"/> (corporation, create_time, update_time, delete_time, is_deleted, name)
+		values (-1, now(), now(), NULL , FALSE , #{Name})
 	</insert>
 
 	<insert id="batchInsert" parameterType="List" keyProperty="id" useGeneratedKeys="true">
-		insert into <include refid="t_corporation"/> (create_time, update_time, delete_time, is_deleted, name)
+		insert into <include refid="t_corporation"/> (corporation, create_time, update_time, delete_time, is_deleted, name)
 		values
         <foreach collection="list" item="obj" separator=",">
-            (now(), now(), NULL, FALSE, #{obj.Name})
+            (-1, now(), now(), NULL, FALSE, #{obj.Name})
         </foreach>
 	</insert>
 	
@@ -91,6 +90,7 @@
 	<sql id="condition_sql">
 		<!-- Equal query -->
 		<if test="Id != null"> and id = #{Id}</if>
+		<if test="Corporation != null"> and corporation = #{Corporation}</if>
 		<if test="createTimeBegin != null"> and create_time &gt;= #{createTimeBegin}</if>
 		<if test="createTimeEnd != null"> and create_time &lt;= #{createTimeEnd}</if>
 		<if test="updateTimeBegin != null"> and update_time &gt;= #{updateTimeBegin}</if>

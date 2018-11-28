@@ -17,6 +17,7 @@
         <ScsyERP-common-web.version>1.0-SNAPSHOT</ScsyERP-common-web.version>
         <!--facade projects-->
         <ScsyERP-facade-User.version>1.0-SNAPSHOT</ScsyERP-facade-User.version>
+        <ScsyERP-facade-BasicInfo.version>1.0-SNAPSHOT</ScsyERP-facade-BasicInfo.version>
         <ScsyERP-facade-LoginableBasicInfo.version>1.0-SNAPSHOT</ScsyERP-facade-LoginableBasicInfo.version>
         <ScsyERP-facade-UnLoginableBasicInfo.version>1.0-SNAPSHOT</ScsyERP-facade-UnLoginableBasicInfo.version>
         <ScsyERP-facade-InStorage.version>1.0-SNAPSHOT</ScsyERP-facade-InStorage.version>
@@ -26,6 +27,7 @@
         <ScsyERP-facade-Statistics.version>1.0-SNAPSHOT</ScsyERP-facade-Statistics.version>
         <!--service projects-->
         <ScsyERP-service-User.version>1.0-SNAPSHOT</ScsyERP-service-User.version>
+        <ScsyERP-service-BasicInfo.version>1.0-SNAPSHOT</ScsyERP-service-BasicInfo.version>
         <ScsyERP-service-LoginableBasicInfo.version>1.0-SNAPSHOT</ScsyERP-service-LoginableBasicInfo.version>
         <ScsyERP-service-UnLoginableBasicInfo.version>1.0-SNAPSHOT</ScsyERP-service-UnLoginableBasicInfo.version>
         <ScsyERP-service-InStorage.version>1.0-SNAPSHOT</ScsyERP-service-InStorage.version>

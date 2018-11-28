@@ -1,6 +1,5 @@
 package cn.AssassinG.ScsyERP.User.core.biz;
 
-import cn.AssassinG.ScsyERP.User.facade.enums.GovernmentDeptType;
 import cn.AssassinG.ScsyERP.User.facade.entity.Permission;
 import cn.AssassinG.ScsyERP.User.facade.entity.Role;
 import cn.AssassinG.ScsyERP.User.facade.entity.User;
@@ -15,7 +14,7 @@ public interface UserBiz extends BaseBiz<User> {
     /**
      * @param userName 不能为空或Empty
      * @return null或者User
-     * 抛出运行异常：参数不合法、DAO异常
+    1     * 抛出运行异常：参数不合法、DAO异常
      */
     User findUserByUname(String userName);
 
@@ -35,41 +34,49 @@ public interface UserBiz extends BaseBiz<User> {
     String getVcode(String phone);
 
     /**
-     * @param user
+     * @param userName
+     * @param passWord
      * @return 是否登录成功
      * 抛出运行异常：参数不合法、用户名未注册、DAO异常
      */
-    boolean login(User user);
+    boolean login(String userName, String passWord);
 
     /**
      * @param phone 必须是一个合法的手机号
      * @param vcode
      * @param password
      * @return
-     * 抛出运行异常：参数不合法、手机号未注册、DAO异常
+     * 抛出运行异常：参数不合法、手机号未注册、验证码过期、DAO异常
      */
-    boolean ChangePSW(String phone, String vcode, String password);
+    void ChangePSW(String phone, String vcode, String password);
 
     /**
-     * 生成承运方账号
-     * @param token 权限码
-     * @param user 上传的登录信息封装后的User
-     * @param name 基本信息中的Name字段
-     * @return 创建的承运方登录信息的主键
-     * 抛出运行异常：权限码不正确、参数不合法、DAO异常
+     * @param userId 用户登录信息主键
+     * @param newUserName 新用户名
+     * 抛出运行异常：用户主键为空、没有符合条件的用户、用户不合法、新用户名为空、新用户名被占用、DAO异常
      */
-    long createCorporation(String token, User user, String name);
+    void ChangeUserName(Long userId, String newUserName);
 
     /**
-     * 生成政府账号
-     * @param token 权限码
-     * @param user 上传的登录信息封装后的User
-     * @param name 基本信息中的Name字段
-     * @param dept 政府的部门信息
-     * @return
-     * 抛出运行异常：权限码不正确、参数不合法、DAO异常
+     * @param user 用户信息
+     * @param newUserName 新用户名
+     * 抛出运行异常：用户不合法、新用户名为空、新用户名被占用、DAO异常
      */
-    long createGovernment(String token, User user, String name, GovernmentDeptType dept);
+    void ChangeUserName(User user, String newUserName);
+
+    /**
+     * @param userId 用户登录信息主键
+     * @param newPhone 新手机号
+     * 抛出运行异常：用户主键为空、没有符合条件的用户、用户不合法、新手机号为空、新手机号被占用、DAO异常
+     */
+    void ChangePhone(Long userId, String newPhone);
+
+    /**
+     * @param user 用户信息
+     * @param newPhone 新手机号
+     * 抛出运行异常：用户不合法、新手机号为空、新手机号被占用、DAO异常
+     */
+    void ChangePhone(User user, String newPhone);
 
     //auth
     /**

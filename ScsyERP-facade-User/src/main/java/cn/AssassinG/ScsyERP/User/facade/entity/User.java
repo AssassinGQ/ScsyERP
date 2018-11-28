@@ -15,11 +15,14 @@ public class User extends BaseEntity {
     private String PassWord;
     @Valid(varType = Valid.VarType.String, minLength = 11, maxLength = 11)
     private String Phone;
-    @Valid(nullAble = true, varType = Valid.VarType.String, minLength = 6, maxLength = 6)
+    @Valid(varType = Valid.VarType.String, nullAble = true, minLength = 6, maxLength = 6)
     private String Vcode;
     private Date VcodeTime;
+    @Valid(varType = Valid.VarType.Other)
     private Boolean IfRegistered;
+    @Valid(varType = Valid.VarType.Other)
     private UserType UserType;
+    @Valid(varType = Valid.VarType.Number, minValue = -1)
     private Long UserInfo;
 
     public User() {

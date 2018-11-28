@@ -32,6 +32,9 @@ public class ValidUtils {
 	}
 
 	public static void ValidationImpl(Object clazz) {
+		if(clazz == null){
+			throw new RuntimeException("Object can not be null");
+		}
 		List<Field> fields = new ArrayList<Field>();
 		Class<?> tempClass = clazz.getClass();
 		while(tempClass != null){
@@ -78,7 +81,9 @@ public class ValidUtils {
 								throw new RuntimeException(fieldname + "的格式不正确");
 							}
 						}
-					}else {
+					}else if(valid.varType() == Valid.VarType.Other){
+
+                    }else {
 						throw new RuntimeException(fieldname + "的注解存在问题");
 					}
 				}

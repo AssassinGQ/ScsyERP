@@ -46,6 +46,12 @@
         </dependency>
         <dependency>
             <groupId>ScsyERP</groupId>
+            <artifactId>ScsyERP-common-core</artifactId>
+            <version>${ScsyERP-common-core.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>ScsyERP</groupId>
             <artifactId>ScsyERP-facade-User</artifactId>
             <version>${ScsyERP-facade-User.version}</version>
             <scope>compile</scope>

@@ -2,6 +2,7 @@ package TestMyBatis.Dao;
 
 import cn.AssassinG.ScsyERP.User.core.dao.UserDao;
 import cn.AssassinG.ScsyERP.User.facade.entity.User;
+import cn.AssassinG.ScsyERP.User.facade.enums.UserType;
 import cn.AssassinG.ScsyERP.common.page.PageBean;
 import cn.AssassinG.ScsyERP.common.page.PageParam;
 import cn.AssassinG.ScsyERP.common.utils.StringUtils;
@@ -40,6 +41,10 @@ public class TestUser {
         User user = new User();
         user.setUserName("asddf");
         user.setPassWord("d123456");
+        user.setPhone("156");
+        user.setUserType(UserType.Corporation);
+        user.setUserInfo(1L);
+        user.setCorporation(1L);
         userDao.insert(user);
         Long id = user.getId();
         if(id == null){
@@ -53,8 +58,18 @@ public class TestUser {
     public void testBatchInsert() {
         User user = new User();
         user.setUserName("asddf3");
+        user.setPassWord("12312");
+        user.setPhone("156");
+        user.setUserType(UserType.Corporation);
+        user.setUserInfo(1L);
+        user.setCorporation(1L);
         User user2 = new User();
         user2.setUserName("asddf4");
+        user2.setPassWord("12124");
+        user2.setPhone("156");
+        user2.setUserType(UserType.Corporation);
+        user2.setUserInfo(1L);
+        user2.setCorporation(1L);
         List<User> users = new ArrayList<User>();
         users.add(user);
         users.add(user2);
@@ -98,10 +113,10 @@ public class TestUser {
         User user2_check = userDao.getById(2);
         User user4_check = userDao.getById(4);
         if(!user2_check.getUserName().equals(new_name_1)){
-            throw new RuntimeException("User2 update failed");
+            throw new RuntimeException("User2 updateByMap failed");
         }
         if(!user4_check.getUserName().equals(new_name_2)){
-            throw new RuntimeException("User4 update failed");
+            throw new RuntimeException("User4 updateByMap failed");
         }
         if(user2_check.getUserName().equals(new_name_1) && user4_check.getUserName().equals(new_name_2)){
             logger.info("BatchUpdated succeed");
@@ -143,10 +158,10 @@ public class TestUser {
     @Test
     public void testGetBy() {
         Map<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("ifDeleted", true);
+        paramMap.put("IfDeleted", true);
         paramMap.put("Id", 1L);
         User user = userDao.getBy(paramMap);
-        if(user.getId().longValue() != 1L){
+        if(user.getId() != 1L){
             throw new RuntimeException("GetBy failed");
         }else{
             logger.info("GetBy succeed");
@@ -166,7 +181,7 @@ public class TestUser {
     @Test
     public void testListPage() {
         Map<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("ifDeleted", false);
+        paramMap.put("IfDeleted", false);
         PageParam pageParam = new PageParam(2, 2);
         PageBean<User> pageBean = userDao.listPage(pageParam, paramMap);
         logger.info(pageBean);

@@ -9,14 +9,20 @@ import java.util.Map;
 
 public interface BaseService<T extends BaseEntity> {
 
+	Long create(T entity);
+	void update(T entity);
+	void updateByMap(Long entityId, Map<String, Object> paramMap);
+	void deleteById(Long entityId);
+	void delete(T entity);
+
 	/**
 	 * 根据ID查找记录.
-	 * 
-	 * @param id
+	 *
+	 * @param entityId
 	 *            .
 	 * @return entity .
 	 */
-	T getById(long id);
+	T getById(Long entityId);
 
 	/**
 	 * 根据条件查询 listBy: <br/>
@@ -26,17 +32,13 @@ public interface BaseService<T extends BaseEntity> {
 	 */
 	T getBy(Map<String, Object> paramMap);
 
-	Object getBy(Map<String, Object> paramMap, String sqlId);
-
 	/**
 	 * 根据条件查询 listBy: <br/>
-	 * 
+	 *
 	 * @param paramMap
 	 * @return 返回集合
 	 */
 	List<T> listBy(Map<String, Object> paramMap);
-
-	List<Object> listBy(Map<String, Object> paramMap, String sqlId);
 
 	/**
 	 * 分页查询 .
@@ -47,8 +49,6 @@ public interface BaseService<T extends BaseEntity> {
 	 *            业务条件查询参数.
 	 * @return
 	 */
-	PageBean listPage(PageParam pageParam, Map<String, Object> paramMap);
-
-	PageBean listPage(PageParam pageParam, Map<String, Object> paramMap, String sqlId);
+	PageBean<T> listPage(PageParam pageParam, Map<String, Object> paramMap);
 
 }

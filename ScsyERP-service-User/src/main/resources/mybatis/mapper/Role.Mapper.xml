@@ -12,15 +12,15 @@
     </resultMap>
 
     <insert id="insert" parameterType="Role" keyProperty="id" useGeneratedKeys="true">
-        insert into <include refid="t_role"/> (create_time, update_time, delete_time, is_deleted, role_name, role_desc, superrole_name)
-        values (now(), now(), NULL, FALSE, #{RoleName}, #{RoleDesc}, #{SuperRoleName})
+        insert into <include refid="t_role"/> (corporation, create_time, update_time, delete_time, is_deleted, role_name, role_desc, superrole_name)
+        values (#{Corporation}, now(), now(), NULL, FALSE, #{RoleName}, #{RoleDesc}, #{SuperRoleName})
     </insert>
 
     <insert id="batchInsert" parameterType="List" keyProperty="id" useGeneratedKeys="true">
-        insert into <include refid="t_role"/> (create_time, update_time, delete_time, is_deleted, role_name, role_desc, superrole_name)
+        insert into <include refid="t_role"/> (corporation, create_time, update_time, delete_time, is_deleted, role_name, role_desc, superrole_name)
         values
         <foreach collection="list" item="obj" separator=",">
-            (now(), now(), NULL, FALSE, #{obj.RoleName}, #{obj.RoleDesc}, #{obj.SuperRoleName})
+            (#{obj.Corporation}, now(), now(), NULL, FALSE, #{obj.RoleName}, #{obj.RoleDesc}, #{obj.SuperRoleName})
         </foreach>
     </insert>
 
@@ -123,6 +123,7 @@
     <sql id="condition_sql">
         <!-- Equal query -->
         <if test="Id != null"> and id = #{Id}</if>
+        <if test="Corporation != null"> and corporation = #{Corporation}</if>
         <if test="createTimeBegin != null"> and create_time &gt;= #{createTimeBegin}</if>
         <if test="createTimeEnd != null"> and create_time &lt;= #{createTimeEnd}</if>
         <if test="updateTimeBegin != null"> and update_time &gt;= #{updateTimeBegin}</if>

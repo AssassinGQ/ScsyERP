@@ -1,10 +1,14 @@
 package cn.AssassinG.ScsyERP.User.facade.entity;
 
+import cn.AssassinG.ScsyERP.common.annitations.Valid;
 import cn.AssassinG.ScsyERP.common.entity.LoginableEntity;
 
 public class Customer extends LoginableEntity {
+    @Valid(varType = Valid.VarType.String, nullAble = true, maxLength = 100)
     private String Address;
+    @Valid(varType = Valid.VarType.String, nullAble = true, maxLength = 50)
     private String Bank;
+    @Valid(varType = Valid.VarType.String, nullAble = true, maxLength = 50)
     private String TaxNumber;
 
     public Customer() {

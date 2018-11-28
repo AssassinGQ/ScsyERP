@@ -38,6 +38,8 @@ public class TestUserRole {
     public void testInsert() {
         User_Role user_role = new User_Role();
         user_role.setRoleId(1L);
+        user_role.setUserId(1L);
+        user_role.setCorporation(1L);
         user_roleDao.insert(user_role);
         Long id = user_role.getId();
         if(id == null){
@@ -51,8 +53,12 @@ public class TestUserRole {
     public void testBatchInsert() {
         User_Role user_role = new User_Role();
         user_role.setRoleId(2L);
+        user_role.setUserId(1L);
+        user_role.setCorporation(1L);
         User_Role user_role2 = new User_Role();
         user_role2.setRoleId(4L);
+        user_role2.setUserId(1L);
+        user_role2.setCorporation(1L);
         List<User_Role> user_roles = new ArrayList<User_Role>();
         user_roles.add(user_role);
         user_roles.add(user_role2);
@@ -96,10 +102,10 @@ public class TestUserRole {
         User_Role user_role2_check = user_roleDao.getById(2);
         User_Role user_role4_check = user_roleDao.getById(4);
         if(user_role2_check.getRoleId().longValue() != new_id_1){
-            throw new RuntimeException("User_Role2 update failed");
+            throw new RuntimeException("User_Role2 updateByMap failed");
         }
         if(user_role4_check.getRoleId().longValue() != new_id_2){
-            throw new RuntimeException("User_Role4 update failed");
+            throw new RuntimeException("User_Role4 updateByMap failed");
         }
         if(user_role2_check.getRoleId().longValue() == new_id_1 && user_role4_check.getRoleId().longValue() == new_id_2){
             logger.info("BatchUpdated succeed");
@@ -169,9 +175,6 @@ public class TestUserRole {
         PageBean<User_Role> pageBean = user_roleDao.listPage(pageParam, paramMap);
         logger.info(pageBean);
         List<User_Role> user_roles = pageBean.getRecordList();
-        if(user_roles.size() != 2){
-            throw new RuntimeException("ListPage failed");
-        }
         for (int i = 0; i < user_roles.size(); i++)
             logger.info("Item" + i + ":" + user_roles.get(i));
     }

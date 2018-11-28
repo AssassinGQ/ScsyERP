@@ -16,7 +16,7 @@ import java.util.*;
 
 @Component("UserBiz")
 public class UserBizImpl extends BaseBizImpl<User> implements UserBiz {
-    //todo dao-->biz
+    //todo dao-->biz   。。。所以我当时想干嘛，，， 健忘就要写的详细一点啊啊啊啊
     @Autowired
     private UserDao userDao;
     @Autowired

@@ -39,6 +39,7 @@ public class TestCorporation {
     public void testInsert() {
         Corporation corporation = new Corporation();
         corporation.setName("asddf");
+        corporation.setCorporation(-1L);
         corporationDao.insert(corporation);
         Long id = corporation.getId();
         if(id == null){
@@ -52,8 +53,10 @@ public class TestCorporation {
     public void testBatchInsert() {
         Corporation corporation = new Corporation();
         corporation.setName("asddf3");
+        corporation.setCorporation(-1L);
         Corporation corporation1 = new Corporation();
         corporation1.setName("asddf4");
+        corporation1.setCorporation(-1L);
         List<Corporation> corporations = new ArrayList<Corporation>();
         corporations.add(corporation);
         corporations.add(corporation1);
@@ -97,10 +100,10 @@ public class TestCorporation {
         Corporation corporation2_check = corporationDao.getById(2);
         Corporation corporation4_check = corporationDao.getById(4);
         if(!corporation2_check.getName().equals(new_name_1)){
-            throw new RuntimeException("Corporation2 update failed");
+            throw new RuntimeException("Corporation2 updateByMap failed");
         }
         if(!corporation4_check.getName().equals(new_name_2)){
-            throw new RuntimeException("Corporation4 update failed");
+            throw new RuntimeException("Corporation4 updateByMap failed");
         }
         if(corporation2_check.getName().equals(new_name_1) && corporation4_check.getName().equals(new_name_2)){
             logger.info("BatchUpdated succeed");
@@ -111,8 +114,8 @@ public class TestCorporation {
     public void testDeleteById() {
         Long delete_id = 2L;
         corporationDao.delete(delete_id);
-        Corporation user_check = corporationDao.getById(delete_id);
-        if(!user_check.getIfDeleted()){
+        Corporation corporation_check = corporationDao.getById(delete_id);
+        if(!corporation_check.getIfDeleted()){
             throw new RuntimeException("Delete failed");
         }else {
             logger.info("Delete succeed");
@@ -122,10 +125,10 @@ public class TestCorporation {
     @Test
     public void testDelete() {
         Long delete_id = 4L;
-        Corporation user = corporationDao.getById(delete_id);
-        corporationDao.delete(user);
-        Corporation user_check = corporationDao.getById(delete_id);
-        if(!user_check.getIfDeleted()){
+        Corporation corporation = corporationDao.getById(delete_id);
+        corporationDao.delete(corporation);
+        Corporation corporation_check = corporationDao.getById(delete_id);
+        if(!corporation_check.getIfDeleted()){
             throw new RuntimeException("Delete failed");
         }else {
             logger.info("Delete succeed");
@@ -134,18 +137,18 @@ public class TestCorporation {
 
     @Test
     public void testListAll() {
-        List<Corporation> users = corporationDao.listAll();
-        for (int i = 0; i < users.size(); i++)
-            logger.info("Item" + i + ":" + users.get(i));
+        List<Corporation> corporations = corporationDao.listAll();
+        for (int i = 0; i < corporations.size(); i++)
+            logger.info("Item" + i + ":" + corporations.get(i));
     }
 
     @Test
     public void testGetBy() {
         Map<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("ifDeleted", true);
+        paramMap.put("IfDeleted", true);
         paramMap.put("Id", 1L);
-        Corporation user = corporationDao.getBy(paramMap);
-        if(user.getId().longValue() != 1L){
+        Corporation corporation = corporationDao.getBy(paramMap);
+        if(corporation.getId().longValue() != 1L){
             throw new RuntimeException("GetBy failed");
         }else{
             logger.info("GetBy succeed");
@@ -157,35 +160,23 @@ public class TestCorporation {
         Map<String, Object> paramMap = new HashMap<String, Object>();
 //        paramMap.put("IsDeleted", false);
         paramMap.put("CorporationName", "admi");
-        List<Corporation> users = corporationDao.listBy(paramMap);
-        for (int i = 0; i < users.size(); i++)
-            logger.info("Item" + i + ":" + users.get(i));
+        List<Corporation> corporations = corporationDao.listBy(paramMap);
+        for (int i = 0; i < corporations.size(); i++)
+            logger.info("Item" + i + ":" + corporations.get(i));
     }
 
     @Test
     public void testListPage() {
         Map<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("ifDeleted", false);
+        paramMap.put("IfDeleted", false);
         PageParam pageParam = new PageParam(2, 2);
         PageBean<Corporation> pageBean = corporationDao.listPage(pageParam, paramMap);
         logger.info(pageBean);
-        List<Corporation> users = pageBean.getRecordList();
-//        if(users.size() != 2){
+        List<Corporation> corporations = pageBean.getRecordList();
+//        if(corporations.size() != 2){
 //            throw new RuntimeException("ListPage failed");
 //        }
-        for (int i = 0; i < users.size(); i++)
-            logger.info("Item" + i + ":" + users.get(i));
+        for (int i = 0; i < corporations.size(); i++)
+            logger.info("Item" + i + ":" + corporations.get(i));
     }
-
-    @Test
-    public void testFindByCorporationname() {
-        String username = "superadmin";
-        logger.info("The user who's username = "+username+" : "+ corporationDao.findByCorporationName(username));
-    }
-
-//    @Test
-//    public void testFindRoleById() {
-//        CorporationWithRole userWithRole = corporationDao.findRoleById(1);
-//        logger.info(userWithRole);
-//    }
 }

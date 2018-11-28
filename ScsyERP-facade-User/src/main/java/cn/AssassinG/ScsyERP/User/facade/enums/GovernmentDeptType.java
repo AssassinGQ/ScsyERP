@@ -1,10 +1,20 @@
 package cn.AssassinG.ScsyERP.User.facade.enums;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum GovernmentDeptType {
 
-    YGB("运管部", 0), JJB("交警部", 1), HBB("环保部", 2), XFB("消防部", 3), AJB("安监部", 4);
+    YGB("TransportDept", 0), JJB("TrafficPoliceDept", 1), HBB("EnvironmentalDept", 2), XFB("FireDept", 3), AJB("SafetySupervisionDept", 4);
     private String Name;
     private Integer Value;
+
+    static Map<String, GovernmentDeptType> enumMap = new HashMap<String, GovernmentDeptType>();
+    static{
+        for(GovernmentDeptType type : GovernmentDeptType.values()){
+            enumMap.put(type.getName(), type);
+        }
+    }
 
     private GovernmentDeptType(String name, Integer value) {
         Name = name;
@@ -25,5 +35,9 @@ public enum GovernmentDeptType {
 
     public void setValue(Integer value) {
         Value = value;
+    }
+
+    public static GovernmentDeptType getEnum(String name){
+        return enumMap.get(name);
     }
 }

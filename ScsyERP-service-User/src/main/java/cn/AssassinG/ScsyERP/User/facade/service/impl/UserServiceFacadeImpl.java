@@ -5,32 +5,29 @@ import cn.AssassinG.ScsyERP.User.facade.entity.Permission;
 import cn.AssassinG.ScsyERP.User.facade.entity.Role;
 import cn.AssassinG.ScsyERP.User.facade.entity.User;
 import cn.AssassinG.ScsyERP.User.facade.service.UserServiceFacade;
+import cn.AssassinG.ScsyERP.common.core.biz.BaseBiz;
+import cn.AssassinG.ScsyERP.common.core.service.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @Service
-public class UserServiceFacadeImpl implements UserServiceFacade {
+public class UserServiceFacadeImpl extends BaseServiceImpl<User> implements UserServiceFacade {
 
     @Autowired
     private UserBiz userBiz;
 
-    public long create(User user) {
-        return userBiz.create(user);
+    @Override
+    protected BaseBiz<User> getBiz() {
+        return this.userBiz;
     }
 
-    public void update(User user) {
-        userBiz.update(user);
-    }
-
-    public void deleteUserById(Long userId) {
-        userBiz.deleteById(userId);
-    }
-
-    public User findUserById(Long userId) {
-        return userBiz.getById(userId);
+    @Override
+    public void updateByMap(Long entityId, Map<String, Object> paramMap) {
+        userBiz.updateByMap(entityId, paramMap);
     }
 
     public User findUserByUname(String username) {
@@ -39,6 +36,41 @@ public class UserServiceFacadeImpl implements UserServiceFacade {
 
     public User findUserByPhone(String phone) {
         return userBiz.findUserByPhone(phone);
+    }
+
+    @Override
+    public String getVcode(String phone) {
+        return userBiz.getVcode(phone);
+    }
+
+    @Override
+    public boolean login(String userName, String passWord) {
+        return userBiz.login(userName, passWord);
+    }
+
+    @Override
+    public void ChangePSW(String phone, String vcode, String password) {
+        userBiz.ChangePSW(phone, vcode, password);
+    }
+
+    @Override
+    public void ChangeUserName(Long userId, String newUserName) {
+        userBiz.ChangeUserName(userId, newUserName);
+    }
+
+    @Override
+    public void ChangeUserName(User user, String newUserName) {
+        userBiz.ChangeUserName(user, newUserName);
+    }
+
+    @Override
+    public void ChangePhone(Long userId, String newPhone) {
+        userBiz.ChangePhone(userId, newPhone);
+    }
+
+    @Override
+    public void ChangePhone(User user, String newPhone) {
+        userBiz.ChangePhone(user, newPhone);
     }
 
     public Set<Role> findUserRoles(Long userid) {

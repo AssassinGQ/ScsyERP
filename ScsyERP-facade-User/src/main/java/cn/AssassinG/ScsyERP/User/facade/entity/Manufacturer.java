@@ -1,13 +1,19 @@
 package cn.AssassinG.ScsyERP.User.facade.entity;
 
+import cn.AssassinG.ScsyERP.common.annitations.Valid;
 import cn.AssassinG.ScsyERP.common.entity.LoginableEntity;
 
 import java.util.Set;
 
 public class Manufacturer extends LoginableEntity {
+    @Valid(varType = Valid.VarType.String, maxLength = 100)
     private String Address;
+    @Valid(varType = Valid.VarType.String, nullAble = true, maxLength = 20)
     private String ManName;
     private Set<Long> WorkShops;
+
+    public Manufacturer() {
+    }
 
     public Manufacturer(String address) {
         super();

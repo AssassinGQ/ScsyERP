@@ -8,11 +8,13 @@ import java.util.List;
 import java.util.Map;
 
 public interface BaseBiz<T extends BaseEntity> {
-    long create(T entity);
+    Long create(T entity);
 //    int create(List<T> list);
     void update(T entity);
+    void updateByMap(Long entityId, Map<String, Object> paramMap);
 //    long update(List<T> list);
     void deleteById(long id);
+    void delete(T entity);
     T getById(long id);
     T getBy(Map<String, Object> paramMap);
     Object getBy(Map<String, Object> paramMap, String sqlId);

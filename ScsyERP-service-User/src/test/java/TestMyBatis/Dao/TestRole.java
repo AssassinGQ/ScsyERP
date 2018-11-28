@@ -36,6 +36,8 @@ public class TestRole {
     public void testInsert() {
         Role role = new Role();
         role.setRoleName("asddf");
+        role.setSuperRoleName("123");
+        role.setCorporation(1L);
         roleDao.insert(role);
         Long id = role.getId();
         if(id == null){
@@ -49,8 +51,12 @@ public class TestRole {
     public void testBatchInsert() {
         Role role = new Role();
         role.setRoleName("asddf3");
+        role.setSuperRoleName("1234");
+        role.setCorporation(1L);
         Role role2 = new Role();
         role2.setRoleName("asddf4");
+        role2.setSuperRoleName("12314");
+        role2.setCorporation(1L);
         List<Role> roles = new ArrayList<Role>();
         roles.add(role);
         roles.add(role2);
@@ -94,10 +100,10 @@ public class TestRole {
         Role role2_check = roleDao.getById(2);
         Role role4_check = roleDao.getById(4);
         if(!role2_check.getRoleName().equals(new_name_1)){
-            throw new RuntimeException("Role2 update failed");
+            throw new RuntimeException("Role2 updateByMap failed");
         }
         if(!role4_check.getRoleName().equals(new_name_2)){
-            throw new RuntimeException("Role4 update failed");
+            throw new RuntimeException("Role4 updateByMap failed");
         }
         if(role2_check.getRoleName().equals(new_name_1) && role4_check.getRoleName().equals(new_name_2)){
             logger.info("BatchUpdated succeed");

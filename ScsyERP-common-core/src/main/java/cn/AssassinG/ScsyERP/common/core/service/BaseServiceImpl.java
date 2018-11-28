@@ -1,6 +1,6 @@
 package cn.AssassinG.ScsyERP.common.core.service;
 
-import cn.AssassinG.ScsyERP.common.core.dao.BaseDao;
+import cn.AssassinG.ScsyERP.common.core.biz.BaseBiz;
 import cn.AssassinG.ScsyERP.common.entity.BaseEntity;
 import cn.AssassinG.ScsyERP.common.page.PageBean;
 import cn.AssassinG.ScsyERP.common.page.PageParam;
@@ -10,55 +10,30 @@ import java.util.Map;
 
 public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
 
-	protected abstract BaseDao<T> getDao();
+	protected abstract BaseBiz<T> getBiz();
 
-	public T getById(long id) {
-		return this.getDao().getById(id);
+	public Long create(T entity){
+		return getBiz().create(entity);
 	}
-
-	/**
-	 * 根据条件查询 listBy: <br/>
-	 * 
-	 * @param paramMap
-	 * @return 返回实体
-	 */
-	public T getBy(Map<String, Object> paramMap) {
-		return this.getDao().getBy(paramMap);
+	public void update(T entity){
+		getBiz().update(entity);
 	}
-
-	public Object getBy(Map<String, Object> paramMap, String sqlId) {
-		return this.getDao().getBy(paramMap, sqlId);
+	public void deleteById(Long entityId){
+		getBiz().deleteById(entityId);
 	}
-
-	/**
-	 * 根据条件查询 listBy: <br/>
-	 *
-	 * @param paramMap
-	 * @return 返回集合
-	 */
-	public List<T> listBy(Map<String, Object> paramMap) {
-		return this.getDao().listBy(paramMap);
+	public void delete(T entity){
+		getBiz().delete(entity);
 	}
-
-	public List<Object> listBy(Map<String, Object> paramMap, String sqlId) {
-		return this.getDao().listBy(paramMap, sqlId);
+	public T getById(Long entityId){
+		return getBiz().getById(entityId);
 	}
-
-	/**
-	 * 分页查询 .
-	 *
-	 * @param pageParam
-	 *            分页参数.
-	 * @param paramMap
-	 *            业务条件查询参数.
-	 * @return
-	 */
-	public PageBean listPage(PageParam pageParam, Map<String, Object> paramMap) {
-		return this.getDao().listPage(pageParam, paramMap);
+	public T getBy(Map<String, Object> paramMap){
+		return getBiz().getBy(paramMap);
 	}
-
-	public PageBean listPage(PageParam pageParam, Map<String, Object> paramMap, String sqlId) {
-		return this.getDao().listPage(pageParam, paramMap, sqlId);
+	public List<T> listBy(Map<String, Object> paramMap){
+		return getBiz().listBy(paramMap);
 	}
-
+	public PageBean<T> listPage(PageParam pageParam, Map<String, Object> paramMap){
+		return getBiz().listPage(pageParam, paramMap);
+	}
 }

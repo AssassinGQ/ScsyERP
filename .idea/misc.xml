@@ -25,6 +25,8 @@
         <option value="$PROJECT_DIR$/ScsyERP-facade-User/pom.xml" />
         <option value="$PROJECT_DIR$/ScsyERP-service-User/pom.xml" />
         <option value="$PROJECT_DIR$/ScsyERP-web-Boss/pom.xml" />
+        <option value="$PROJECT_DIR$/ScsyERP-facade-BasicInfo/pom.xml" />
+        <option value="$PROJECT_DIR$/ScsyERP-service-Basicinfo/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -33,7 +35,7 @@
       </set>
     </option>
   </component>
-  <component name="ProjectRootManager">
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

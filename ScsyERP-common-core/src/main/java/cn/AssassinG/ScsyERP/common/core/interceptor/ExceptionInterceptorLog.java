@@ -29,7 +29,7 @@ public class ExceptionInterceptorLog implements ThrowsAdvice {
 	 * 对未知异常的处理. <br>
 	 * Method method 执行的方法 Object[] args <br>
 	 * 方法参数 Object target <br>
-	 * 代理的目标对象 Throwable DaoException 产生的异常 <br>
+	 * 代理的目标对象 Throwable RuntimeException 产生的异常 <br>
 	 */
 	public void afterThrowing(Method method, Object[] args, Object target, DaoException ex) {
 

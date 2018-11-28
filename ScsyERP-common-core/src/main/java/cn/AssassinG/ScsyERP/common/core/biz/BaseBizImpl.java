@@ -4,13 +4,15 @@ import cn.AssassinG.ScsyERP.common.core.dao.BaseDao;
 import cn.AssassinG.ScsyERP.common.entity.BaseEntity;
 import cn.AssassinG.ScsyERP.common.page.PageBean;
 import cn.AssassinG.ScsyERP.common.page.PageParam;
+import cn.AssassinG.ScsyERP.common.utils.ValidUtils;
 
 import java.util.List;
 import java.util.Map;
 
 public abstract class BaseBizImpl<T extends BaseEntity> implements BaseBiz<T> {
     protected abstract BaseDao<T> getDao();
-    public long create(T entity) {
+    public Long create(T entity) {
+        ValidUtils.ValidationWithExp(entity);
         return getDao().insert(entity);
     }
 
@@ -19,6 +21,7 @@ public abstract class BaseBizImpl<T extends BaseEntity> implements BaseBiz<T> {
 //    }
 
     public void update(T entity) {
+        ValidUtils.ValidationWithExp(entity);
         getDao().update(entity);
     }
 
@@ -28,6 +31,10 @@ public abstract class BaseBizImpl<T extends BaseEntity> implements BaseBiz<T> {
 
     public void deleteById(long id) {
         getDao().delete(id);
+    }
+
+    public void delete(T entity) {
+        getDao().delete(entity);
     }
 
     public T getById(long id) {

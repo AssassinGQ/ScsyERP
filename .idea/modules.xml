@@ -7,12 +7,14 @@
       <module fileurl="file://$PROJECT_DIR$/ScsyERP-common-core/ScsyERP-common-core.iml" filepath="$PROJECT_DIR$/ScsyERP-common-core/ScsyERP-common-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/ScsyERP-common-parent/ScsyERP-common-parent.iml" filepath="$PROJECT_DIR$/ScsyERP-common-parent/ScsyERP-common-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/ScsyERP-common-web/ScsyERP-common-web.iml" filepath="$PROJECT_DIR$/ScsyERP-common-web/ScsyERP-common-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ScsyERP-facade-BasicInfo/ScsyERP-facade-BasicInfo.iml" filepath="$PROJECT_DIR$/ScsyERP-facade-BasicInfo/ScsyERP-facade-BasicInfo.iml" />
       <module fileurl="file://$PROJECT_DIR$/ScsyERP-facade-Fee/ScsyERP-facade-Fee.iml" filepath="$PROJECT_DIR$/ScsyERP-facade-Fee/ScsyERP-facade-Fee.iml" />
       <module fileurl="file://$PROJECT_DIR$/ScsyERP-facade-InStorge/ScsyERP-facade-InStorge.iml" filepath="$PROJECT_DIR$/ScsyERP-facade-InStorge/ScsyERP-facade-InStorge.iml" />
       <module fileurl="file://$PROJECT_DIR$/ScsyERP-facade-OnWayWatch/ScsyERP-facade-OnWayWatch.iml" filepath="$PROJECT_DIR$/ScsyERP-facade-OnWayWatch/ScsyERP-facade-OnWayWatch.iml" />
       <module fileurl="file://$PROJECT_DIR$/ScsyERP-facade-OutStorage/ScsyERP-facade-OutStorage.iml" filepath="$PROJECT_DIR$/ScsyERP-facade-OutStorage/ScsyERP-facade-OutStorage.iml" />
       <module fileurl="file://$PROJECT_DIR$/ScsyERP-facade-Statistics/ScsyERP-facade-Statistics.iml" filepath="$PROJECT_DIR$/ScsyERP-facade-Statistics/ScsyERP-facade-Statistics.iml" />
       <module fileurl="file://$PROJECT_DIR$/ScsyERP-facade-User/ScsyERP-facade-User.iml" filepath="$PROJECT_DIR$/ScsyERP-facade-User/ScsyERP-facade-User.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ScsyERP-service-BasicInfo/ScsyERP-service-BasicInfo.iml" filepath="$PROJECT_DIR$/ScsyERP-service-BasicInfo/ScsyERP-service-BasicInfo.iml" />
       <module fileurl="file://$PROJECT_DIR$/ScsyERP-service-Fee/ScsyERP-service-Fee.iml" filepath="$PROJECT_DIR$/ScsyERP-service-Fee/ScsyERP-service-Fee.iml" />
       <module fileurl="file://$PROJECT_DIR$/ScsyERP-service-InStorage/ScsyERP-service-InStorage.iml" filepath="$PROJECT_DIR$/ScsyERP-service-InStorage/ScsyERP-service-InStorage.iml" />
       <module fileurl="file://$PROJECT_DIR$/ScsyERP-service-OnWayWatch/ScsyERP-service-OnWayWatch.iml" filepath="$PROJECT_DIR$/ScsyERP-service-OnWayWatch/ScsyERP-service-OnWayWatch.iml" />

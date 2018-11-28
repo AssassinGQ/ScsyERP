@@ -1,8 +1,12 @@
 package cn.AssassinG.ScsyERP.common.entity;
 
+import cn.AssassinG.ScsyERP.common.annitations.Valid;
+
 public abstract class UnLoginableEntity extends BaseEntity {
-    private String Name;
-    private String Phone;
+    @Valid(varType = Valid.VarType.String, maxLength = 30)
+    protected String Name;
+    @Valid(varType = Valid.VarType.String, nullAble = true, minLength = 11, maxLength = 11)
+    protected String Phone;
 
     public String getName() {
         return Name;

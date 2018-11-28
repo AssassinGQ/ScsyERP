@@ -1,10 +1,14 @@
 package cn.AssassinG.ScsyERP.User.facade.entity;
 
+import cn.AssassinG.ScsyERP.common.annitations.Valid;
 import cn.AssassinG.ScsyERP.common.entity.BaseEntity;
 
 public class Role extends BaseEntity {
+    @Valid(varType = Valid.VarType.String, maxLength = 50)
     private String RoleName;
+    @Valid(varType = Valid.VarType.String, nullAble = true, maxLength = 50)
     private String RoleDesc;
+    @Valid(varType = Valid.VarType.String, maxLength = 50)
     private String SuperRoleName;
 
     public Role() {

@@ -37,6 +37,7 @@ public class TestPermission {
     public void testInsert() {
         Permission permission = new Permission();
         permission.setPermissionName("asddf");
+        permission.setCorporation(1L);
         permissionDao.insert(permission);
         Long id = permission.getId();
         if(id == null){
@@ -50,8 +51,10 @@ public class TestPermission {
     public void testBatchInsert() {
         Permission permission = new Permission();
         permission.setPermissionName("asddf3");
+        permission.setCorporation(1L);
         Permission permission2 = new Permission();
         permission2.setPermissionName("asddf4");
+        permission2.setCorporation(1L);
         List<Permission> permissions = new ArrayList<Permission>();
         permissions.add(permission);
         permissions.add(permission2);
@@ -95,10 +98,10 @@ public class TestPermission {
         Permission permission2_check = permissionDao.getById(2);
         Permission permission4_check = permissionDao.getById(4);
         if(!permission2_check.getPermissionName().equals(new_name_1)){
-            throw new RuntimeException("Permission2 update failed");
+            throw new RuntimeException("Permission2 updateByMap failed");
         }
         if(!permission4_check.getPermissionName().equals(new_name_2)){
-            throw new RuntimeException("Permission4 update failed");
+            throw new RuntimeException("Permission4 updateByMap failed");
         }
         if(permission2_check.getPermissionName().equals(new_name_1) && permission4_check.getPermissionName().equals(new_name_2)){
             logger.info("BatchUpdated succeed");
@@ -140,7 +143,7 @@ public class TestPermission {
     @Test
     public void testGetBy() {
         Map<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("ifDeleted", true);
+        paramMap.put("IfDeleted", true);
         paramMap.put("Id", 1L);
         Permission permission = permissionDao.getBy(paramMap);
         if(permission.getId().longValue() != 1L){
@@ -163,7 +166,7 @@ public class TestPermission {
     @Test
     public void testListPage() {
         Map<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("ifDeleted", false);
+        paramMap.put("IfDeleted", false);
         PageParam pageParam = new PageParam(2, 2);
         PageBean<Permission> pageBean = permissionDao.listPage(pageParam, paramMap);
         logger.info(pageBean);

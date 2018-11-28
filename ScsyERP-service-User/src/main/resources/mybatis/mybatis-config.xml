@@ -61,6 +61,14 @@
 		<mapper resource="mybatis/mapper/Role.Mapper.xml" />
 		<mapper resource="mybatis/mapper/RolePermission.Mapper.xml" />
 		<mapper resource="mybatis/mapper/Permission.Mapper.xml" />
+		<mapper resource="mybatis/mapper/Corporation.Mapper.xml" />
+		<mapper resource="mybatis/mapper/Government.Mapper.xml" />
+        <mapper resource="mybatis/mapper/Admin.Mapper.xml" />
+		<mapper resource="mybatis/mapper/Driver.Mapper.xml" />
+		<mapper resource="mybatis/mapper/Escort.Mapper.xml" />
+		<mapper resource="mybatis/mapper/Customer.Mapper.xml" />
+        <mapper resource="mybatis/mapper/Manufacturer.Mapper.xml" />
+        <mapper resource="mybatis/mapper/Consignee.Mapper.xml" />
 	</mappers>
 
 </configuration>

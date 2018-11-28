@@ -38,6 +38,8 @@ public class TestRolePermission {
     public void testInsert() {
         Role_Permission role_premission = new Role_Permission();
         role_premission.setPermissionId(1L);
+        role_premission.setRoleId(1L);
+        role_premission.setCorporation(1L);
         rolePermissionDao.insert(role_premission);
         Long id = role_premission.getId();
         if(id == null){
@@ -51,8 +53,12 @@ public class TestRolePermission {
     public void testBatchInsert() {
         Role_Permission role_premission = new Role_Permission();
         role_premission.setPermissionId(2L);
+        role_premission.setRoleId(1L);
+        role_premission.setCorporation(1L);
         Role_Permission role_premission2 = new Role_Permission();
         role_premission2.setPermissionId(4L);
+        role_premission2.setCorporation(1L);
+        role_premission2.setRoleId(1L);
         List<Role_Permission> role_premissions = new ArrayList<Role_Permission>();
         role_premissions.add(role_premission);
         role_premissions.add(role_premission2);
@@ -96,10 +102,10 @@ public class TestRolePermission {
         Role_Permission role_premission2_check = rolePermissionDao.getById(2);
         Role_Permission role_premission4_check = rolePermissionDao.getById(4);
         if(role_premission2_check.getPermissionId().longValue() != new_id_1){
-            throw new RuntimeException("Role_Permission2 update failed");
+            throw new RuntimeException("Role_Permission2 updateByMap failed");
         }
         if(role_premission4_check.getPermissionId().longValue() != new_id_2){
-            throw new RuntimeException("Role_Permission4 update failed");
+            throw new RuntimeException("Role_Permission4 updateByMap failed");
         }
         if(role_premission2_check.getPermissionId().longValue() == new_id_1 && role_premission4_check.getPermissionId().longValue() == new_id_2){
             logger.info("BatchUpdated succeed");
@@ -141,7 +147,7 @@ public class TestRolePermission {
     @Test
     public void testGetBy() {
         Map<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("ifDeleted", true);
+        paramMap.put("IfDeleted", true);
         paramMap.put("Id", 1L);
         Role_Permission role_premission = rolePermissionDao.getBy(paramMap);
         if(role_premission.getId().longValue() != 1L){
@@ -164,7 +170,7 @@ public class TestRolePermission {
     @Test
     public void testListPage() {
         Map<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("ifDeleted", false);
+        paramMap.put("IfDeleted", false);
         PageParam pageParam = new PageParam(2, 2);
         PageBean<Role_Permission> pageBean = rolePermissionDao.listPage(pageParam, paramMap);
         logger.info(pageBean);
